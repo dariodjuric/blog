@@ -4,7 +4,6 @@ import {
   Heading,
   HStack,
   Icon,
-  Stack,
   Text,
   VStack,
 } from '@chakra-ui/react';
@@ -29,8 +28,8 @@ export default function Home() {
           <Heading>Welcome to Dario&apos;s blog</Heading>
           <Text>
             Sadly, you won&apos;t find much here at the moment - but please come
-            back in late December! In the meantime, I&apos;m also on the
-            following social networks:
+            back in late December! In the meantime, you can reach out to me
+            through any of the following sites:
           </Text>
           <HStack>
             <Link href="https://www.linkedin.com/in/dario-djuric/">

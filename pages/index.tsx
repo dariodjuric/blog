@@ -17,8 +17,13 @@ import {
   FaMedium,
   FaTwitter,
 } from 'react-icons/fa';
+import { GetStaticProps } from 'next';
 
 const ICON_SIZE = 7;
+
+export const getStaticProps: GetStaticProps = async () => ({
+  props: {},
+});
 
 export default function Home() {
   return (

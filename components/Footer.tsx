@@ -18,13 +18,13 @@ export default function Footer() {
         </div>
         <div className="mb-3 flex space-x-2 text-sm text-gray-500 dark:text-gray-400">
           <div>
-            Powered by the{' '}
+            Powered by{' '}
             <a
               href="https://vercel.com/templates/next.js/tailwind-css-starter-blog"
               target="_blank"
               rel="noreferrer"
             >
-              Tailwind Next.js starter
+              Tailwind&apos;s Next.js starter
             </a>
           </div>
         </div>

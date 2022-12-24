@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://darios.blog/about</loc>
+  </url>
+
+  <url>
+    <loc>https://darios.blog</loc>
+  </url>
+
+  <url>
+    <loc>https://darios.blog/projects</loc>
+  </url>
+
+  <url>
+    <loc>https://darios.blog/tags</loc>
+  </url>
+
+  <url>
+    <loc>https://darios.blog/tags/aws</loc>
+  </url>
+
+  <url>
+    <loc>https://darios.blog/tags/cognito</loc>
+  </url>
+
+  <url>
+    <loc>https://darios.blog/blog/2022-12-22-adding-cognito-user-via-api</loc>
+  </url>
+</urlset>

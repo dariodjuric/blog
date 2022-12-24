@@ -1,0 +1,24 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Dario&#39;s Blog</title>
+      <link>https://darios.blog/blog</link>
+      <description>...a software engineer based in Zagreb, Croatia. I write about all kinds of tech stuff, mostly related to software development and devops. Currently, my main focus is JavaScript/TypeScript and related technologies.</description>
+      <language>en-us</language>
+      <managingEditor>dario@darios.blog (Dario Djuric)</managingEditor>
+      <webMaster>dario@darios.blog (Dario Djuric)</webMaster>
+      <lastBuildDate>Thu, 22 Dec 2022 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://darios.blog/feed.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+    <guid>https://darios.blog/blog/2022-12-22-adding-cognito-user-via-api</guid>
+    <title>Adding Cognito user via AWS API</title>
+    <link>https://darios.blog/blog/2022-12-22-adding-cognito-user-via-api</link>
+    <description>Adding a Cognito user through the AWS console easy, but what if you wanted to do it through the AWS API?</description>
+    <pubDate>Thu, 22 Dec 2022 00:00:00 GMT</pubDate>
+    <author>dario@darios.blog (Dario Djuric)</author>
+    <category>aws</category><category>cognito</category>
+  </item>
+
+    </channel>
+  </rss>

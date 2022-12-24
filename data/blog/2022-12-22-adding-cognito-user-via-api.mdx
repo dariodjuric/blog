@@ -1,0 +1,91 @@
+---
+title: Adding Cognito user via AWS API
+date: '2022-12-22'
+tags: ['aws', 'cognito']
+draft: false
+summary: Adding a Cognito user through the AWS console easy, but what if you wanted to do it through the AWS API? 
+---
+
+Cognito is a fully managed identity service provided by AWS. It allows developers to easily add user sign-up, sign-in, and access control to their applications. When it comes to user registration, users can be added through the AWS console, the AWS CLI, or the AWS API. Some services, like AWS Amplify, come with user registration out of the box with an easy to use API.
+
+What if you wanted to add more Cognito users in a bulk? It would make sense to write a script for that, and use the AWS API. This blog post will show you how.
+
+Start off by installing the AWS SDK.
+
+```shell
+npm install aws-sdk
+```
+
+Then, create a JavaScript file and import the SDK:
+
+```javascript
+const aws = require('aws-sdk');
+```
+
+Before using the API, you need to set up your credentials. If you store your AWS credentials in the AWS config file, create a new instance of `SharedIniFileCredentials`:
+
+```javascript
+const credentials = new AWS.SharedIniFileCredentials({ profile: 'YOUR_AWS_PROFILE' });
+```
+
+If you use AWS SSO, you will need to `npm install @aws-sdk/credential-provider-sso` and then use its `fromSSO` function:
+
+```javascript
+const { fromSSO } = require('@aws-sdk/credential-provider-sso');
+const credentials = await fromSSO({ profile: 'YOUR_AWS_PROFILE' })();
+```
+
+Set the credentials and the region, and create and instance of `CognitoIdentityServiceProvider`:
+
+```javascript
+aws.config.update({
+  region: 'us-east-1',
+  credentials,
+});
+
+const cognito = new aws.CognitoIdentityServiceProvider({
+  apiVersion: '2016-04-18',
+});
+```
+
+Next, invoke the Cognito API to create the user, set the password, and optionally add the user to a Cognito group:
+
+```javascript
+await cognito
+  .adminCreateUser({
+    UserPoolId: userPoolId,
+    Username: email,
+    UserAttributes: [
+      {
+        Name: 'email',
+        Value: email,
+      },
+      {
+        Name: 'email_verified',
+        Value: 'true',
+      },
+    ],
+  })
+  .promise();
+
+await cognito
+  .adminSetUserPassword({
+    Password: password,
+    UserPoolId: userPoolId,
+    Username: email,
+    Permanent: true,
+  })
+  .promise();
+
+if (groupName) {
+  await cognito
+    .adminAddUserToGroup({
+      GroupName: groupName,
+      UserPoolId: userPoolId,
+      Username: email,
+    })
+    .promise();
+}
+```
+
+That's it. You can wrap the above code into its own function, especially if you want to create many users in bulk. [See this GitHub gist](https://gist.github.com/dariodjuric/6e7f7557d96183620bc73bdb311ea819) for the entire code.

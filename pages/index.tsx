@@ -33,7 +33,10 @@ export default function Home({
             Hi, I&apos;m Dario
           </h1>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            {siteMetadata.description}
+            ...a software engineer based in Zagreb, Croatia. I write about all
+            kinds of tech stuff, mostly related to software development and
+            devops. Currently, my main focus is JavaScript/TypeScript and
+            related technologies.
           </p>
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">

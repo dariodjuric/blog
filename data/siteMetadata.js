@@ -6,7 +6,7 @@ const siteMetadata = {
   author: 'Dario Djuric',
   headerTitle: "Dario's Blog",
   description:
-    '...a software engineer based in Zagreb, Croatia. I write about all kinds of tech stuff, mostly related to software development and devops. Currently, my main focus is JavaScript/TypeScript and related technologies.',
+    'Personal blog of Dario Djuric, a software engineer from Zagreb, Croatia.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://darios.blog',

@@ -28,7 +28,7 @@ npx @sentry/wizard -i nextjs
 
 The wizard will ask you some questions such as the name of the Sentry project you wish to integrate with, and then patch your Next.js project and create some additional files. One of the files is `.sentryclirc`, which will contain your Sentry authentication token. The same token can be retrieved from the Sentry UI, under Account > API > Auth Tokens. This file should not be committed, so if you want to use the token during build time on your CI server, it should be either created dynamically or put in the `SENTRY_AUTH_TOKEN` environment variable.
 
-I used GitHub actions, so it made sense to put the token in the repository secret, and then it can be used in GitHub actions. 
+I used GitHub actions, so it made sense to put the token in the repository secret (you don't want to share this token publicly), and then it can be used in GitHub actions.
 
 ```yaml
 jobs:

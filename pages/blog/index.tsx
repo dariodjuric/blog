@@ -10,16 +10,17 @@ export const POSTS_PER_PAGE = 5;
 
 export const getStaticProps = async () => {
   const posts = sortedBlogPost(allBlogs) as Blog[];
-  const initialDisplayPosts = posts.slice(0, POSTS_PER_PAGE);
+  const nonDraftPosts = posts.filter((post) => !post.draft);
+  const initialDisplayPosts = nonDraftPosts.slice(0, POSTS_PER_PAGE);
   const pagination = {
     currentPage: 1,
-    totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
+    totalPages: Math.ceil(nonDraftPosts.length / POSTS_PER_PAGE),
   };
 
   return {
     props: {
       initialDisplayPosts: allCoreContent(initialDisplayPosts),
-      posts: allCoreContent(posts),
+      posts: allCoreContent(nonDraftPosts),
       pagination,
     },
   };
@@ -32,7 +33,10 @@ export default function BlogPage({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <PageSEO title={`Blog - ${siteMetadata.author}`} description={siteMetadata.description} />
+      <PageSEO
+        title={`Blog - ${siteMetadata.author}`}
+        description={siteMetadata.description}
+      />
       <ListLayout
         posts={posts}
         initialDisplayPosts={initialDisplayPosts}

@@ -1,10 +1,5 @@
 import Link from 'next/link';
-
-const menuItems = [
-  { label: 'Blog posts', href: '/blogs' },
-  { label: 'About me', href: '/about' },
-  { label: 'Contact', href: '/contact' },
-];
+import Navigation from '@/components/Navigation';
 
 export default function Home() {
   return (
@@ -24,19 +19,8 @@ export default function Home() {
             <span className="text-thunderbird">&apos;</span>s.blog
           </h1>
         </Link>
-        <nav className="flex-grow flex flex-row justify-end pr-8 lg:pr-16">
-          <ul className="hidden lg:flex flex-row space-x-7 self-center">
-            {menuItems.map((item) => (
-              <li key={item.href} className="">
-                <Link
-                  className="no-underline font-bold hover:text-thunderbird text-lg"
-                  href={item.href}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <nav className="flex-grow flex flex-row justify-end self-center pr-8 lg:pr-16">
+          <Navigation />
         </nav>
       </header>
       <hr className="h-[5px] bg-thunderbird shadow-light" />
@@ -48,22 +32,20 @@ export default function Home() {
           </span>
         </h2>
         <p className="my-2">
-          I'm a software engineer with more than 15 years of experience in
+          I&apos;m a software engineer with more than 15 years of experience in
           full-stack development using a variety of technologies, currently
           specialized in JavaScript/TypeScript, along with their associated
           frameworks and tools.
         </p>
-
         <p className="my-2">
           Welcome to my corner of the Internet, where I write about technology,
           primarily focusing on software development and devops.
         </p>
-
         <p className="my-2">
-          If you're curious, feel free to explore more about my journey and
-          expertise. As a freelancer, I'm always open to collaborations and
-          projects. Should you be interested in working together, don't hesitate
-          to get in touch!
+          If you&apos;re curious, feel free to explore more about my journey and
+          expertise. As a freelancer, I&apos;m always open to collaborations and
+          projects. Should you be interested in working together, don&apos;t
+          hesitate to get in touch!
         </p>
       </div>
       <hr className="h-[5px] bg-thunderbird shadow-light" />

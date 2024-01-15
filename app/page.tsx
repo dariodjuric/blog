@@ -21,7 +21,7 @@ export default function Home() {
         <Link href="/" className="self-center">
           <h1 className="text-[36px] font-bold font-logo text-shadow">
             dario
-            <span className="text-thunderbird">'</span>s.blog
+            <span className="text-thunderbird">&apos;</span>s.blog
           </h1>
         </Link>
         <nav className="flex-grow flex flex-row justify-end pr-8 lg:pr-16">
@@ -42,7 +42,7 @@ export default function Home() {
       <hr className="h-[5px] bg-thunderbird shadow-light" />
       <div className="content p-8 lg:px-16 lg:py-14">
         <h2 className="font-bold text-4xl">
-          Hi, I'm{' '}
+          Hi, I&apos;m{' '}
           <span className="underline underline-offset-[4px] decoration-thunderbird">
             Dario
           </span>

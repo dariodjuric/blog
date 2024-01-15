@@ -148,3 +148,7 @@
   font-weight: 400;
   src: url(/fonts/DIN-2014_Regular.otf) format('opentype');
 }
+
+.content {
+  height: calc(100vh - 150px);
+}

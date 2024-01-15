@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import plugin from 'tailwindcss/plugin';
 
 const config: Config = {
   content: [
@@ -73,8 +74,26 @@ const config: Config = {
           950: '#000000',
         },
       },
+      boxShadow: {
+        light: '2px 2px 0px 0px rgba(0, 0, 0, 0.08)',
+      },
+      textShadow: {
+        DEFAULT: '2px 2px 0 rgba(0, 0, 0, 0.08)',
+        low: '1px 1px 0 rgba(0, 0, 0, 0.08)',
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          'text-shadow': (value) => ({
+            textShadow: value,
+          }),
+        },
+        { values: theme('textShadow') },
+      );
+    }),
+  ],
 };
 export default config;

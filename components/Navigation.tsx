@@ -52,7 +52,7 @@ export default function Navigation() {
                   className={`text-center py-3 ${index < menuItems.length - 1 ? 'border-b border-gray-300' : ''}`}
                 >
                   <Link
-                    className="no-underline font-bold hover:text-thunderbird text-xl"
+                    className="no-underline font-bold hover:text-thunderbird text-xl unstyled-link"
                     href={item.href}
                   >
                     {item.label}
@@ -67,7 +67,7 @@ export default function Navigation() {
         {menuItems.map((item) => (
           <li key={item.href} className="">
             <Link
-              className="no-underline font-bold hover:text-thunderbird text-lg"
+              className="no-underline font-bold hover:text-thunderbird text-lg unstyled-link"
               href={item.href}
             >
               {item.label}

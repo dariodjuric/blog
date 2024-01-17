@@ -9,7 +9,7 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <main className="bg-half-colonial-white w-full lg:mx-auto lg:w-5/12 min-h-screen">
+    <main className="bg-half-colonial-white w-full lg:mx-auto lg:w-[800px] min-h-screen">
       <header className="h-[70px] flex flex-row">
         <Link
           href="/"
@@ -31,8 +31,8 @@ export default function Home() {
       </header>
       <hr className="h-[5px] bg-thunderbird shadow-light" />
       <div className="content p-8 lg:px-16 lg:py-12 flex flex-col space-y-6">
-        <div className="grid grid-cols-10">
-          <div className="col-span-6">
+        <div className="lg:grid lg:grid-cols-10">
+          <div className="lg:col-span-6">
             <div className="flex flex-row justify-between">
               <h2 className="font-bold text-4xl">
                 Hi, I&apos;m{' '}
@@ -40,7 +40,12 @@ export default function Home() {
                   Dario
                 </span>
               </h2>
-              <Image priority src={arrow} alt="Pointer to me" />
+              <Image
+                priority
+                src={arrow}
+                alt="Pointer to me"
+                className="hidden lg:block"
+              />
             </div>
             <p>
               I&apos;m a software engineer with more than 15 years of experience
@@ -60,7 +65,7 @@ export default function Home() {
               don&apos;t hesitate to <Link href="/contact">get in touch</Link>!
             </p>
           </div>
-          <div className="col-span-4 w-full h-full flex flex-col justify-center">
+          <div className="lg:col-span-4 w-full h-full flex flex-col justify-center py-3 lg:py-0">
             <div className="h-[220px] w-[200px] self-center rotate-3 border-2 border-white shadow-[rgba(0,_0,_0,_0.25)_0px_25px_50px_-12px]"></div>
           </div>
         </div>
@@ -92,7 +97,7 @@ export default function Home() {
         </div>
       </div>
       <hr className="h-[5px] bg-thunderbird shadow-light" />
-      <footer className="h-[70px] bg-hippie-blue flex flex-row justify-between  p-8 lg:px-14 text-white">
+      <footer className="h-[70px] bg-hippie-blue-600 flex flex-row justify-between  p-8 lg:px-14 text-white">
         <p className="self-center text-sm">ⓒ 2024 Dario Djuric</p>
         <div className="self-center flex flex-row space-x-2">
           <a

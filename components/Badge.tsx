@@ -1,11 +1,16 @@
+import Link from 'next/link';
+
 interface BadgeProps {
+  href: string;
   children: string;
 }
 
-export function Badge({ children }: BadgeProps) {
+export function Badge({ children, href }: BadgeProps) {
   return (
-    <span className="inline-flex items-center px-2 bg-hippie-blue text-half-colonial-white font-bold text-[0.7em] uppercase rounded-full">
-      {children}
-    </span>
+    <Link href={href} className="unstyled-link opacity-95 hover:opacity-100">
+      <span className="inline-flex items-center px-2 bg-hippie-blue text-half-colonial-white font-bold text-[0.7em] uppercase rounded-full">
+        {children}
+      </span>
+    </Link>
   );
 }

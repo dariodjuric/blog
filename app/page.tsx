@@ -76,7 +76,7 @@ export default function Home() {
               blog posts
             </span>
           </h2>
-          <ul>
+          <ul className="mt-2">
             <li>
               <span className="opacity-80 text-xs">
                 Thursday, October 26th, 2023
@@ -86,8 +86,9 @@ export default function Home() {
                 Why doesn’t autofill work on my form?
               </Link>
               <br />
-              <Badge>HTML</Badge> <Badge>Forms</Badge>{' '}
-              <Badge>Accessibility</Badge>
+              <Badge href="/tags/html">HTML</Badge>{' '}
+              <Badge href="/tags/forms">Forms</Badge>{' '}
+              <Badge href="/tags/accessibility">Accessibility</Badge>
               <br />
               You&apos;ve implemented a beautiful login form, but the browser
               will not autofill username and password on it. What could be the
@@ -96,7 +97,6 @@ export default function Home() {
           </ul>
         </div>
       </div>
-      <hr className="h-[5px] bg-thunderbird shadow-light" />
       <footer className="h-[70px] bg-hippie-blue-600 flex flex-row justify-between  p-8 lg:px-14 text-white">
         <p className="self-center text-sm">ⓒ 2024 Dario Djuric</p>
         <div className="self-center flex flex-row space-x-2">

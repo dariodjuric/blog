@@ -150,7 +150,7 @@
 }
 
 .content {
-  min-height: calc(100vh - 150px);
+  min-height: calc(100vh - 145px);
 }
 
 p {
@@ -158,7 +158,7 @@ p {
 }
 
 h2 {
-  @apply my-2;
+  @apply mt-2 mb-0;
 }
 
 a {

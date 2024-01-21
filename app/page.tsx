@@ -2,10 +2,15 @@ import Link from 'next/link';
 import { Badge } from '@/components/Badge';
 import arrow from '@/public/arrow.svg';
 import Image from 'next/image';
+import { getPosts } from '@/data/posts';
+import { format } from 'date-fns';
+import slugify from 'slugify';
 
 export default function Home() {
+  const latestPosts = getPosts().slice(0, 3);
+
   return (
-    <>
+    <div className=" flex flex-col space-y-6">
       <div className="lg:grid lg:grid-cols-10">
         <div className="lg:col-span-6">
           <div className="flex flex-row justify-between">
@@ -51,25 +56,28 @@ export default function Home() {
             blog posts
           </span>
         </h2>
-        <ul className="mt-2">
-          <li>
-            <span className="opacity-80 text-xs">
-              Thursday, October 26th, 2023
-            </span>
-            <br />
-            <Link href="/blogs" className="font-bold text-2xl">
-              Why doesn’t autofill work on my form?
-            </Link>
-            <br />
-            <Badge href="/tags/html">HTML</Badge>{' '}
-            <Badge href="/tags/forms">Forms</Badge>{' '}
-            <Badge href="/tags/accessibility">Accessibility</Badge>
-            <br />
-            You&apos;ve implemented a beautiful login form, but the browser will
-            not autofill username and password on it. What could be the reason?
-          </li>
+        <ul className="mt-2 space-y-2">
+          {latestPosts.map((post) => (
+            <li>
+              <span className="opacity-60 text-xs">
+                {format(post.date, 'LLLL d, yyyy')}
+              </span>
+              <br />
+              <Link href={`/posts/${post.slug}`} className="font-bold text-2xl">
+                {post.frontMatter.title}
+              </Link>
+              <br />
+              {post.frontMatter.tags.map((tagName: string) => (
+                <Badge href={`/tags/${slugify(tagName).toLowerCase()}`}>
+                  {tagName}
+                </Badge>
+              ))}
+              <br />
+              {post.frontMatter.summary}
+            </li>
+          ))}
         </ul>
       </div>
-    </>
+    </div>
   );
 }

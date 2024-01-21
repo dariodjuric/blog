@@ -158,7 +158,7 @@ p {
 }
 
 h2 {
-  @apply mt-2 mb-0;
+  @apply mt-2 mb-0 font-bold text-4xl ;
 }
 
 a {
@@ -171,4 +171,12 @@ a:hover {
 
 a.unstyled-link {
   @apply no-underline text-inherit;
+}
+
+code {
+  @apply text-sm;
+}
+
+p > code {
+  @apply bg-gray-300 bg-opacity-50 p-0.5;
 }

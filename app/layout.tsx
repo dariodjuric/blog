@@ -42,7 +42,7 @@ export default function RootLayout({
             </nav>
           </header>
           <hr className="h-[5px] bg-thunderbird" />
-          <div className="content p-8 lg:px-16 lg:py-12 flex flex-col space-y-6">
+          <div className="content p-8 lg:px-16 lg:py-10 lg:pb-16">
             {children}
           </div>
           <footer className="h-[70px] bg-hippie-blue-600 flex flex-row justify-between  p-8 lg:px-14 text-white">

@@ -32,7 +32,10 @@ export default async function PostPage({
       {post.frontMatter.tags.length > 0 && (
         <div className="mt-5">
           {post.frontMatter.tags.map((tagName: string) => (
-            <Badge href={`/tags/${slugify(tagName).toLowerCase()}`}>
+            <Badge
+              key={tagName}
+              href={`/tags/${slugify(tagName).toLowerCase()}`}
+            >
               {tagName}
             </Badge>
           ))}

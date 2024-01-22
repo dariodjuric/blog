@@ -56,10 +56,10 @@ export default function Home() {
             blog posts
           </span>
         </h2>
-        <ul className="mt-2 space-y-2">
+        <ul className="mt-3 space-y-3">
           {latestPosts.map((post) => (
-            <li>
-              <span className="opacity-60 text-xs">
+            <li key={post.slug}>
+              <span className="opacity-50 text-xs">
                 {format(post.date, 'LLLL d, yyyy')}
               </span>
               <br />
@@ -68,7 +68,10 @@ export default function Home() {
               </Link>
               <br />
               {post.frontMatter.tags.map((tagName: string) => (
-                <Badge href={`/tags/${slugify(tagName).toLowerCase()}`}>
+                <Badge
+                  key={tagName}
+                  href={`/tags/${slugify(tagName).toLowerCase()}`}
+                >
                   {tagName}
                 </Badge>
               ))}

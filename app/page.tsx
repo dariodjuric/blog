@@ -2,12 +2,12 @@ import Link from 'next/link';
 import { Badge } from '@/components/Badge';
 import arrow from '@/public/arrow.svg';
 import Image from 'next/image';
-import { getPosts } from '@/data/posts';
 import { format } from 'date-fns';
 import slugify from 'slugify';
+import { getCachedPosts } from '@/app/cached-posts';
 
 export default function Home() {
-  const latestPosts = getPosts().slice(0, 3);
+  const latestPosts = getCachedPosts().slice(0, 3);
 
   return (
     <div className=" flex flex-col space-y-6">

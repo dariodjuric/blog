@@ -1,7 +1,7 @@
-import { getPosts } from '@/data/posts';
+import { getCachedPosts } from '@/app/cached-posts';
 
 export default async function sitemap() {
-  const posts = getPosts();
+  const posts = getCachedPosts();
   const blogs = posts.map((post) => ({
     url: `https://darios.blog/posts/${post.slug}`,
     lastModified: new Date(post.dateUpdated).toISOString().split('T')[0],

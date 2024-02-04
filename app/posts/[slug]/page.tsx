@@ -1,4 +1,3 @@
-import { getPostBySlug } from '@/data/posts';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { MDXComponents } from 'mdx/types';
 import Link from 'next/link';
@@ -9,6 +8,7 @@ import { notFound } from 'next/navigation';
 import { Badge } from '@/components/Badge';
 import slugify from 'slugify';
 import { Metadata, ResolvingMetadata } from 'next';
+import { getPostBySlug } from '@/app/cached-posts';
 
 export async function generateMetadata(
   {

@@ -1,7 +1,6 @@
 import path from 'node:path';
 import * as fs from 'fs';
 import matter from 'gray-matter';
-import { cache } from 'react';
 
 export interface Post {
   dateCreated: Date;
@@ -11,7 +10,7 @@ export interface Post {
   content: string;
 }
 
-export const getPosts = cache((): Post[] => {
+export const getPosts = (): Post[] => {
   const postsDirectory = path.join(process.cwd(), 'data/posts');
   const fileNames = fs.readdirSync(postsDirectory);
   const posts = fileNames.map((fileName) => {
@@ -45,8 +44,4 @@ export const getPosts = cache((): Post[] => {
   });
 
   return posts;
-});
-
-export function getPostBySlug(slug: string) {
-  return getPosts().find((post) => post.slug === slug) || null;
-}
+};

@@ -1,10 +1,6 @@
-import type { Metadata } from 'next';
 import './globals.css';
 import Link from 'next/link';
 import Navigation from '@/components/Navigation';
-import Image from 'next/image';
-import arrow from '@/public/arrow.svg';
-import { Badge } from '@/components/Badge';
 import Socials from '@/components/Socials';
 
 const title = `Dario's Blog`;
@@ -12,6 +8,7 @@ const description =
   'Blog by Dario Djuric: writing about development, DevOps, and technology.';
 
 export const metadata = {
+  metadataBase: new URL('https://darios.blog'),
   title: {
     template: `%s | ${title}`,
     default: title,

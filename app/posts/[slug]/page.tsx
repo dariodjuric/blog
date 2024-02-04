@@ -40,7 +40,7 @@ export default async function PostPage({
   return (
     <>
       <span className="opacity-60 text-xs">
-        {format(post.date, 'LLLL d, yyyy')}
+        {format(post.dateCreated, 'LLLL d, yyyy')}
       </span>
       <h2 className="mb-6 mt-0">{post.frontMatter.title}</h2>
       <div>

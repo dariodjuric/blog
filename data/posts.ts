@@ -4,7 +4,8 @@ import matter from 'gray-matter';
 import { cache } from 'react';
 
 export interface Post {
-  date: Date;
+  dateCreated: Date;
+  dateUpdated: Date;
   slug: string;
   frontMatter: { [p: string]: any };
   content: string;
@@ -29,7 +30,10 @@ export const getPosts = cache((): Post[] => {
     const matterResult = matter(fileContents);
 
     return {
-      date: date,
+      dateCreated: date,
+      dateUpdated: matterResult.data.dateUpdated
+        ? new Date(matterResult.data.dateUpdated)
+        : date,
       slug: slug,
       frontMatter: matterResult.data,
       content: matterResult.content,
@@ -37,7 +41,7 @@ export const getPosts = cache((): Post[] => {
   });
 
   posts.sort((a, b) => {
-    return b.date.getTime() - a.date.getTime();
+    return b.dateCreated.getTime() - a.dateCreated.getTime();
   });
 
   return posts;

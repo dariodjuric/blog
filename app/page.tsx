@@ -58,7 +58,7 @@ export default function Home() {
           {latestPosts.map((post) => (
             <li key={post.slug}>
               <span className="opacity-50 text-xs">
-                {format(post.date, 'LLLL d, yyyy')}
+                {format(post.dateCreated, 'LLLL d, yyyy')}
               </span>
               <br />
               <Link href={`/posts/${post.slug}`} className="font-bold text-2xl">

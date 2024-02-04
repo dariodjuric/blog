@@ -7,10 +7,37 @@ import arrow from '@/public/arrow.svg';
 import { Badge } from '@/components/Badge';
 import Socials from '@/components/Socials';
 
-export const metadata: Metadata = {
-  title: "Dario's Blog",
-  description:
-    'Blog by Dario Djuric: writing about development, DevOps, and technology.',
+const title = `Dario's Blog`;
+const description =
+  'Blog by Dario Djuric: writing about development, DevOps, and technology.';
+
+export const metadata = {
+  title: {
+    template: `%s | ${title}`,
+    default: title,
+  },
+  description,
+  openGraph: {
+    title,
+    description,
+    url: 'https://darios.blog',
+    siteName: title,
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    title: 'Dario Djuric',
+    card: 'summary_large_image',
+    creator: '@dario_djuric',
+  },
+  icons: {
+    shortcut: 'https://darios.blog/public/favicon.ico',
+  },
+  alternates: {
+    types: {
+      'application/rss+xml': 'https://darios.blog/feed.xml',
+    },
+  },
 };
 
 export default function RootLayout({

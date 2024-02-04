@@ -8,7 +8,23 @@ import { format } from 'date-fns';
 import { notFound } from 'next/navigation';
 import { Badge } from '@/components/Badge';
 import slugify from 'slugify';
-import remarkGfm from 'remark-gfm';
+import { Metadata, ResolvingMetadata } from 'next';
+
+export async function generateMetadata(
+  {
+    params,
+  }: {
+    params: { slug: string };
+  },
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const article = getPostBySlug(params.slug);
+
+  return {
+    title: article?.frontMatter.title,
+    description: (await parent).description,
+  };
+}
 
 export default async function PostPage({
   params,

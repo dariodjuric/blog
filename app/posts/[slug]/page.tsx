@@ -8,6 +8,7 @@ import { format } from 'date-fns';
 import { notFound } from 'next/navigation';
 import { Badge } from '@/components/Badge';
 import slugify from 'slugify';
+import remarkGfm from 'remark-gfm';
 
 export default async function PostPage({
   params,
@@ -27,7 +28,13 @@ export default async function PostPage({
       </span>
       <h2 className="mb-6 mt-0">{post.frontMatter.title}</h2>
       <div>
-        <MDXRemote source={post.content || ''} components={mdxComponents} />
+        <MDXRemote
+          source={post.content || ''}
+          components={mdxComponents}
+          options={{
+            mdxOptions: {},
+          }}
+        />
       </div>
       {post.frontMatter.tags.length > 0 && (
         <div className="mt-5">
@@ -47,11 +54,19 @@ export default async function PostPage({
 
 const mdxComponents: MDXComponents = {
   a: ({ children, ...props }) => {
+    if (props.href?.includes('darios.blog')) {
+      return (
+        // @ts-ignore
+        <Link {...props} href={props.href || ''}>
+          {children}
+        </Link>
+      );
+    }
     return (
       // @ts-ignore
-      <Link {...props} href={props.href || ''}>
+      <a {...props} href={props.href || ''} target="_blank">
         {children}
-      </Link>
+      </a>
     );
   },
   // @ts-ignore
@@ -62,7 +77,12 @@ const mdxComponents: MDXComponents = {
   pre: ({ children, props }) => {
     return <Code {...props}>{children}</Code>;
   },
-  ol: ({ children }) => {
-    return <ol className="mt-5 mb-5 list-decimal list-inside">{children}</ol>;
+  // @ts-ignore
+  ol: ({ children, props }) => {
+    return (
+      <ol className="list-decimal ml-4" {...props}>
+        {children}
+      </ol>
+    );
   },
 };

@@ -28,21 +28,19 @@ export default function Home() {
             />
           </div>
           <p>
-            I&apos;m a software engineer with more than 15 years of experience
-            in full-stack development using a variety of technologies, currently
-            specialized in JavaScript/TypeScript, along with their associated
-            frameworks and tools.
+            I&apos;m a full-stack software engineer experienced in a variety of
+            technologies, with a current focus mainly on JavaScript/TypeScript
+            and related frameworks and tools.
           </p>
           <p>
-            Welcome to my corner of the Internet, where I write about
-            technology, primarily focusing on software development and devops.
+            Welcome to my corner of the internet, where I write about
+            technology, primarily focusing on software development and DevOps.
           </p>
           <p>
             If you&apos;re curious, feel free to{' '}
             <Link href="/about">explore more</Link> about my journey and
-            expertise. As a freelancer, I&apos;m always open to collaborations
-            and projects. Should you be interested in working together,
-            don&apos;t hesitate to <Link href="/contact">get in touch</Link>!
+            expertise, or read through{' '}
+            <Link href="/contact">my blog&apos;s archive</Link>.
           </p>
         </div>
         <div className="lg:col-span-4 w-full h-full flex flex-col justify-center py-3 lg:py-0">

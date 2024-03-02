@@ -24,8 +24,8 @@ const main = () => {
   allPosts.forEach((post: Post) => {
     feed.addItem({
       title: post.frontMatter.title,
-      id: `${siteUrl}/posts/${post.slug}`,
-      link: `${siteUrl}/posts/${post.slug}`,
+      id: `posts/${post.slug}`,
+      link: `posts/${post.slug}`,
       description: post.frontMatter.description,
       date: post.dateUpdated,
     });

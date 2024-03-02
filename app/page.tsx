@@ -50,6 +50,7 @@ export default function Home() {
               quality={100}
               priority
               className="w-44"
+              sizes="176w"
             />
           </div>
         </div>

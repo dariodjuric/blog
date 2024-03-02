@@ -11,6 +11,7 @@ export default async function AboutPage() {
         alt="My picture"
         quality={100}
         priority
+        sizes="176w"
         className="w-44 float-right m-3"
       />
 

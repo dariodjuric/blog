@@ -51,6 +51,7 @@ export default function Home() {
               priority
               className="w-44"
               sizes="176w"
+              placeholder="blur"
             />
           </div>
         </div>

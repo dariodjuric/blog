@@ -13,6 +13,7 @@ export default async function AboutPage() {
         priority
         sizes="176w"
         className="w-44 float-right m-3"
+        placeholder="blur"
       />
 
       <p>

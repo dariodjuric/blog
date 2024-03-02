@@ -4,7 +4,7 @@ import * as fs from 'fs';
 
 const main = () => {
   const allPosts = getPosts();
-  const siteUrl = 'darios.blog';
+  const siteUrl = 'https://darios.blog';
 
   const feedOptions = {
     title: "Dario's Blog",
@@ -24,8 +24,8 @@ const main = () => {
   allPosts.forEach((post: Post) => {
     feed.addItem({
       title: post.frontMatter.title,
-      id: `posts/${post.slug}`,
-      link: `posts/${post.slug}`,
+      id: `${siteUrl}/posts/${post.slug}`,
+      link: `${siteUrl}/posts/${post.slug}`,
       description: post.frontMatter.description,
       date: post.dateUpdated,
     });

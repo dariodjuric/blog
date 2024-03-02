@@ -1,5 +1,4 @@
 import { getCachedPosts } from '@/app/cached-posts';
-import Heading from '@/components/Heading';
 import PostsList from '@/components/PostsList';
 import { slugifyLowercase } from '@/utils/slugify';
 
@@ -18,7 +17,7 @@ export default async function TagsPage({
 
   return (
     <>
-      <Heading>#{params.slug}</Heading>
+      <h2>#{params.slug}</h2>
       <PostsList posts={filteredPosts} />
     </>
   );

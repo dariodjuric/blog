@@ -1,10 +1,9 @@
-import Heading from '@/components/Heading';
 import { ContactForm } from '@/components/ContactForm';
 
 export default async function ContactPage() {
   return (
     <>
-      <Heading>Contact me</Heading>
+      <h2>Contact me</h2>
       <ContactForm />
     </>
   );

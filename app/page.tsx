@@ -9,7 +9,7 @@ export default function Home() {
   const latestPosts = getCachedPosts().slice(0, 3);
 
   return (
-    <div className=" flex flex-col space-y-6">
+    <div className="flex flex-col space-y-6">
       <div className="lg:grid lg:grid-cols-10">
         <div className="lg:col-span-6">
           <div className="flex flex-row justify-between">

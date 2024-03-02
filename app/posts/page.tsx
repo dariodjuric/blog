@@ -1,5 +1,4 @@
 import { getCachedPosts } from '@/app/cached-posts';
-import Heading from '@/components/Heading';
 import PostsList from '@/components/PostsList';
 
 export default async function PostsPage() {
@@ -7,7 +6,7 @@ export default async function PostsPage() {
 
   return (
     <>
-      <Heading>All blog posts</Heading>
+      <h2>All blog posts</h2>
       <PostsList posts={posts} />
     </>
   );

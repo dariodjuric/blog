@@ -158,7 +158,7 @@ p {
 }
 
 h2 {
-  @apply mt-2 mb-0 font-bold text-4xl ;
+  @apply mt-1 mb-0 font-bold text-4xl ;
 }
 
 a {

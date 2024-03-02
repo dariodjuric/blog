@@ -1,11 +1,10 @@
-import Heading from '@/components/Heading';
 import myPicture from '@/public/me.jpg';
 import Image from 'next/image';
 
 export default async function AboutPage() {
   return (
     <>
-      <Heading>About me</Heading>
+      <h2>About me</h2>
 
       <Image
         src={myPicture}

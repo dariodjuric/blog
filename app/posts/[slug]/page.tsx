@@ -8,7 +8,6 @@ import { notFound } from 'next/navigation';
 import { Badge } from '@/components/Badge';
 import { Metadata, ResolvingMetadata } from 'next';
 import { getPostBySlug } from '@/app/cached-posts';
-import Heading from '@/components/Heading';
 import { slugifyLowercase } from '@/utils/slugify';
 
 export async function generateMetadata(
@@ -43,7 +42,7 @@ export default async function PostPage({
       <span className="opacity-60 text-xs">
         {format(post.dateCreated, 'LLLL d, yyyy')}
       </span>
-      <Heading>{post.frontMatter.title}</Heading>
+      <h2>{post.frontMatter.title}</h2>
       <div>
         <MDXRemote
           source={post.content || ''}

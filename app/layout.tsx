@@ -2,6 +2,7 @@ import './globals.css';
 import Link from 'next/link';
 import Navigation from '@/components/Navigation';
 import Socials from '@/components/Socials';
+import Script from 'next/script';
 
 const title = `Dario's Blog`;
 const description =
@@ -75,6 +76,20 @@ export default function RootLayout({
           </footer>
         </main>
       </body>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-2W1599NQM6"
+        id="google_gtagjs-js"
+        strategy="lazyOnload"
+      />
+      <Script id="google_gtagjs-js-after" strategy="lazyOnload">
+        {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-2W1599NQM6');
+        `}
+      </Script>
     </html>
   );
 }

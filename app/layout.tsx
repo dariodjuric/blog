@@ -32,7 +32,7 @@ export const metadata = {
   },
   alternates: {
     types: {
-      'application/rss+xml': 'https://darios.blog/feed.xml',
+      'application/rss+xml': 'https://darios.blog/rss.xml',
     },
   },
 };

@@ -49,7 +49,6 @@ export default function Home() {
               alt="My picture"
               priority
               className="w-44"
-              sizes="176w"
               placeholder="blur"
             />
           </div>

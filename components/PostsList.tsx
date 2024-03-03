@@ -13,7 +13,7 @@ export default function PostsList({ posts }: PostsListsProps) {
     <ul className="mt-3 space-y-3">
       {posts.map((post) => (
         <li key={post.slug}>
-          <span className="opacity-50 text-xs">
+          <span className="opacity-60 text-xs">
             {format(post.dateCreated, 'LLLL d, yyyy')}
           </span>
           <br />

@@ -38,6 +38,7 @@ const config: Config = {
           background: {
             DEFAULT: '#003049',
             light: '#569FB6',
+            hover: '#004366',
           },
         },
         brand: {

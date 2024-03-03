@@ -9,21 +9,26 @@ export default function Socials() {
       <a
         href="https://github.com/dariodjuric"
         target="_blank"
-        className="opacity-100 hover:opacity-90"
+        className="opacity-100 hover:opacity-95"
       >
         <Image priority src={githubIcon} alt="My GitHub profile" />
       </a>
       <a
         href="https://www.linkedin.com/in/dario-djuric"
         target="_blank"
-        className="opacity-100 hover:opacity-90"
+        className="opacity-100 hover:opacity-95"
       >
-        <Image priority src={linkedinIcon} alt="My LinkedIn profile" />
+        <Image
+          priority
+          src={linkedinIcon}
+          alt="My LinkedIn profile"
+          className="fill-amber-300"
+        />
       </a>
       <a
         href="https://x.com/dario_djuric"
         target="_blank"
-        className="opacity-100 hover:opacity-90"
+        className="opacity-100 hover:opacity-95"
       >
         <Image priority src={xIcon} alt="My X profile" />
       </a>

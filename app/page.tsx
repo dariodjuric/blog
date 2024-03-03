@@ -47,7 +47,6 @@ export default function Home() {
             <Image
               src={myPicture}
               alt="My picture"
-              quality={100}
               priority
               className="w-44"
               sizes="176w"

@@ -10,8 +10,8 @@ export default function Home() {
 
   return (
     <div className="flex flex-col space-y-6">
-      <div className="lg:grid lg:grid-cols-10">
-        <div className="lg:col-span-6">
+      <div className="md:grid md:grid-cols-10">
+        <div className="md:col-span-6">
           <div className="flex flex-row justify-between">
             <h2 className="font-bold text-4xl">
               Hi, I&apos;m{' '}
@@ -23,7 +23,7 @@ export default function Home() {
               priority
               src={arrow}
               alt="Pointer to me"
-              className="hidden lg:block"
+              className="hidden md:block"
             />
           </div>
           <p>
@@ -42,7 +42,7 @@ export default function Home() {
             <Link href="/posts">my blog&apos;s archive</Link>.
           </p>
         </div>
-        <div className="lg:col-span-4 w-full h-full flex flex-col justify-center py-3 lg:py-0">
+        <div className="md:col-span-4 w-full h-full flex flex-col justify-center py-3 md:py-0">
           <div className="self-center rotate-3 border-2 border-white shadow-[rgba(0,_0,_0,_0.25)_0px_25px_50px_-12px]">
             <Image
               src={myPicture}

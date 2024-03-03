@@ -7,8 +7,16 @@ import { format } from 'date-fns';
 import { notFound } from 'next/navigation';
 import { Badge } from '@/components/Badge';
 import { Metadata, ResolvingMetadata } from 'next';
-import { getPostBySlug } from '@/app/cached-posts';
+import { getCachedPosts, getPostBySlug } from '@/app/cached-posts';
 import { slugifyLowercase } from '@/utils/slugify';
+
+export async function generateStaticParams() {
+  const posts = getCachedPosts();
+
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
 
 export async function generateMetadata(
   {

@@ -45,7 +45,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-secondary-background">
+      <body className="bg-secondary-background background-pattern">
         <main className="bg-primary-background w-full md:mx-auto md:max-w-screen-md lg:max-w-screen-md min-h-screen">
           <header className="h-[70px] flex flex-row">
             <Link

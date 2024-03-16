@@ -48,26 +48,25 @@ export default function RootLayout({
       <body className="bg-secondary-background background-pattern">
         <main className="bg-primary-background w-full md:mx-auto md:max-w-screen-md lg:max-w-screen-md min-h-screen">
           <header className="h-[70px] flex flex-row">
-            <Link
-              href="/"
-              className="w-8 md:w-16 flex flex-col justify-center text-[36px] text-right unstyled-link"
-            >
-              <span className="text-brand-content text-[36px] font-bold font-logo text-shadow">
-                &gt;&nbsp;
-              </span>
-            </Link>
+            <div className="w-5 md:w-16 flex flex-col justify-center text-[36px] text-right">
+              <Link href="/" className="unstyled-link hidden md:block">
+                <span className="text-brand-content text-[36px] font-bold font-logo text-shadow">
+                  &gt;&nbsp;
+                </span>
+              </Link>
+            </div>
             <Link href="/" className="self-center unstyled-link">
               <h1 className="text-[36px] font-bold font-logo text-shadow">
                 dario
                 <span className="text-brand-content">&apos;</span>s.blog
               </h1>
             </Link>
-            <nav className="flex-grow flex flex-row justify-end self-center pr-8 md:pr-16">
+            <nav className="flex-grow flex flex-row justify-end self-center pr-5 md:pr-16">
               <Navigation />
             </nav>
           </header>
           <hr className="h-[5px] bg-brand-border" />
-          <div className="content p-8 md:px-16 md:py-10 md:pb-16">
+          <div className="content p-5 md:px-16 md:py-10 md:pb-16">
             {children}
           </div>
           <footer className="h-[70px] bg-neutral-background flex flex-row justify-between  p-8 md:px-14 text-white">

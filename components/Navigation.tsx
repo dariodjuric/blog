@@ -32,7 +32,7 @@ export default function Navigation() {
         </Dialog.Trigger>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed top-0 right-0 bottom-0 left-0 bg-black opacity-15" />
-          <Dialog.Content className="fixed top-0 right-0 w-[250px] h-full bg-primary-background shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] flex flex-col">
+          <Dialog.Content className="outline-none fixed top-0 right-0 w-[250px] h-full bg-primary-background shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] flex flex-col">
             <div className="w-full h-[70px] px-8 flex flex-row justify-end">
               <a
                 href=""
@@ -45,7 +45,7 @@ export default function Navigation() {
                 <Image priority src={closeIcon} alt="Close menu" />
               </a>
             </div>
-            <ul className="flex flex-col self-center">
+            <ul className="flex flex-col self-center w-10/12">
               {menuItems.map((item, index) => (
                 <li
                   key={item.href}

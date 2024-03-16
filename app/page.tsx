@@ -42,7 +42,7 @@ export default function Home() {
             <Link href="/posts">my blog&apos;s archive</Link>.
           </p>
         </div>
-        <div className="md:col-span-4 w-full h-full flex flex-col justify-center py-3 md:py-0">
+        <div className="md:col-span-4 w-full flex flex-col justify-center py-3 md:py-0">
           <div className="self-center rotate-3 border-2 border-white shadow-[rgba(0,_0,_0,_0.25)_0px_25px_50px_-12px]">
             <Image
               src={myPicture}

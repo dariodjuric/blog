@@ -1,0 +1,108 @@
+---
+title: Do not pass DTOs to UI components
+tags: ['Component Design']
+summary: UI components should consume simplified data models tailored for the UI instead of raw back-end DTOs, with a data access layer providing the necessary mapping and abstraction.
+---
+
+As front-end developers, we often work with data transfer objects (DTOs) that come from a back-end API or service. These DTOs represent the raw data structure used for efficient transfer across processes or the network. However, rendering DTOs directly in UI components can lead to several issues around maintainability, reusability, and separation of concerns.
+
+### The DTO anti-pattern
+
+Passing DTOs directly as props to UI components tightly couples your UI components to the data transport structure from the back-end. This can make it difficult to evolve or refactor component interfaces when back-end data models change. It also violates the principle of least privilege by providing components with more data than they need. Finally, mashing transport data directly into components blurs the lines between the roles of data access and UI rendering.
+
+Instead of passing raw DTOs to components, we should introduce a data access layer that acts as an abstraction boundary between our UI and our back-end services.
+
+### The data access layer
+
+Think of the data access layer as a mapping layer that translates back-end DTOs into simplified object models tailored specifically for the needs of your application's UI. This could mean flattening nested objects, picking a subset of properties, deriving calculated fields, or any other data transformations necessary.
+
+The data access layer essentially quarantines the transport data models, preventing them from leaking into and polluting the domain of your UI components. Components only need to know about the object models shaped for their particular responsibilities, not the quirks of how data is ferried around behind the scenes.
+
+For example, let's say you have a back-end DTO for a blog post that looks like this:
+
+```js
+{
+  id: "abc123",
+  authorId: 42,
+  title: "New Blog Post",
+  content: "This is my new blog post...",
+  metadata: {
+    createdAt: "2022-01-15T08:25:00Z",
+    updatedAt: "2022-01-15T08:25:00Z",
+    tags: ["react", "javascript"]
+  }
+}
+```
+
+Your data access layer could map this DTO to a simplified Post object designed just for rendering in your UI:
+
+```ts
+{
+  id: "abc123",
+  author: "Jane Doe",
+  title: "New Blog Post",
+  content: "This is my new blog post...",
+  formattedDate: "January 15, 2022",
+  tags: ["react", "javascript"]
+}
+```
+
+Notice how the latter object omits extraneous properties like `authorId` that the UI doesn't need. It also maps and derives new fields like author and `formattedDate` that are more useful abstractions for display purposes.
+
+### Adhering to abstraction boundaries
+
+With a data access layer in place to crunch DTOs into UI-friendly view models, we can design our UI component props and interfaces at the appropriate level of abstraction. Container components near the root of your component tree can work with higher-level abstractions representing entire pages, screens or complex features.
+
+As we go deeper into our component hierarchy, we can introduce more granular abstractions with slimmer interfaces focused on just the data required for their specialized UI concerns. This allows us to adhere to the principle of least privilege - only providing components with the precise data they need, but no more.
+
+For example, a top-level BlogPost component may need the entire post data model to coordinate rendering subcomponents for the title, content, metadata, and so on:
+
+```jsx
+// BlogPost.jsx
+const BlogPost = ({ post }) => {
+  return (
+    <article>
+      <BlogPostHeader
+        title={post.title}
+        formattedDate={post.formattedDate}
+        tags={post.tags}
+      />
+      <BlogPostContent content={post.content} />
+    </article>
+  )
+}
+```
+
+Whereas the `BlogPostHeader` component only needs a subset of that data:
+
+```jsx
+javascriptCopy code
+
+// BlogPostHeader.js
+const BlogPostHeader = ({ title, formattedDate, tags }) => {
+  return (
+    <header>
+      <h1>{title}</h1>
+      <time>{formattedDate}</time>
+      <BlogPostTags tags={tags} />
+    </header>
+  )
+}
+```
+
+And the `BlogPostTags` component needs even less:
+
+```jsx
+// BlogPostTags.js
+const BlogPostTags = ({ tags }) => {
+  return (
+    <ul>
+      {tags.map(tag => <li key={tag}>{tag}</li>)}
+    </ul>
+  )
+}
+```
+
+By preserving abstraction boundaries and modeling component interfaces deliberately, we can build a UI architecture that is more modular, maintainable, and amenable to change over time. The data access layer insulates components from shifts in back-end data models, while simplified props facilitate better reuse and composition of UI elements.
+
+So the next time you are working on a front-end application, think critically about the data abstractions flowing through your UI. You may find substantial benefits to quarantining DTOs, establishing a data access layer, and intentionally shaping purpose-built data models for your components to consume.

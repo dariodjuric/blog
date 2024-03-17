@@ -44,8 +44,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="bg-secondary-background background-pattern">
+    <html lang="en" className="bg-secondary-background background-pattern">
+      <body>
         <main className="bg-primary-background w-full md:mx-auto md:max-w-screen-md lg:max-w-screen-md min-h-screen">
           <header className="h-[70px] flex flex-row">
             <div className="w-5 md:w-16 flex flex-col justify-center text-[36px] text-right">

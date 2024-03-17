@@ -51,7 +51,7 @@ export default async function PostPage({
         {format(post.dateCreated, 'LLLL d, yyyy')}
       </span>
       <h2>{post.frontMatter.title}</h2>
-      <div>
+      <div className="mt-5">
         <MDXRemote
           source={post.content || ''}
           components={mdxComponents}

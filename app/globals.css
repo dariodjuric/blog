@@ -178,7 +178,11 @@
   }
 
   h2 {
-    @apply mt-1 mb-0 font-bold text-4xl ;
+    @apply mt-1 mb-1 font-bold text-4xl;
+  }
+
+  h3 {
+    @apply mt-6 mb-0 font-bold text-2xl;
   }
 
   a {

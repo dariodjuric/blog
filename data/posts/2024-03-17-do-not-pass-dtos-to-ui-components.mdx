@@ -36,7 +36,7 @@ For example, let's say you have a back-end DTO for a blog post that looks like t
 
 Your data access layer could map this DTO to a simplified Post object designed just for rendering in your UI:
 
-```ts
+```js
 {
   id: "abc123",
   author: "Jane Doe",
@@ -76,8 +76,6 @@ const BlogPost = ({ post }) => {
 Whereas the `BlogPostHeader` component only needs a subset of that data:
 
 ```jsx
-javascriptCopy code
-
 // BlogPostHeader.js
 const BlogPostHeader = ({ title, formattedDate, tags }) => {
   return (

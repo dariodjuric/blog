@@ -1,4 +1,4 @@
-import { Feed } from 'feed';
+import { Feed, FeedOptions } from 'feed';
 import { getPosts, Post } from '../data/posts';
 import * as fs from 'fs';
 
@@ -6,12 +6,12 @@ const main = () => {
   const allPosts = getPosts();
   const siteUrl = 'https://darios.blog';
 
-  const feedOptions = {
+  const feedOptions: FeedOptions = {
     title: "Dario's Blog",
     description: "Dario's blog posts",
     id: siteUrl,
     link: siteUrl,
-    image: `${siteUrl}/logo.png`,
+    image: `${siteUrl}/rss-image.png`,
     favicon: `${siteUrl}/favicon.png`,
     copyright: `All rights reserved ${new Date().getFullYear()}, Dario Djuric`,
     feedLinks: {
@@ -26,7 +26,7 @@ const main = () => {
       title: post.frontMatter.title,
       id: `${siteUrl}/posts/${post.slug}`,
       link: `${siteUrl}/posts/${post.slug}`,
-      description: post.frontMatter.description,
+      description: post.frontMatter.summary,
       date: post.dateUpdated,
     });
   });

@@ -53,7 +53,7 @@ Notice how the latter object omits extraneous properties like `authorId` that th
 
 With a data access layer in place to convert DTOs into UI-friendly view models, we can also design our UI component props and interfaces at the appropriate level of abstraction. Container components near the root of your component tree can work with higher-level abstractions representing entire pages, screens, or complex features.
 
-As we go deeper into our component hierarchy, we can introduce more granular abstractions with slimmer interfaces focused on just the data required for their specialized UI concerns. This allows us to adhere to the principle of least privilege - only providing components with the precise data they need, but no more.
+As we go deeper into our component hierarchy, we can introduce more granular abstractions with slimmer interfaces focused on just the data required for their specialized UI concerns. This allows us to adhere to the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) - only providing components with the precise data they need, but no more.
 
 For example, a top-level `BlogPost` component may need the entire post data model to coordinate rendering subcomponents for the title, content, metadata, and so on:
 

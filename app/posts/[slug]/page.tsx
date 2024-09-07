@@ -54,7 +54,7 @@ export default async function PostPage({
   }
 
   return (
-    <>
+    <article>
       <span className="opacity-60 text-xs">
         {format(post.dateCreated, 'LLLL d, yyyy')}
       </span>
@@ -77,7 +77,7 @@ export default async function PostPage({
           ))}
         </div>
       )}
-    </>
+    </article>
   );
 }
 

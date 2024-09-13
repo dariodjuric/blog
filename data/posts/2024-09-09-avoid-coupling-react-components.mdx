@@ -1,0 +1,82 @@
+---
+title: Avoid coupling React components when passing functions down
+tags: ['Component Design']
+summary: Avoid tightly coupling parent and child components by passing callback functions down to child components instead of setters, creating more reusable and testable components.
+---
+
+Imagine you have an onboarding component that displays a `WelcomeStep`, `TermsOfServiceStep`, or `CompleteStep`, depending on the current step. A beginner developer might implement this as:
+
+```tsx
+export type Step = 'welcome' | 'terms-of-service' | 'complete';
+
+export default function OnboardingSection() {
+  const [step, setStep] = useState<Step>('welcome');
+
+  return (
+    <Box>
+      {step === 'welcome' && (
+        <WelcomeStep setStep={setStep} />
+      )}
+      {step === 'terms-of-service' && (
+        <TermsOfServiceStep setStep={setStep}  />
+      )}
+      {step === 'complete' && <CompleteStep />}
+    </Box>
+  );
+}
+```
+
+The `WelcomeStep` component has a button, that, when clicked, updates the state to `welcome`.
+
+```tsx
+export function WelcomeStep(props: { setStep: (newStep: Step) => void }) {
+  return (
+    <Box>
+      <Box>Welcome to our platform!</Box>
+      <Box>
+        <Button onClick={() => setStep('terms-of-service')}>Next</Button>
+      </Box>
+    </Box>
+  );
+}
+```
+
+There’s nothing particularly wrong with this approach, and it will function correctly. However, we have introduced a tight coupling between the `WelcomeStep` component and the `OnboardingSection` component.
+
+### Why is this a problem?
+
+There are several issues with this approach. First of all, this breaks the encapsulation of the parent component, as it now leaks the internal state of the component down to its children. Having setters exposed might make problems difficult to troubleshoot as you have no control over where the setters are used. A child component might update the state in ways that the parent component does not anticipate or control.
+
+This also might lead to unnecessary re-renders, as the child is now in control of the parent's control re-rendering. When only the parent is in control of the state changes, it has more control over when the state update happens.
+
+Finally, the child component is now a bit more difficult to test, as it always needs to be used in pair with the parent component due to high coupling between the two.
+
+### The solution
+
+The solution is for the child component to provide a callback function to the parent. Although the flow in this example remains the same, you are now making the child component easier to test and reuse in different contexts. Having the child component expose something like `onClickNext` means that it can easily be used in components other than `OnboardingSection`, making the component easier to test.
+
+Have a look at the standard `input` element, for example. You don't see any setters function on that element's interface. Instead, there is a `value` attribute and an `onChange` attribute. You pass values down, and you get notified of the change upwards. This makes for a simpler interface that makes this component reusable in very different use cases.
+
+Here's a revised version of our component:
+
+```tsx
+export default function OnboardingSection() {
+  const [step, setStep] = useState<Step>('welcome');
+
+  return (
+    <Box>
+      {step === 'welcome' && (
+        <WelcomeStep onClickNext={() => setStep('terms-of-service')} />
+      )}
+      {step === 'terms-of-service' && (
+        <TermsOfServiceStep onClickNext={() => setStep('complete')} />
+      )}
+      {step === 'complete' && <CompleteStep />}
+    </Box>
+  );
+}
+```
+
+We are now calling the setter in the component that owns the setter, reducing the coupling between that component and the child components. Another added benefit of this approach is that you can now have more complex logic in the `onClickNext` handler should you ever need it.
+
+When designing components, always try to put some extra effort into designing their interfaces. Try to think of the components in isolation as if you don't know how or where they will be used. You'll find that you'll start designing components that are simpler and easier to use and test.

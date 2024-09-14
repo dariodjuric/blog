@@ -1,7 +1,7 @@
 ---
-title: Avoid coupling React components when passing functions down
+title: Using callbacks to achieve better component decoupling in React
 tags: ['Component Design']
-summary: Avoid tightly coupling parent and child components by passing callback functions down to child components instead of setters, creating more reusable and testable components.
+summary: Decouple React components effectively by passing functions the right way, creating more versatile and maintainable code.
 ---
 
 Imagine you have an onboarding component that displays a `WelcomeStep`, `TermsOfServiceStep`, or `CompleteStep`, depending on the current step. A beginner developer might implement this as:

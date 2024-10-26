@@ -185,6 +185,10 @@
     @apply mt-6 mb-0 font-bold text-2xl;
   }
 
+  h4 {
+    @apply mt-6 mb-0 font-bold text-xl;
+  }
+
   a {
     @apply text-brand-content underline;
   }

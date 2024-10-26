@@ -75,7 +75,7 @@ export default async function submitContactFormAction(formData: FormData) {
 }
 ```
 
-If you come across this problem, consider using the `router.push()` method instead. For example, if the redirect should happen as a result of a user-triggered server function invocation, then simply execute the server function in the client and perform a `router.push()` immediately after.
+If you come across this problem, consider using the `router.push()` on the client instead. For example, if the redirect should happen as a result of a user-triggered server function invocation, then simply execute the server function in the client and perform a `router.push()` immediately after.
 
 ### Conclusion
 

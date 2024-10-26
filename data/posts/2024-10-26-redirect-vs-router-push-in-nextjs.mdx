@@ -1,0 +1,83 @@
+---
+title: When to use redirect() vs. router.push() in Next.js
+tags: ['Next.js']
+summary: Explaining the two methods for programmatically redirecting a user in Next.js components, server functions, or route handlers.
+---
+
+Next.js has two seemingly similar ways of programmatically redirecting the user to a different location, which can be confusing at first. These are [`router.push()`](https://nextjs.org/docs/pages/building-your-application/routing/redirecting#userouter-hook), where `router` is a return value from the `useRouter()` hook, and the [`redirect()`](https://nextjs.org/docs/app/building-your-application/routing/redirecting#redirect-function) function. There's also a third way of programatically redirecting, which is performing [`NextResponse.redirect()`](https://nextjs.org/docs/pages/building-your-application/routing/redirecting#nextresponseredirect-in-middleware) in a middleware, but we won’t be covering that here. Instead, we’ll focus on the options available when redirecting within Next.js components, server functions, or route handlers.
+
+### router.push()
+
+When we use the `useRouter()` hook from the `next/navigation` module, we get back a `router` instance. Since this is a hook that can only be used in client components, it also implies that the `router.push()` function can only be used in the client components.
+
+A typical use case of `router.push()` is to perform navigation as a result of an event, such as a user clicking an element, or after executing a server function or invoking an API.
+
+```tsx
+"use client";
+
+import { useRouter } from "next/navigation";
+
+export default function RedirectButton() {
+  const router = useRouter();
+
+  const handleRedirect = () => {
+    router.push("/target-page");
+  };
+
+  return (
+    <button onClick={handleRedirect}>
+      Go to Target Page
+    </button>
+  );
+}
+```
+
+`router.push()` utilizes the [History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API) to push a new entry into the history stack. This allows the user to use standard browser back and forward functionalities to navigate through the history stack. Therefore `router.push()` is referred to as client-only navigation.
+
+### redirect()
+
+The `redirect()` function is more nuanced, making it harder to decide when to use it vs. `router.push()`, especially if the redirect should happen as a result of a user-triggered event. However, its primary use case is redirecting on the server, whether in server components, server functions, or route handlers. It can also be used in client components, *but only during rendering* and not in event handlers (e.g., the client component detects that the user is unauthorized, and performs a redirect *while rendering* on the server).
+
+```tsx
+"use server";
+import { cookies } from "next/headers";
+
+export default async function addUserAction() {
+  const cookieStore = await cookies();
+  const authCookie = cookieStore.get('auth');
+  if (!isCookieValid(authCookie)) {
+    redirect("/login");
+  }
+
+  // Continue with the action
+}
+```
+
+#### Using redirect() in try/catch
+
+One thing specific about the `redirect()` function is that it [throws a `NEXT_REDIRECT` exception](https://github.com/vercel/next.js/blob/canary/packages/next/src/client/components/redirect.ts#L20) when used. The framework catches this exception and performs a redirect. For this reason, you should use it outside a `try`/`catch` block (although it can still be used in a `finally` block).
+
+#### Note about Suspense
+
+It's important to note that `redirect()` behaves differently depending on the context in which it's running. When running in a route handler, for example, it will result in a [HTTP 307 (Temporary Redirect)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/307) being sent to the browser for redirection. However, when used in a server function, the HTTP response coming back will be a [HTTP 303 (See Other)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/303) containing the RSC payload of the next page to render. The implication is that any suspense boundaries on the next page will effectively not be used! This is because React will execute the server function invocation and the rendering of then next page in one batch, and return the response only after the next page is fully rendered.
+
+```tsx
+"use server";
+import { cookies } from "next/headers";
+
+export default async function submitContactFormAction(formData: FormData) {
+  // Validate form data
+  // Persist it to database
+  
+  // Any suspense boundaries on the following page will not work
+  // The page will be rendered and then returned back in the response of the action
+  redirect("/thank-you"); 
+}
+```
+
+If you come across this problem, consider using the `router.push()` method instead. For example, if the redirect should happen as a result of a user-triggered server function invocation, then simply execute the server function in the client and perform a `router.push()` immediately after.
+
+### Conclusion
+
+In short, `router.push()` should always be used in event handlers in client components, while `redirect()` should be used in server components, server functions, and route handlers. However, take care when using `redirect()` in exception handlers or if you plan to use suspense on the page you are redirecting to.
+

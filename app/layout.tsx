@@ -69,7 +69,9 @@ export default function RootLayout({
           {children}
         </main>
         <footer className="h-[70px] bg-neutral-background flex flex-row justify-between  p-8 md:px-14 text-white">
-          <p className="self-center text-sm">ⓒ 2024 Dario Djuric</p>
+          <p className="self-center text-sm">
+            ⓒ {new Date().getFullYear()} Dario Djuric
+          </p>
           <Socials />
         </footer>
       </body>

@@ -22,7 +22,10 @@ export function CodeBlock({
   // For inline code blocks
   if (inline || !language) {
     return (
-      <code className="bg-gray-300 bg-opacity-50 p-0.5 text-sm">
+      <code
+        className="bg-gray-300 bg-opacity-50 p-0.5 text-sm"
+        style={{ whiteSpace: 'pre-wrap' }}
+      >
         {children}
       </code>
     );
@@ -34,25 +37,22 @@ export function CodeBlock({
       style={themeStyle}
       language={language}
       PreTag="div"
-      showLineNumbers={true}
+      showLineNumbers={false}
       customStyle={{
         margin: '1rem 0',
         borderRadius: '0.5rem',
         fontSize: '0.875rem',
         lineHeight: '1.5',
+        whiteSpace: 'pre-wrap',
+        wordBreak: 'break-word',
       }}
       codeTagProps={{
         style: {
           fontSize: '0.875rem',
           fontFamily:
             'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
+          whiteSpace: 'pre-wrap',
         },
-      }}
-      lineNumberStyle={{
-        minWidth: '3em',
-        paddingRight: '1em',
-        textAlign: 'right',
-        userSelect: 'none',
       }}
     >
       {String(children).replace(/\n$/, '')}

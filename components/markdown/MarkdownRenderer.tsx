@@ -25,7 +25,7 @@ export function MarkdownRenderer({
                 <Link
                   href={href || ''}
                   {...props}
-                  className="text-blue-600 hover:text-blue-800 underline"
+                  className="text-brand-content hover:text-brand-content-hover underline"
                 >
                   {children}
                 </Link>
@@ -36,7 +36,7 @@ export function MarkdownRenderer({
                 href={href || ''}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-800 underline"
+                className="text-brand-content hover:text-brand-content-hover underline"
                 {...props}
               >
                 {children}
@@ -110,7 +110,7 @@ export function MarkdownRenderer({
           ),
           h2: ({ children, className, ...props }) => (
             <h2
-              className={`text-2xl font-semibold mt-6 mb-3 ${className || ''}`}
+              className={`mt-1 mb-1 font-bold text-4xl ${className || ''}`}
               {...props}
             >
               {children}
@@ -118,7 +118,7 @@ export function MarkdownRenderer({
           ),
           h3: ({ children, className, ...props }) => (
             <h3
-              className={`text-xl font-semibold mt-5 mb-2 ${className || ''}`}
+              className={`mt-6 mb-0 font-bold text-2xl ${className || ''}`}
               {...props}
             >
               {children}
@@ -126,7 +126,7 @@ export function MarkdownRenderer({
           ),
           h4: ({ children, className, ...props }) => (
             <h4
-              className={`text-lg font-semibold mt-4 mb-2 ${className || ''}`}
+              className={`mt-6 mb-0 font-bold text-xl ${className || ''}`}
               {...props}
             >
               {children}
@@ -191,7 +191,7 @@ export function MarkdownRenderer({
 
           // Paragraphs
           p: ({ children, className, ...props }) => (
-            <p className={`mb-4 leading-relaxed ${className || ''}`} {...props}>
+            <p className={`my-2 ${className || ''}`} {...props}>
               {children}
             </p>
           ),

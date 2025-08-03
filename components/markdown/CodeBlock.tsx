@@ -22,7 +22,7 @@ export function CodeBlock({
   // For inline code blocks
   if (inline || !language) {
     return (
-      <code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800 dark:text-gray-200">
+      <code className="bg-gray-300 bg-opacity-50 p-0.5 text-sm">
         {children}
       </code>
     );

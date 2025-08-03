@@ -5,19 +5,20 @@ import { slugifyLowercase } from '@/utils/slugify';
 export default async function TagsPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
+  const { slug } = await params;
   const posts = getCachedPosts();
 
   const filteredPosts = posts.filter((post) =>
     post.frontMatter.tags
       .map((tag: string) => slugifyLowercase(tag))
-      .includes(params.slug),
+      .includes(slug),
   );
 
   return (
     <>
-      <h2>#{params.slug}</h2>
+      <h2>#{slug}</h2>
       <PostsList posts={filteredPosts} />
     </>
   );

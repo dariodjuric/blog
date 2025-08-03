@@ -1,14 +1,13 @@
-import { MDXRemote } from 'next-mdx-remote/rsc';
-import { MDXComponents } from 'mdx/types';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Code } from 'bright';
+import ReactMarkdown from 'react-markdown';
 import { format } from 'date-fns';
 import { notFound } from 'next/navigation';
 import { Badge } from '@/components/Badge';
 import { Metadata, ResolvingMetadata } from 'next';
 import { getCachedPosts, getPostBySlug } from '@/app/cached-posts';
 import { slugifyLowercase } from '@/utils/slugify';
+import remarkGfm from 'remark-gfm';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export async function generateStaticParams() {
   const posts = getCachedPosts();
@@ -22,11 +21,12 @@ export async function generateMetadata(
   {
     params,
   }: {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
   },
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const article = getPostBySlug(params.slug);
+  const { slug } = await params;
+  const article = getPostBySlug(slug);
 
   return {
     title: article?.frontMatter.title,
@@ -45,9 +45,10 @@ export async function generateMetadata(
 export default async function PostPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const post = getPostBySlug(params.slug);
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
 
   if (!post) {
     return notFound();
@@ -60,13 +61,68 @@ export default async function PostPage({
       </span>
       <h2>{post.frontMatter.title}</h2>
       <div className="mt-5">
-        <MDXRemote
-          source={post.content || ''}
-          components={mdxComponents}
-          options={{
-            mdxOptions: {},
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+          components={{
+            a: ({ children, href, ...props }) => {
+              if (href?.includes('darios.blog')) {
+                return (
+                  <Link href={href || ''} {...props}>
+                    {children}
+                  </Link>
+                );
+              }
+              return (
+                <a
+                  href={href || ''}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  {...props}
+                >
+                  {children}
+                </a>
+              );
+            },
+            img: ({ src, alt, width, height, ...props }) => {
+              if (!src) return null;
+              const widthNum =
+                typeof width === 'string' ? parseInt(width, 10) : width || 800;
+              const heightNum =
+                typeof height === 'string'
+                  ? parseInt(height, 10)
+                  : height || 600;
+              return (
+                <Image
+                  src={src}
+                  alt={alt || ''}
+                  width={widthNum}
+                  height={heightNum}
+                  {...props}
+                />
+              );
+            },
+            pre: ({ children, className, ...props }) => (
+              <pre
+                className={`bg-gray-100 p-4 rounded overflow-x-auto ${className || ''}`}
+                {...props}
+              >
+                {children}
+              </pre>
+            ),
+            code: ({ children, className, ...props }) => (
+              <code className={className || ''} {...props}>
+                {children}
+              </code>
+            ),
+            ol: ({ children, className, ...props }) => (
+              <ol className={`list-decimal ml-4 ${className || ''}`} {...props}>
+                {children}
+              </ol>
+            ),
           }}
-        />
+        >
+          {post.content || ''}
+        </ReactMarkdown>
       </div>
       {post.frontMatter.tags.length > 0 && (
         <div className="mt-5">
@@ -80,38 +136,3 @@ export default async function PostPage({
     </article>
   );
 }
-
-const mdxComponents: MDXComponents = {
-  a: ({ children, ...props }) => {
-    if (props.href?.includes('darios.blog')) {
-      return (
-        // @ts-ignore
-        <Link {...props} href={props.href || ''}>
-          {children}
-        </Link>
-      );
-    }
-    return (
-      // @ts-ignore
-      <a {...props} href={props.href || ''} target="_blank">
-        {children}
-      </a>
-    );
-  },
-  // @ts-ignore
-  img: ({ children, props }) => {
-    return <Image {...props} />;
-  },
-  // @ts-ignore
-  pre: ({ children, props }) => {
-    return <Code {...props}>{children}</Code>;
-  },
-  // @ts-ignore
-  ol: ({ children, props }) => {
-    return (
-      <ol className="list-decimal ml-4" {...props}>
-        {children}
-      </ol>
-    );
-  },
-};

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "concurrently \"npm run build:rss\" \"npm run build:next\" ",
     "build:rss": "ts-node --project ./node.tsconfig.json scripts/rss",
     "build:next": "next build",

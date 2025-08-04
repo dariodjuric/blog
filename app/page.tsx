@@ -43,7 +43,7 @@ export default function Home() {
           </p>
         </div>
         <div className="md:col-span-4 w-full flex flex-col justify-center py-3 md:py-0">
-          <div className="self-center rotate-3 border-2 border-white shadow-[rgba(0,_0,_0,_0.25)_0px_25px_50px_-12px]">
+          <div className="self-center rotate-3 border-2 border-white shadow-picture">
             <Image
               src={myPicture}
               alt="My picture"

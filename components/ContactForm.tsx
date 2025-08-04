@@ -133,7 +133,7 @@ export function ContactForm() {
             type="submit"
             disabled={isLoading}
             formNoValidate
-            className="bg-primary-button text-brand-content-inverse min-w-fit w-28 py-1 rounded-md bg-opacity-90 hover:bg-opacity-100 shadow-form-inner disabled:bg-opacity-50 disabled:cursor-not-allowed"
+            className="bg-primary-button/90 text-brand-content-inverse min-w-fit w-28 py-1 rounded-md hover:bg-primary-button shadow-form-inner disabled:bg-primary-button/50 disabled:cursor-not-allowed"
           >
             {isLoading ? 'Sending...' : 'Send'}
           </button>

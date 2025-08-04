@@ -1,6 +1,44 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@source "./pages/**/*.{js,ts,jsx,tsx,mdx}";
+@source "./components/**/*.{js,ts,jsx,tsx,mdx}";
+@source "./app/**/*.{js,ts,jsx,tsx,mdx}";
+
+@theme {
+  --font-content: "DIN 2014";
+  --font-logo: "Roboto Slab";
+  
+  --font-weight-semibold: 500;
+  
+  --color-primary-content-default: #000;
+  --color-primary-content-error: #C1121F;
+  --color-primary-background: #FDF0D5;
+  --color-primary-background-dark: #F7EBD2;
+  --color-primary-background-light: #FDF5E4;
+  --color-primary-background-code: #F6E9C6;
+  --color-primary-button: #C1121F;
+  --color-primary-border-active: #569FB6;
+  --color-primary-border-error: #EA6771;
+  --color-primary-border-code: #E2B969;
+  
+  --color-secondary-content: #333;
+  --color-secondary-background: #003049;
+  --color-secondary-background-light: #569FB6;
+  --color-secondary-background-hover: #004366;
+  
+  --color-brand-content: #C1121F;
+  --color-brand-content-inverse: #FFF;
+  --color-brand-content-hover: #DE1524;
+  --color-brand-border: #C1121F;
+  
+  --color-neutral-content: #569FB6;
+  --color-neutral-content-inverse: #FDF0D5;
+  --color-neutral-background: #30829C;
+  
+  --shadow-light: 2px 2px 0px 0px rgba(0, 0, 0, 0.08);
+  --shadow-form-inner: inset 0px 0px 4px rgba(0, 0, 0, 0.08);
+  --shadow-picture: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
 
 @layer base {
   @font-face {
@@ -206,7 +244,7 @@
   }
 
   p > code {
-    @apply bg-gray-300 bg-opacity-50 p-0.5;
+    @apply bg-gray-300/50 p-0.5;
   }
 }
 
@@ -224,4 +262,11 @@
     background-image: url("/grid.svg");
   }
 
+  .text-shadow {
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.08);
+  }
+
+  .text-shadow-low {
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.08);
+  }
 }

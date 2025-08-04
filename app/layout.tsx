@@ -64,7 +64,7 @@ export default function RootLayout({
             <Navigation />
           </nav>
         </header>
-        <hr className="h-[5px] bg-brand-border" />
+        <hr className="h-[5px] bg-brand-border border-none" />
         <main className="content p-5 md:px-16 md:py-10 md:pb-16">
           {children}
         </main>

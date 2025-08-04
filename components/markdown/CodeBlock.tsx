@@ -23,7 +23,7 @@ export function CodeBlock({
   if (inline || !language) {
     return (
       <code
-        className="bg-gray-300 bg-opacity-50 p-0.5 text-sm"
+        className="bg-primary-background-code/80 border border-primary-border-code/80 rounded-sm p-0.5 text-sm"
         style={{ whiteSpace: 'pre-wrap' }}
       >
         {children}

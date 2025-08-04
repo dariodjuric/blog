@@ -26,11 +26,13 @@ const config: Config = {
             DEFAULT: '#FDF0D5',
             dark: '#F7EBD2',
             light: '#FDF5E4',
+            code: '#F6E9C6',
           },
           button: '#C1121F',
           border: {
             active: '#569FB6',
             error: '#EA6771',
+            code: '#E2B969',
           },
         },
         secondary: {

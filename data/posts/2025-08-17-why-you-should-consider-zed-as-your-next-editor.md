@@ -22,6 +22,8 @@ However, in my view, AI-assisted development in many other IDEs and editors stil
 
 With Zed, I did not have that experience. It feels like the AI features were built into the core of the product as the product was being architected, and they work seamlessly with the editor. The agent sidebar works great, and I particularly like the experience of edit prediction. The Zed team did not choose to overload the tab key with both the standard auto-complete and edit-prediction. Rather, they chose to use a modifier key (Opt on Mac) if you want to use the edit prediction as opposed to the standard auto-complete.
 
+Last but not least, Zed is very friendly to other agents' rules files. If you work in a team that uses multiple agents and your project includes `.cursorrules`, `.github/copilot-instructions.md`, `CLAUDE.md`, etc., Zed will take [all of them into consideration](https://zed.dev/docs/ai/rules).
+
 ### Great team that ships fast
 
 I'm in no way associated with Zed's team, but I feel at this point they have a great team that ships really fast. In just 6 months, they managed to ship a fully working Git integration and the agent panel. They are also pretty transparent about their work. I loved their [recent video](https://www.youtube.com/watch?v=r1A268kA1uM) where they explain how they built the edit prediction feature.

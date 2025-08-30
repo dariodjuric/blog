@@ -41,9 +41,8 @@ export default async function AboutPage() {
       <p>
         Outside of work, most of my time is spent with my wife and our two boys,
         and every once in a while I manage to squeeze in a bit of time for my
-        hobbies: sports (soccer, swimming, jogging), guitar playing, or being a
-        home barista, experimenting with different coffee brewing methods and
-        practicing latte art.
+        hobbies: sports, guitar playing, or being a home barista (a title that
+        justifies me spending a lot on my coffee gear).
       </p>
     </>
   );

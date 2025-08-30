@@ -34,8 +34,9 @@ export default async function AboutPage() {
         <a href="https://www.thisdot.co/" target="_blank">
           This Dot Labs
         </a>
-        , specializing in JavaScript and TypeScript on both the frontend and the
-        backend.
+        , focusing mainly on JavaScript and TypeScript for both the frontend and
+        backend, though I occasionally drift into PHP and .NET depending on the
+        project.
       </p>
       <p>
         Outside of work, most of my time is spent with my wife and our two boys,

@@ -30,13 +30,8 @@ export default async function AboutPage() {
       <p>
         Since then, I&apos;ve worked mostly in the service/consulting space in
         the enterprise, and I&apos;ve led teams, small and large. Currently, I
-        work at{' '}
-        <a href="https://www.thisdot.co/" target="_blank">
-          This Dot Labs
-        </a>
-        , focusing mainly on JavaScript and TypeScript for both the frontend and
-        backend, though I occasionally drift into PHP and .NET depending on the
-        project.
+        work as a freelancer, specializing in JavaScript and TypeScript on both
+        the frontend and the backend.
       </p>
       <p>
         Outside of work, most of my time is spent with my wife and our two boys,

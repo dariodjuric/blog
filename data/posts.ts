@@ -12,7 +12,7 @@ export interface Post {
 
 export const getPosts = (): Post[] => {
   const postsDirectory = path.join(process.cwd(), 'data/posts');
-  const fileNames = fs.readdirSync(postsDirectory);
+  const fileNames = fs.readdirSync(postsDirectory).filter((f) => f.endsWith('.mdx'));
   const posts = fileNames.map((fileName) => {
     const dateMatch = fileName.match(/^(\d{4}-\d{2}-\d{2})-/);
     const date = dateMatch ? new Date(dateMatch[1]) : null;

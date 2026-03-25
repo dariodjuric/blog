@@ -7,23 +7,27 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ### Development
 - `npm run dev` - Start development server at http://localhost:3000
 - `npm run build` - Production build (includes RSS feed generation)
-- `npm run lint` - Run ESLint to check code quality
 - `npm start` - Start production server
 
 ### Build Process
 The build command runs two processes concurrently:
-1. RSS feed generation (`ts-node scripts/rss`)
-2. Next.js build (`next build`)
+1. RSS feed generation (`tsx scripts/rss.ts`)
+2. Vite build (`vite build`)
 
 ## Architecture
 
-This is a Next.js 15 blog using App Router, deployed at https://darios.blog.
+This is a TanStack Start blog using TanStack Router (file-based routing), deployed at https://darios.blog.
 
 ### Key Directories
-- `app/` - Next.js App Router pages and API routes
-  - Dynamic routes: `posts/[slug]` and `tags/[slug]`
-  - API endpoint: `api/contact` for contact form
-- `components/markdown/` - Custom markdown rendering system with syntax highlighting
+- `src/routes/` - TanStack Router file-based routes
+  - Dynamic routes: `posts/$slug.tsx` and `tags/$slug.tsx`
+  - API route: `api/contact.ts` for contact form (server handlers)
+  - `__root.tsx` - Root layout (HTML shell, nav, footer, analytics)
+- `src/components/markdown/` - Custom markdown rendering system with syntax highlighting
+- `src/lib/` - Data loading and server functions
+  - `posts.ts` - Post loading from filesystem
+  - `posts.api.ts` - Server functions (createServerFn) for post fetching
+- `src/styles/app.css` - Tailwind CSS v4 with theme tokens and font-face declarations
 - `data/posts/` - MDX blog posts (format: `YYYY-MM-DD-slug.mdx`)
 - `scripts/rss.ts` - RSS feed generation script
 
@@ -37,23 +41,23 @@ summary: "Brief description"
 ---
 ```
 
-Posts are statically generated at build time. The `data/posts.ts` module handles post loading and parsing.
+Posts are loaded via server functions. The `src/lib/posts.ts` module reads MDX files from disk and parses frontmatter.
 
 ### Styling
-- Tailwind CSS with custom theme configuration
+- Tailwind CSS v4 with `@tailwindcss/vite` plugin
 - Custom fonts: DIN 2014 and Roboto Slab (loaded from `/public/fonts/`)
 - Design tokens for primary/secondary/brand colors
 
 ### Important Patterns
-1. **Markdown Components**: Custom ReactMarkdown implementation in `components/markdown/` handles:
+1. **Markdown Components**: Custom ReactMarkdown implementation in `src/components/markdown/` handles:
    - External links open in new tabs
-   - Internal links use Next.js Link
+   - Internal links use TanStack Router Link
    - Syntax highlighting for code blocks
 
-2. **URL Structure**: 
-   - Legacy `/blog/*` paths redirect to `/posts/*`
-   - Tag filtering at `/tags/[slug]`
+2. **URL Structure**:
+   - Legacy `/blog/*` paths redirect to `/posts/*` via `src/routes/blog/$.tsx`
+   - Tag filtering at `/tags/$slug`
 
-3. **Static Generation**: All pages use `generateStaticParams` for build-time generation
+3. **Server Functions**: Data fetching uses `createServerFn` from TanStack Start for type-safe server/client RPC
 
 4. **RSS Feed**: Automatically generated during build via `scripts/rss.ts`

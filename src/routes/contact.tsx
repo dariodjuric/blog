@@ -1,5 +1,5 @@
-import { createFileRoute } from '@tanstack/react-router';
 import { ContactForm } from '@/components/ContactForm';
+import { createFileRoute } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/contact')({
   component: ContactPage,

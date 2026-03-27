@@ -5,12 +5,18 @@ import { nitro } from 'nitro/vite';
 import path from 'node:path';
 
 export default defineConfig({
-  esbuild: {
-    jsx: 'automatic',
-  },
   resolve: {
+    dedupe: ['react', 'react-dom', 'react/jsx-runtime', 'react/jsx-dev-runtime'],
     alias: {
       '@': path.resolve(__dirname, './src'),
+    },
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react/jsx-runtime', 'react/jsx-dev-runtime'],
+  },
+  ssr: {
+    optimizeDeps: {
+      include: ['react', 'react-dom', 'react/jsx-runtime', 'react/jsx-dev-runtime'],
     },
   },
   server: {

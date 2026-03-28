@@ -1,15 +1,15 @@
 import { ReactNode, useState } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-
-export interface FormInput {
-  name: string;
-  email: string;
-  message: string;
-}
+import {
+  contactFormSchema,
+  submitContactForm,
+  type ContactFormInput,
+} from '@/lib/contact.api';
 
 function ErrorMessage({ children }: { children: ReactNode }) {
   return (
@@ -24,23 +24,17 @@ export function ContactForm() {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm<FormInput>();
+  } = useForm<ContactFormInput>({
+    resolver: zodResolver(contactFormSchema),
+  });
   const [view, setView] = useState<'contact-form' | 'thank-you'>(
     'contact-form',
   );
   const [isLoading, setLoading] = useState(false);
-  const onSubmit: SubmitHandler<FormInput> = async (data, e) => {
-    e?.preventDefault();
-
+  const onSubmit = async (data: ContactFormInput) => {
     setLoading(true);
     try {
-      await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
+      await submitContactForm({ data });
     } catch (e) {
       console.error(e);
     } finally {
@@ -95,7 +89,7 @@ export function ContactForm() {
         <Label htmlFor="name">Name</Label>
         <Input
           id="name"
-          {...register('name', { required: 'Please enter your name.' })}
+          {...register('name')}
           aria-invalid={!!errors.name || undefined}
           className="h-10"
         />
@@ -106,13 +100,7 @@ export function ContactForm() {
         <Input
           id="email"
           type="email"
-          {...register('email', {
-            required: 'Please enter your email.',
-            pattern: {
-              value: /^[a-zA-Z0-9._+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-              message: 'This email appears invalid.',
-            },
-          })}
+          {...register('email')}
           aria-invalid={!!errors.email || undefined}
           className="h-10"
         />
@@ -122,7 +110,7 @@ export function ContactForm() {
         <Label htmlFor="message">Message</Label>
         <Textarea
           id="message"
-          {...register('message', { required: 'Please enter your message.' })}
+          {...register('message')}
           aria-invalid={!!errors.message || undefined}
           rows={5}
           className="resize-none"

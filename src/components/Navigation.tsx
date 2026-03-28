@@ -1,77 +1,84 @@
 import { useState } from 'react';
-import * as Dialog from '@radix-ui/react-dialog';
-import { Link } from '@tanstack/react-router';
+import { Link, useLocation } from '@tanstack/react-router';
+import { Menu } from 'lucide-react';
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerTitle,
+  DrawerTrigger,
+} from '@/components/ui/drawer';
 
-const menuItems = [
-  { label: 'Blog posts', href: '/posts' },
-  { label: 'About me', href: '/about' },
+const navItems = [
+  { label: 'Blog', href: '/posts' },
+  { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
 
 export default function Navigation() {
-  const [mobileMenuShown, setMobileMenuShown] = useState(false);
+  const [open, setOpen] = useState(false);
+  const location = useLocation();
 
   return (
     <>
-      <Dialog.Root open={mobileMenuShown} onOpenChange={setMobileMenuShown}>
-        <Dialog.Trigger asChild>
-          <a
-            href=""
-            onClick={(e) => {
-              e.preventDefault();
-              setMobileMenuShown(true);
-            }}
-            className="block md:hidden"
-          >
-            <img src="/icons/hamburger.svg" alt="Open menu" />
-          </a>
-        </Dialog.Trigger>
-        <Dialog.Portal>
-          <Dialog.Overlay className="fixed top-0 right-0 bottom-0 left-0 bg-black opacity-15" />
-          <Dialog.Content className="outline-none fixed top-0 right-0 w-[250px] h-full bg-primary-background shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] flex flex-col">
-            <div className="w-full h-[70px] px-8 flex flex-row justify-end">
-              <a
-                href=""
-                onClick={(e) => {
-                  e.preventDefault();
-                  setMobileMenuShown(false);
-                }}
-                className="self-center"
-              >
-                <img src="/icons/close.svg" alt="Close menu" />
-              </a>
-            </div>
-            <ul className="flex flex-col self-center w-10/12">
-              {menuItems.map((item, index) => (
-                <li
-                  key={item.href}
-                  className={`text-center py-3 ${index < menuItems.length - 1 ? 'border-b border-gray-300' : ''}`}
-                >
-                  <Link
-                    className="no-underline font-bold hover:text-brand-content text-xl unstyled-link"
-                    to={item.href}
-                    onClick={() => setMobileMenuShown(false)}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </Dialog.Content>
-        </Dialog.Portal>
-      </Dialog.Root>
-      <ul className="hidden md:flex flex-row space-x-7 self-center">
-        {menuItems.map((item) => (
-          <li key={item.href} className="">
+      {/* Desktop nav */}
+      <nav className="hidden md:flex items-center gap-1">
+        {navItems.map((item) => {
+          const isActive = location.pathname === item.href;
+          return (
             <Link
-              className="no-underline font-bold hover:text-brand-content text-lg unstyled-link"
+              key={item.href}
               to={item.href}
+              className={`relative no-underline px-3 py-1.5 font-display text-sm font-medium transition-colors rounded-md ${
+                isActive
+                  ? 'text-primary'
+                  : 'text-muted-foreground hover:text-primary'
+              }`}
             >
               {item.label}
+              {isActive && (
+                <div className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-primary" />
+              )}
             </Link>
-          </li>
-        ))}
-      </ul>
+          );
+        })}
+      </nav>
+
+      {/* Mobile nav */}
+      <Drawer direction="right" open={open} onOpenChange={setOpen}>
+        <DrawerTrigger asChild>
+          <button
+            className="block md:hidden text-muted-foreground hover:text-primary transition-colors"
+            aria-label="Open menu"
+          >
+            <Menu className="h-5 w-5" />
+          </button>
+        </DrawerTrigger>
+        <DrawerContent>
+          <DrawerTitle className="sr-only">Navigation</DrawerTitle>
+          <ul className="flex flex-col px-5 py-4 gap-1">
+            {navItems.map((item) => {
+              const isActive = location.pathname === item.href;
+              return (
+                <li key={item.href}>
+                  <DrawerClose asChild>
+                    <Link
+                      className={`block no-underline px-3 py-2.5 rounded-md font-display text-base font-medium transition-colors ${
+                        isActive
+                          ? 'text-primary bg-primary/10'
+                          : 'text-muted-foreground hover:text-primary hover:bg-muted'
+                      }`}
+                      to={item.href}
+                    >
+                      {item.label}
+                    </Link>
+                  </DrawerClose>
+                </li>
+              );
+            })}
+          </ul>
+        </DrawerContent>
+      </Drawer>
     </>
   );
 }

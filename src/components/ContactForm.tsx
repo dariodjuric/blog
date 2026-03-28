@@ -1,17 +1,19 @@
-import { SubmitHandler, useForm } from 'react-hook-form';
 import { ReactNode, useState } from 'react';
-import { twMerge } from 'tailwind-merge';
-
-export interface FormInput {
-  name: string;
-  email: string;
-  message: string;
-}
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import {
+  contactFormSchema,
+  submitContactForm,
+  type ContactFormInput,
+} from '@/lib/contact.api';
 
 function ErrorMessage({ children }: { children: ReactNode }) {
   return (
-    <p className="text-xs m-0 pt-1 text-primary-content-error flex flex-row gap-1">
-      <img src="/icons/warning.svg" alt="Warning sign" className="size-4" />{' '}
+    <p className="text-xs mt-1 text-destructive animate-fade-in-up">
       {children}
     </p>
   );
@@ -22,23 +24,17 @@ export function ContactForm() {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm<FormInput>();
+  } = useForm<ContactFormInput>({
+    resolver: zodResolver(contactFormSchema),
+  });
   const [view, setView] = useState<'contact-form' | 'thank-you'>(
     'contact-form',
   );
   const [isLoading, setLoading] = useState(false);
-  const onSubmit: SubmitHandler<FormInput> = async (data, e) => {
-    e?.preventDefault();
-
+  const onSubmit = async (data: ContactFormInput) => {
     setLoading(true);
     try {
-      await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
+      await submitContactForm({ data });
     } catch (e) {
       console.error(e);
     } finally {
@@ -49,92 +45,88 @@ export function ContactForm() {
 
   if (view === 'thank-you') {
     return (
-      <p className="pb-2">
-        Message sent! Thanks! 😊 You can now{' '}
-        <a
-          className="text-watusi underline cursor-pointer"
-          onClick={() => {
-            setView('contact-form');
-            return false;
-          }}
+      <div className="mt-12 flex flex-col items-center text-center animate-fade-in-up">
+        <div className="w-14 h-14 rounded-full bg-primary/15 flex items-center justify-center mb-5">
+          <svg
+            className="w-7 h-7 text-primary"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2.5}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M5 13l4 4L19 7"
+            />
+          </svg>
+        </div>
+        <h2 className="font-display text-xl font-bold text-foreground">
+          Message sent
+        </h2>
+        <p className="mt-2 max-w-[16rem]">
+          Thanks for reaching out. I&apos;ll get back to you soon.
+        </p>
+        <button
+          className="mt-6 text-sm text-primary hover:text-primary/80 transition-colors font-medium underline cursor-pointer"
+          onClick={() => setView('contact-form')}
         >
-          head back
-        </a>{' '}
-        to the contact form if you wish.
-      </p>
+          Send another message
+        </button>
+      </div>
     );
   }
 
   return (
-    <div>
-      <p>Don&apos;t be a stranger.</p>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="py-2 flex flex-col">
-          <label htmlFor="name" className="pb-1">
-            Your name
-          </label>
-          <input
-            id="name"
-            {...register('name', { required: 'Please enter your name.' })}
-            aria-invalid={!!errors.name}
-            type="text"
-            className={twMerge(
-              'w-full lg:w-80 h-10 lg:h-9 p-2 bg-primary-background-dark rounded-md shadow-form-inner focus:outline-none focus:ring ring-primary-border-active',
-              !!errors.name ? '' : '',
-            )}
-          />
-          {errors.name && <ErrorMessage>{errors.name.message}</ErrorMessage>}
-        </div>
-        <div className="py-2 flex flex-col">
-          <label htmlFor="email" className="pb-1">
-            Your email
-          </label>
-          <input
-            id="email"
-            type="email"
-            aria-invalid={!!errors.email}
-            {...register('email', {
-              required: 'Please enter your email.',
-              pattern: {
-                value: /^[a-zA-Z0-9._+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-                message: 'This email appears invalid.',
-              },
-            })}
-            className={twMerge(
-              'w-full lg:w-80 h-10 lg:h-9 p-2 bg-primary-background-dark rounded-md shadow-form-inner focus:outline-none focus:ring ring-primary-border-active',
-              !!errors.email ? '' : '',
-            )}
-          />
-          {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
-        </div>
-        <div className="py-2 flex flex-col">
-          <label htmlFor="message" className="pb-1">
-            Message
-          </label>
-          <textarea
-            id="message"
-            {...register('message', { required: 'Please enter your message.' })}
-            aria-invalid={!!errors.name}
-            className={twMerge(
-              'lg:w-4/6 w-full h-48 lg:h-32 p-2 bg-primary-background-dark rounded-md shadow-form-inner resize-none focus:outline-none focus:ring ring-primary-border-active',
-              !!errors.name ? '' : '',
-            )}
-          ></textarea>
-          {errors.message && (
-            <ErrorMessage>{errors.message.message}</ErrorMessage>
-          )}
-        </div>
-        <div className="pt-3 flex flex-row justify-center lg:justify-start">
-          <button
-            type="submit"
-            disabled={isLoading}
-            formNoValidate
-            className="bg-primary-button/90 text-brand-content-inverse min-w-fit w-28 py-1 rounded-md hover:bg-primary-button shadow-form-inner disabled:bg-primary-button/50 disabled:cursor-not-allowed"
-          >
-            {isLoading ? 'Sending...' : 'Send'}
-          </button>
-        </div>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <div className="mb-6">
+        <h1 className="font-display text-2xl font-bold text-foreground">
+          Contact
+        </h1>
+        <p className="mt-2">Don&apos;t be a stranger &mdash; say hello.</p>
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="name">Name</Label>
+        <Input
+          id="name"
+          {...register('name')}
+          aria-invalid={!!errors.name || undefined}
+          className="h-10"
+        />
+        {errors.name && <ErrorMessage>{errors.name.message}</ErrorMessage>}
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="email">Email</Label>
+        <Input
+          id="email"
+          type="email"
+          {...register('email')}
+          aria-invalid={!!errors.email || undefined}
+          className="h-10"
+        />
+        {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="message">Message</Label>
+        <Textarea
+          id="message"
+          {...register('message')}
+          aria-invalid={!!errors.message || undefined}
+          rows={5}
+          className="resize-none"
+        />
+        {errors.message && (
+          <ErrorMessage>{errors.message.message}</ErrorMessage>
+        )}
+      </div>
+      <Button
+        type="submit"
+        disabled={isLoading}
+        className="w-full rounded-full font-display font-semibold"
+        size="lg"
+      >
+        {isLoading ? 'Sending...' : 'Send Message'}
+      </Button>
+    </form>
   );
 }

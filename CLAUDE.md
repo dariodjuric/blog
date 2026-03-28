@@ -45,8 +45,9 @@ Posts are loaded via server functions. The `src/lib/posts.ts` module reads MDX f
 
 ### Styling
 - Tailwind CSS v4 with `@tailwindcss/vite` plugin
-- Custom fonts: DIN 2014 and Roboto Slab (loaded from `/public/fonts/`)
-- Design tokens for primary/secondary/brand colors
+- Fonts: Space Grotesk (display) and DM Sans (body) via Google Fonts
+- Dark theme with HSL color variables in `src/styles/app.css`
+- When using custom sizes, use rems instead of pixels (e.g. `text-[0.9375rem]` not `text-[15px]`)
 
 ### Important Patterns
 1. **Markdown Components**: Custom ReactMarkdown implementation in `src/components/markdown/` handles:

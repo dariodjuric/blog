@@ -13,11 +13,7 @@ export default function Header() {
           <span className="align-baseline text-[0.7em] text-foreground/60">
             &apos;
           </span>
-          s
-          <span className="align-baseline text-[0.7em] text-foreground/60">
-            .
-          </span>
-          blog
+          s.blog
         </Link>
         <Navigation />
       </div>

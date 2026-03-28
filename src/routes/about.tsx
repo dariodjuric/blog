@@ -13,17 +13,11 @@ function AboutPage() {
         </h1>
 
         <div className="mt-8 flex flex-col md:flex-row gap-8 items-start">
-          <div className="relative shrink-0">
-            <div
-              className="absolute -inset-1 rounded-2xl opacity-20"
-              style={{ background: 'var(--gradient-vivid)' }}
-            />
-            <img
-              src="/me.jpg"
-              alt="Dario Djuric"
-              className="relative rounded-2xl w-44 h-44 object-cover shadow-lg shadow-black/10 ring-1 ring-white/10"
-            />
-          </div>
+          <img
+            src="/about-me.webp"
+            alt="Dario Djuric"
+            className="relative rounded-2xl w-52 object-cover"
+          />
 
           <div className="space-y-4">
             <p>

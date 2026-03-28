@@ -34,7 +34,7 @@ export default function BlogCard({
           {tags.map((tag) => (
             <span
               key={tag}
-              className="inline-flex items-center text-[10px] font-medium bg-primary/10 text-primary rounded-full px-2 py-0"
+              className="inline-flex items-center text-[0.6875rem] font-medium bg-primary/10 text-primary rounded-full px-2 py-0.5"
             >
               {tag}
             </span>

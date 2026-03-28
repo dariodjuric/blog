@@ -91,7 +91,7 @@ export function ContactForm() {
         </h1>
         <p className="mt-2">Don&apos;t be a stranger &mdash; say hello.</p>
       </div>
-      <div className="space-y-1.5">
+      <div className="space-y-2">
         <Label htmlFor="name">Name</Label>
         <Input
           id="name"
@@ -101,7 +101,7 @@ export function ContactForm() {
         />
         {errors.name && <ErrorMessage>{errors.name.message}</ErrorMessage>}
       </div>
-      <div className="space-y-1.5">
+      <div className="space-y-2">
         <Label htmlFor="email">Email</Label>
         <Input
           id="email"
@@ -118,7 +118,7 @@ export function ContactForm() {
         />
         {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
       </div>
-      <div className="space-y-1.5">
+      <div className="space-y-2">
         <Label htmlFor="message">Message</Label>
         <Textarea
           id="message"

@@ -1,7 +1,13 @@
 import { useState } from 'react';
-import * as Dialog from '@radix-ui/react-dialog';
 import { Link, useLocation } from '@tanstack/react-router';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerTitle,
+  DrawerTrigger,
+} from '@/components/ui/drawer';
 
 const navItems = [
   { label: 'Blog', href: '/posts' },
@@ -10,7 +16,7 @@ const navItems = [
 ];
 
 export default function Navigation() {
-  const [mobileMenuShown, setMobileMenuShown] = useState(false);
+  const [open, setOpen] = useState(false);
   const location = useLocation();
 
   return (
@@ -39,33 +45,23 @@ export default function Navigation() {
       </nav>
 
       {/* Mobile nav */}
-      <Dialog.Root open={mobileMenuShown} onOpenChange={setMobileMenuShown}>
-        <Dialog.Trigger asChild>
+      <Drawer direction="right" open={open} onOpenChange={setOpen}>
+        <DrawerTrigger asChild>
           <button
-            onClick={() => setMobileMenuShown(true)}
             className="block md:hidden text-muted-foreground hover:text-primary transition-colors"
             aria-label="Open menu"
           >
             <Menu className="h-5 w-5" />
           </button>
-        </Dialog.Trigger>
-        <Dialog.Portal>
-          <Dialog.Overlay className="fixed inset-0 bg-black/50 backdrop-blur-sm" />
-          <Dialog.Content className="outline-none fixed top-0 right-0 w-[250px] h-full bg-card border-l border-border flex flex-col">
-            <div className="h-14 px-5 flex items-center justify-end">
-              <button
-                onClick={() => setMobileMenuShown(false)}
-                className="text-muted-foreground hover:text-primary transition-colors"
-                aria-label="Close menu"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-            <ul className="flex flex-col px-5 gap-1">
-              {navItems.map((item) => {
-                const isActive = location.pathname === item.href;
-                return (
-                  <li key={item.href}>
+        </DrawerTrigger>
+        <DrawerContent>
+          <DrawerTitle className="sr-only">Navigation</DrawerTitle>
+          <ul className="flex flex-col px-5 py-4 gap-1">
+            {navItems.map((item) => {
+              const isActive = location.pathname === item.href;
+              return (
+                <li key={item.href}>
+                  <DrawerClose asChild>
                     <Link
                       className={`block no-underline px-3 py-2.5 rounded-md font-display text-base font-medium transition-colors ${
                         isActive
@@ -73,17 +69,16 @@ export default function Navigation() {
                           : 'text-muted-foreground hover:text-primary hover:bg-muted'
                       }`}
                       to={item.href}
-                      onClick={() => setMobileMenuShown(false)}
                     >
                       {item.label}
                     </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </Dialog.Content>
-        </Dialog.Portal>
-      </Dialog.Root>
+                  </DrawerClose>
+                </li>
+              );
+            })}
+          </ul>
+        </DrawerContent>
+      </Drawer>
     </>
   );
 }

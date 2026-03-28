@@ -9,11 +9,16 @@ export interface FormInput {
 
 function ErrorMessage({ children }: { children: ReactNode }) {
   return (
-    <p className="text-xs m-0 pt-1 text-destructive flex flex-row gap-1 items-center">
+    <p className="text-xs mt-1 text-destructive animate-fade-in-up">
       {children}
     </p>
   );
 }
+
+const inputBase =
+  'w-full px-3 rounded-lg bg-card border text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-primary transition-colors';
+const inputOk = `${inputBase} border-border`;
+const inputErr = `${inputBase} border-destructive/60`;
 
 export function ContactForm() {
   const {
@@ -47,22 +52,46 @@ export function ContactForm() {
 
   if (view === 'thank-you') {
     return (
-      <div className="mt-8">
-        <p>
-          Message sent! Thanks for reaching out.{' '}
-          <button
-            className="text-primary hover:underline"
-            onClick={() => setView('contact-form')}
+      <div className="mt-12 flex flex-col items-center text-center animate-fade-in-up">
+        <div className="w-14 h-14 rounded-full bg-primary/15 flex items-center justify-center mb-5">
+          <svg
+            className="w-7 h-7 text-primary"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2.5}
           >
-            Send another message
-          </button>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M5 13l4 4L19 7"
+            />
+          </svg>
+        </div>
+        <h2 className="font-display text-xl font-bold text-foreground">
+          Message sent
+        </h2>
+        <p className="mt-2 max-w-[16rem]">
+          Thanks for reaching out. I&apos;ll get back to you soon.
         </p>
+        <button
+          className="mt-6 text-sm text-primary hover:text-primary/80 transition-colors font-medium underline cursor-pointer"
+          onClick={() => setView('contact-form')}
+        >
+          Send another message
+        </button>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-4">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <div className="mb-6">
+        <h1 className="font-display text-2xl font-bold text-foreground">
+          Contact
+        </h1>
+        <p className="mt-2">Don&apos;t be a stranger &mdash; say hello.</p>
+      </div>
       <div className="space-y-1.5">
         <label
           htmlFor="name"
@@ -75,7 +104,7 @@ export function ContactForm() {
           {...register('name', { required: 'Please enter your name.' })}
           aria-invalid={!!errors.name}
           type="text"
-          className="w-full h-10 px-3 rounded-lg bg-card border border-border text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-primary"
+          className={`h-10 ${errors.name ? inputErr : inputOk}`}
         />
         {errors.name && <ErrorMessage>{errors.name.message}</ErrorMessage>}
       </div>
@@ -97,7 +126,7 @@ export function ContactForm() {
               message: 'This email appears invalid.',
             },
           })}
-          className="w-full h-10 px-3 rounded-lg bg-card border border-border text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-primary"
+          className={`h-10 ${errors.email ? inputErr : inputOk}`}
         />
         {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
       </div>
@@ -113,7 +142,7 @@ export function ContactForm() {
           {...register('message', { required: 'Please enter your message.' })}
           aria-invalid={!!errors.message}
           rows={5}
-          className="w-full px-3 py-2 rounded-lg bg-card border border-border text-sm text-foreground resize-none focus:outline-none focus:ring-1 focus:ring-primary"
+          className={`py-2 resize-none ${errors.message ? inputErr : inputOk}`}
         />
         {errors.message && (
           <ErrorMessage>{errors.message.message}</ErrorMessage>

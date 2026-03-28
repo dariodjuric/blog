@@ -1,6 +1,6 @@
+import { Link } from '@tanstack/react-router';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Link } from '@tanstack/react-router';
 import { CodeBlock } from './CodeBlock';
 
 interface MarkdownRendererProps {
@@ -92,7 +92,7 @@ export function MarkdownRenderer({
 
           h1: ({ children, className, ...props }) => (
             <h1
-              className={`text-2xl font-bold mt-10 mb-4 ${className || ''}`}
+              className={`text-2xl font-bold mt-6 mb-2 ${className || ''}`}
               {...props}
             >
               {children}
@@ -100,7 +100,7 @@ export function MarkdownRenderer({
           ),
           h2: ({ children, className, ...props }) => (
             <h2
-              className={`text-lg font-bold mt-10 mb-4 ${className || ''}`}
+              className={`text-lg font-bold mt-6 mb-1 ${className || ''}`}
               {...props}
             >
               {children}
@@ -108,17 +108,14 @@ export function MarkdownRenderer({
           ),
           h3: ({ children, className, ...props }) => (
             <h3
-              className={`text-base font-bold mt-8 mb-3 ${className || ''}`}
+              className={`text-base font-bold mt-4 mb-1 ${className || ''}`}
               {...props}
             >
               {children}
             </h3>
           ),
           h4: ({ children, className, ...props }) => (
-            <h4
-              className={`font-bold mt-6 mb-2 ${className || ''}`}
-              {...props}
-            >
+            <h4 className={`font-bold mt-6 mb-1 ${className || ''}`} {...props}>
               {children}
             </h4>
           ),
@@ -178,7 +175,7 @@ export function MarkdownRenderer({
           ),
 
           p: ({ children, className, ...props }) => (
-            <p className={`my-4 ${className || ''}`} {...props}>
+            <p className={`my-2 ${className || ''}`} {...props}>
               {children}
             </p>
           ),

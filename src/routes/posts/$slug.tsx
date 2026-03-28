@@ -1,11 +1,10 @@
-import { createFileRoute, Link } from '@tanstack/react-router';
-import { notFound } from '@tanstack/react-router';
+import { Badge } from '@/components/Badge';
+import { MarkdownRenderer } from '@/components/markdown/MarkdownRenderer';
+import { fetchPostBySlug } from '@/lib/posts.api';
+import { slugifyLowercase } from '@/utils/slugify';
+import { createFileRoute, Link, notFound } from '@tanstack/react-router';
 import { format } from 'date-fns';
 import { ArrowLeft } from 'lucide-react';
-import { fetchPostBySlug } from '@/lib/posts.api';
-import { Badge } from '@/components/Badge';
-import { slugifyLowercase } from '@/utils/slugify';
-import { MarkdownRenderer } from '@/components/markdown/MarkdownRenderer';
 
 export const Route = createFileRoute('/posts/$slug')({
   loader: async ({ params }) => {
@@ -36,9 +35,7 @@ export const Route = createFileRoute('/posts/$slug')({
       <h1 className="font-display text-2xl font-bold text-foreground">
         Post not found
       </h1>
-      <p className="mt-3">
-        The blog post you are looking for does not exist.
-      </p>
+      <p className="mt-3">The blog post you are looking for does not exist.</p>
     </div>
   ),
   component: PostPage,
@@ -59,7 +56,7 @@ function PostPage() {
         </Link>
 
         {post.frontMatter.tags.length > 0 && (
-          <div className="flex flex-wrap gap-1.5 mb-4">
+          <div className="flex flex-wrap gap-1.5 mb-3">
             {post.frontMatter.tags.map((tagName: string) => (
               <Badge key={tagName} href={`/tags/${slugifyLowercase(tagName)}`}>
                 {tagName}
@@ -72,11 +69,11 @@ function PostPage() {
           {post.frontMatter.title}
         </h1>
 
-        <time className="block mt-3">
+        <time className="block mt-2 text-xs uppercase tracking-widest">
           {format(new Date(post.dateCreated), 'LLLL d, yyyy')}
         </time>
 
-        <MarkdownRenderer content={post.content || ''} className="mt-10" />
+        <MarkdownRenderer content={post.content || ''} className="mt-8" />
       </article>
     </div>
   );

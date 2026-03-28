@@ -63,11 +63,7 @@ function HomePage() {
             className="shrink-0 animate-scale-in"
             style={{ animationDelay: '0.15s' }}
           >
-            <div className="relative rotate-3">
-              <div
-                className="absolute -inset-1 rounded-2xl opacity-20"
-                style={{ background: 'var(--gradient-warm)' }}
-              />
+            <div className="relative rotate-4">
               <img
                 src="/me.jpg"
                 alt="Dario Djuric"

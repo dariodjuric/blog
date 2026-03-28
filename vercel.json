@@ -1,7 +1,3 @@
 {
-  "functions": {
-    "**/*": {
-      "includeFiles": "data/posts/**"
-    }
-  }
+  "buildCommand": "npm run build && cp -r data .output/server/data"
 }

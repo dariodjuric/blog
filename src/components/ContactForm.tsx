@@ -1,5 +1,9 @@
-import { SubmitHandler, useForm } from 'react-hook-form';
 import { ReactNode, useState } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
 
 export interface FormInput {
   name: string;
@@ -14,11 +18,6 @@ function ErrorMessage({ children }: { children: ReactNode }) {
     </p>
   );
 }
-
-const inputBase =
-  'w-full px-3 rounded-lg bg-card border text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-primary transition-colors';
-const inputOk = `${inputBase} border-border`;
-const inputErr = `${inputBase} border-destructive/60`;
 
 export function ContactForm() {
   const {
@@ -93,32 +92,20 @@ export function ContactForm() {
         <p className="mt-2">Don&apos;t be a stranger &mdash; say hello.</p>
       </div>
       <div className="space-y-1.5">
-        <label
-          htmlFor="name"
-          className="text-sm font-medium text-foreground block"
-        >
-          Name
-        </label>
-        <input
+        <Label htmlFor="name">Name</Label>
+        <Input
           id="name"
           {...register('name', { required: 'Please enter your name.' })}
-          aria-invalid={!!errors.name}
-          type="text"
-          className={`h-10 ${errors.name ? inputErr : inputOk}`}
+          aria-invalid={!!errors.name || undefined}
+          className="h-10"
         />
         {errors.name && <ErrorMessage>{errors.name.message}</ErrorMessage>}
       </div>
       <div className="space-y-1.5">
-        <label
-          htmlFor="email"
-          className="text-sm font-medium text-foreground block"
-        >
-          Email
-        </label>
-        <input
+        <Label htmlFor="email">Email</Label>
+        <Input
           id="email"
           type="email"
-          aria-invalid={!!errors.email}
           {...register('email', {
             required: 'Please enter your email.',
             pattern: {
@@ -126,36 +113,32 @@ export function ContactForm() {
               message: 'This email appears invalid.',
             },
           })}
-          className={`h-10 ${errors.email ? inputErr : inputOk}`}
+          aria-invalid={!!errors.email || undefined}
+          className="h-10"
         />
         {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
       </div>
       <div className="space-y-1.5">
-        <label
-          htmlFor="message"
-          className="text-sm font-medium text-foreground block"
-        >
-          Message
-        </label>
-        <textarea
+        <Label htmlFor="message">Message</Label>
+        <Textarea
           id="message"
           {...register('message', { required: 'Please enter your message.' })}
-          aria-invalid={!!errors.message}
+          aria-invalid={!!errors.message || undefined}
           rows={5}
-          className={`py-2 resize-none ${errors.message ? inputErr : inputOk}`}
+          className="resize-none"
         />
         {errors.message && (
           <ErrorMessage>{errors.message.message}</ErrorMessage>
         )}
       </div>
-      <button
+      <Button
         type="submit"
         disabled={isLoading}
-        formNoValidate
-        className="w-full rounded-full font-display text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 py-2.5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full rounded-full font-display font-semibold"
+        size="lg"
       >
         {isLoading ? 'Sending...' : 'Send Message'}
-      </button>
+      </Button>
     </form>
   );
 }

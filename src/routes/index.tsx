@@ -1,7 +1,7 @@
+import PostsList from '@/components/PostsList';
+import { fetchPosts } from '@/lib/posts.api';
 import { createFileRoute, Link } from '@tanstack/react-router';
 import { ArrowRight } from 'lucide-react';
-import { fetchPosts } from '@/lib/posts.api';
-import PostsList from '@/components/PostsList';
 
 export const Route = createFileRoute('/')({
   loader: async () => {
@@ -29,11 +29,19 @@ function HomePage() {
               </span>
             </h1>
 
-            <p className="mt-5 text-base text-muted-foreground leading-relaxed max-w-md">
-              Full-stack software engineer with a focus on
-              JavaScript/TypeScript. Welcome to my corner of the internet,
-              where I write about software development and DevOps.
-            </p>
+            <div className="max-w-md flex flex-col gap-4 text-muted-foreground">
+              <p>
+                I'm a full-stack software engineer experienced in a variety of
+                technologies, with a current focus mainly on
+                JavaScript/TypeScript and related frameworks and tools.
+              </p>
+
+              <p>
+                Welcome to my corner of the internet, where I write about
+                technology, primarily focusing on software development and
+                DevOps.
+              </p>
+            </div>
 
             <div className="mt-7 flex gap-3">
               <Link
@@ -51,7 +59,10 @@ function HomePage() {
             </div>
           </div>
 
-          <div className="shrink-0 animate-scale-in" style={{ animationDelay: '0.15s' }}>
+          <div
+            className="shrink-0 animate-scale-in"
+            style={{ animationDelay: '0.15s' }}
+          >
             <div className="relative rotate-3">
               <div
                 className="absolute -inset-1 rounded-2xl opacity-20"

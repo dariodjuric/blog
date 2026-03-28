@@ -1,15 +1,14 @@
+import Header from '@/components/Header';
+import Socials from '@/components/Socials';
+import appCss from '@/styles/app.css?url';
 import {
   createRootRoute,
   HeadContent,
-  Link,
   Outlet,
   Scripts,
 } from '@tanstack/react-router';
-import { useEffect } from 'react';
 import posthog from 'posthog-js';
-import Navigation from '@/components/Navigation';
-import Socials from '@/components/Socials';
-import appCss from '@/styles/app.css?url';
+import { useEffect } from 'react';
 
 const title = `Dario's Blog`;
 const description =
@@ -62,25 +61,7 @@ function RootLayout() {
         <HeadContent />
       </head>
       <body className="bg-background text-foreground min-h-screen flex flex-col">
-        <header className="sticky top-0 z-50 border-b border-border bg-card/80 backdrop-blur-md">
-          <div className="flex h-14 items-center justify-between max-w-[720px] mx-auto px-5">
-            <Link
-              to="/"
-              className="no-underline font-display text-xl font-bold text-foreground hover:text-primary transition-colors"
-            >
-              dario
-              <span className="align-baseline text-[0.7em] text-[hsl(var(--muted-foreground)/0.12)]">
-                &apos;
-              </span>
-              s
-              <span className="align-baseline text-[0.7em] text-[hsl(var(--muted-foreground)/0.12)]">
-                .
-              </span>
-              blog
-            </Link>
-            <Navigation />
-          </div>
-        </header>
+        <Header />
         <main className="flex-1">
           <Outlet />
         </main>

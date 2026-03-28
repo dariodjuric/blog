@@ -26,7 +26,7 @@ export default function Navigation() {
               className={`relative no-underline px-3 py-1.5 font-display text-sm font-medium transition-colors rounded-md ${
                 isActive
                   ? 'text-primary'
-                  : 'text-muted-foreground hover:text-foreground'
+                  : 'text-muted-foreground hover:text-primary'
               }`}
             >
               {item.label}
@@ -43,7 +43,7 @@ export default function Navigation() {
         <Dialog.Trigger asChild>
           <button
             onClick={() => setMobileMenuShown(true)}
-            className="block md:hidden text-muted-foreground hover:text-foreground transition-colors"
+            className="block md:hidden text-muted-foreground hover:text-primary transition-colors"
             aria-label="Open menu"
           >
             <Menu className="h-5 w-5" />
@@ -55,7 +55,7 @@ export default function Navigation() {
             <div className="h-14 px-5 flex items-center justify-end">
               <button
                 onClick={() => setMobileMenuShown(false)}
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="Close menu"
               >
                 <X className="h-5 w-5" />
@@ -70,7 +70,7 @@ export default function Navigation() {
                       className={`block no-underline px-3 py-2.5 rounded-md font-display text-base font-medium transition-colors ${
                         isActive
                           ? 'text-primary bg-primary/10'
-                          : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                          : 'text-muted-foreground hover:text-primary hover:bg-muted'
                       }`}
                       to={item.href}
                       onClick={() => setMobileMenuShown(false)}

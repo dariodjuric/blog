@@ -69,7 +69,7 @@ function PostPage() {
           {post.frontMatter.title}
         </h1>
 
-        <time className="block mt-2 text-xs uppercase tracking-widest">
+        <time className="block mt-2 text-xs">
           {format(new Date(post.dateCreated), 'LLLL d, yyyy')}
         </time>
 

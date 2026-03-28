@@ -1,5 +1,5 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { getThemeStyle, SyntaxTheme, defaultDarkTheme } from './themes';
+import { defaultDarkTheme, getThemeStyle, SyntaxTheme } from './themes';
 
 interface CodeBlockProps {
   children: string;
@@ -21,7 +21,7 @@ export function CodeBlock({
 
   if (inline || !language) {
     return (
-      <code className="font-mono text-xs bg-muted text-secondary px-1.5 py-0.5 rounded-md border border-border">
+      <code className="font-mono text-[0.875em] bg-muted/80 text-foreground/90 px-1.5 py-0.5 rounded-md">
         {children}
       </code>
     );

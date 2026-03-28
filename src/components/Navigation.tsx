@@ -1,77 +1,89 @@
 import { useState } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
-import { Link } from '@tanstack/react-router';
+import { Link, useLocation } from '@tanstack/react-router';
+import { Menu, X } from 'lucide-react';
 
-const menuItems = [
-  { label: 'Blog posts', href: '/posts' },
-  { label: 'About me', href: '/about' },
+const navItems = [
+  { label: 'Blog', href: '/posts' },
+  { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
 
 export default function Navigation() {
   const [mobileMenuShown, setMobileMenuShown] = useState(false);
+  const location = useLocation();
 
   return (
     <>
+      {/* Desktop nav */}
+      <nav className="hidden md:flex items-center gap-1">
+        {navItems.map((item) => {
+          const isActive = location.pathname === item.href;
+          return (
+            <Link
+              key={item.href}
+              to={item.href}
+              className={`relative no-underline px-3 py-1.5 font-display text-sm font-medium transition-colors rounded-md ${
+                isActive
+                  ? 'text-primary'
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              {item.label}
+              {isActive && (
+                <div className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-primary" />
+              )}
+            </Link>
+          );
+        })}
+      </nav>
+
+      {/* Mobile nav */}
       <Dialog.Root open={mobileMenuShown} onOpenChange={setMobileMenuShown}>
         <Dialog.Trigger asChild>
-          <a
-            href=""
-            onClick={(e) => {
-              e.preventDefault();
-              setMobileMenuShown(true);
-            }}
-            className="block md:hidden"
+          <button
+            onClick={() => setMobileMenuShown(true)}
+            className="block md:hidden text-muted-foreground hover:text-foreground transition-colors"
+            aria-label="Open menu"
           >
-            <img src="/icons/hamburger.svg" alt="Open menu" />
-          </a>
+            <Menu className="h-5 w-5" />
+          </button>
         </Dialog.Trigger>
         <Dialog.Portal>
-          <Dialog.Overlay className="fixed top-0 right-0 bottom-0 left-0 bg-black opacity-15" />
-          <Dialog.Content className="outline-none fixed top-0 right-0 w-[250px] h-full bg-primary-background shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] flex flex-col">
-            <div className="w-full h-[70px] px-8 flex flex-row justify-end">
-              <a
-                href=""
-                onClick={(e) => {
-                  e.preventDefault();
-                  setMobileMenuShown(false);
-                }}
-                className="self-center"
+          <Dialog.Overlay className="fixed inset-0 bg-black/50 backdrop-blur-sm" />
+          <Dialog.Content className="outline-none fixed top-0 right-0 w-[250px] h-full bg-card border-l border-border flex flex-col">
+            <div className="h-14 px-5 flex items-center justify-end">
+              <button
+                onClick={() => setMobileMenuShown(false)}
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                aria-label="Close menu"
               >
-                <img src="/icons/close.svg" alt="Close menu" />
-              </a>
+                <X className="h-5 w-5" />
+              </button>
             </div>
-            <ul className="flex flex-col self-center w-10/12">
-              {menuItems.map((item, index) => (
-                <li
-                  key={item.href}
-                  className={`text-center py-3 ${index < menuItems.length - 1 ? 'border-b border-gray-300' : ''}`}
-                >
-                  <Link
-                    className="no-underline font-bold hover:text-brand-content text-xl unstyled-link"
-                    to={item.href}
-                    onClick={() => setMobileMenuShown(false)}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
+            <ul className="flex flex-col px-5 gap-1">
+              {navItems.map((item) => {
+                const isActive = location.pathname === item.href;
+                return (
+                  <li key={item.href}>
+                    <Link
+                      className={`block no-underline px-3 py-2.5 rounded-md font-display text-base font-medium transition-colors ${
+                        isActive
+                          ? 'text-primary bg-primary/10'
+                          : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                      }`}
+                      to={item.href}
+                      onClick={() => setMobileMenuShown(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </Dialog.Content>
         </Dialog.Portal>
       </Dialog.Root>
-      <ul className="hidden md:flex flex-row space-x-7 self-center">
-        {menuItems.map((item) => (
-          <li key={item.href} className="">
-            <Link
-              className="no-underline font-bold hover:text-brand-content text-lg unstyled-link"
-              to={item.href}
-            >
-              {item.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
     </>
   );
 }

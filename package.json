@@ -11,7 +11,6 @@
     "start": "node .output/server/index.mjs"
   },
   "dependencies": {
-    "@fontsource-variable/geist": "^5.2.8",
     "@radix-ui/react-dialog": "^1.0.5",
     "@tanstack/react-router": "^1.120.2",
     "@tanstack/react-start": "^1.120.2",
@@ -19,13 +18,13 @@
     "date-fns": "^3.3.0",
     "feed": "^4.2.2",
     "gray-matter": "^4.0.3",
+    "lucide-react": "^1.7.0",
     "nitro": "^3.0.260311-beta",
     "pino": "^10.3.1",
     "posthog-js": "^1.260.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.50.1",
-    "react-icons": "^5.3.0",
     "react-markdown": "^10.1.0",
     "react-syntax-highlighter": "^15.6.1",
     "remark-gfm": "^4.0.0",

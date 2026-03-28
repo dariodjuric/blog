@@ -19,19 +19,14 @@ export function CodeBlock({
 
   const themeStyle = getThemeStyle(theme);
 
-  // For inline code blocks
   if (inline || !language) {
     return (
-      <code
-        className="bg-primary-background-code/80 border border-primary-border-code/80 rounded-sm p-0.5 text-sm"
-        style={{ whiteSpace: 'pre-wrap' }}
-      >
+      <code className="font-mono text-xs bg-muted text-secondary px-1.5 py-0.5 rounded-md border border-border">
         {children}
       </code>
     );
   }
 
-  // For code blocks with language syntax highlighting
   return (
     <SyntaxHighlighter
       style={themeStyle}
@@ -39,16 +34,17 @@ export function CodeBlock({
       PreTag="div"
       showLineNumbers={false}
       customStyle={{
-        margin: '1rem 0',
+        margin: '1.25rem 0',
         borderRadius: '0.5rem',
-        fontSize: '0.875rem',
-        lineHeight: '1.5',
+        fontSize: '0.75rem',
+        lineHeight: '1.625',
         whiteSpace: 'pre-wrap',
         wordBreak: 'break-word',
+        border: '1px solid hsl(245 15% 18%)',
       }}
       codeTagProps={{
         style: {
-          fontSize: '0.875rem',
+          fontSize: '0.75rem',
           fontFamily:
             'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
           whiteSpace: 'pre-wrap',

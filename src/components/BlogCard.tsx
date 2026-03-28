@@ -26,7 +26,7 @@ export default function BlogCard({
         to={`/posts/${slug}`}
         className="group block no-underline rounded-lg border border-border bg-card p-5 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-glow)] hover:border-primary/40 transition-all duration-300"
       >
-        <time className="text-xs text-muted-foreground">{date}</time>
+        <time className="text-xs">{date}</time>
         <h3 className="mt-2 font-display text-base font-semibold text-foreground group-hover:text-primary transition-colors leading-snug">
           {title}
         </h3>
@@ -40,9 +40,7 @@ export default function BlogCard({
             </span>
           ))}
         </div>
-        <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-          {excerpt}
-        </p>
+        <p className="mt-3">{excerpt}</p>
       </Link>
     </div>
   );

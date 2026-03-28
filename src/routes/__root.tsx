@@ -60,14 +60,14 @@ function RootLayout() {
       <head>
         <HeadContent />
       </head>
-      <body className="bg-background text-foreground min-h-screen flex flex-col">
+      <body className="bg-background min-h-screen flex flex-col">
         <Header />
         <main className="flex-1">
           <Outlet />
         </main>
         <footer className="border-t border-border bg-card/50 py-6 mt-auto">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 max-w-[720px] mx-auto px-5">
-            <p className="text-sm text-muted-foreground">
+            <p>
               &copy; {new Date().getFullYear()} Dario Djuric
             </p>
             <Socials />

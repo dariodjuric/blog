@@ -36,7 +36,7 @@ export const Route = createFileRoute('/posts/$slug')({
       <h1 className="font-display text-2xl font-bold text-foreground">
         Post not found
       </h1>
-      <p className="mt-3 text-sm text-muted-foreground">
+      <p className="mt-3">
         The blog post you are looking for does not exist.
       </p>
     </div>
@@ -52,7 +52,7 @@ function PostPage() {
       <article className="animate-fade-in-up">
         <Link
           to="/posts"
-          className="no-underline inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors mb-8"
+          className="no-underline inline-flex items-center gap-1.5 hover:text-primary transition-colors mb-8"
         >
           <ArrowLeft className="h-3.5 w-3.5" />
           Back to posts
@@ -72,7 +72,7 @@ function PostPage() {
           {post.frontMatter.title}
         </h1>
 
-        <time className="block mt-3 text-sm text-muted-foreground">
+        <time className="block mt-3">
           {format(new Date(post.dateCreated), 'LLLL d, yyyy')}
         </time>
 

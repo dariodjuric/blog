@@ -25,7 +25,7 @@ function AboutPage() {
             />
           </div>
 
-          <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">
+          <div className="space-y-4">
             <p>
               I&apos;m Dario Djuric, and I&apos;m a software engineer born and
               living in Zagreb, Croatia. I love to write, and this blog is a

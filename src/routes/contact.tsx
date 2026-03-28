@@ -12,7 +12,7 @@ function ContactPage() {
         <h1 className="font-display text-2xl font-bold text-foreground">
           Contact
         </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
+        <p className="mt-2">
           Don&apos;t be a stranger &mdash; say hello.
         </p>
         <ContactForm />

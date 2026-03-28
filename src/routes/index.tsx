@@ -29,7 +29,7 @@ function HomePage() {
               </span>
             </h1>
 
-            <div className="max-w-md flex flex-col gap-4 text-muted-foreground">
+            <div className="max-w-md flex flex-col gap-4">
               <p>
                 I'm a full-stack software engineer experienced in a variety of
                 technologies, with a current focus mainly on

@@ -66,11 +66,12 @@
   }
 
   body {
-    @apply bg-background text-foreground font-body;
+    @apply bg-background text-muted-foreground font-body text-sm leading-relaxed;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
+    @apply text-foreground;
   }
 }
 

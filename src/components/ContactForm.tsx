@@ -48,7 +48,7 @@ export function ContactForm() {
   if (view === 'thank-you') {
     return (
       <div className="mt-8">
-        <p className="text-sm text-muted-foreground">
+        <p>
           Message sent! Thanks for reaching out.{' '}
           <button
             className="text-primary hover:underline"

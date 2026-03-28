@@ -19,7 +19,7 @@ function PostsPage() {
         <h1 className="font-display text-2xl font-bold text-foreground">
           All Posts
         </h1>
-        <p className="mt-3 text-sm text-muted-foreground max-w-xl">
+        <p className="mt-3 max-w-xl">
           All blog posts published here. I&apos;ve also written for{' '}
           <a
             href="https://www.thisdot.co/blog?authors=dario+djuric"

@@ -70,7 +70,7 @@ export function MarkdownRenderer({
 
           ol: ({ children, className, ...props }) => (
             <ol
-              className={`list-decimal ml-6 space-y-1 my-4 text-sm text-muted-foreground leading-relaxed ${className || ''}`}
+              className={`list-decimal ml-6 space-y-1 my-4 ${className || ''}`}
               {...props}
             >
               {children}
@@ -78,7 +78,7 @@ export function MarkdownRenderer({
           ),
           ul: ({ children, className, ...props }) => (
             <ul
-              className={`list-disc ml-6 space-y-1 my-4 text-sm text-muted-foreground leading-relaxed ${className || ''}`}
+              className={`list-disc ml-6 space-y-1 my-4 ${className || ''}`}
               {...props}
             >
               {children}
@@ -92,7 +92,7 @@ export function MarkdownRenderer({
 
           h1: ({ children, className, ...props }) => (
             <h1
-              className={`text-2xl font-bold mt-10 mb-4 text-foreground ${className || ''}`}
+              className={`text-2xl font-bold mt-10 mb-4 ${className || ''}`}
               {...props}
             >
               {children}
@@ -100,7 +100,7 @@ export function MarkdownRenderer({
           ),
           h2: ({ children, className, ...props }) => (
             <h2
-              className={`text-lg font-bold mt-10 mb-4 text-foreground ${className || ''}`}
+              className={`text-lg font-bold mt-10 mb-4 ${className || ''}`}
               {...props}
             >
               {children}
@@ -108,7 +108,7 @@ export function MarkdownRenderer({
           ),
           h3: ({ children, className, ...props }) => (
             <h3
-              className={`text-base font-bold mt-8 mb-3 text-foreground ${className || ''}`}
+              className={`text-base font-bold mt-8 mb-3 ${className || ''}`}
               {...props}
             >
               {children}
@@ -116,7 +116,7 @@ export function MarkdownRenderer({
           ),
           h4: ({ children, className, ...props }) => (
             <h4
-              className={`text-sm font-bold mt-6 mb-2 text-foreground ${className || ''}`}
+              className={`font-bold mt-6 mb-2 ${className || ''}`}
               {...props}
             >
               {children}
@@ -125,7 +125,7 @@ export function MarkdownRenderer({
 
           blockquote: ({ children, className, ...props }) => (
             <blockquote
-              className={`border-l-4 border-muted-foreground/30 pl-4 my-4 italic text-muted-foreground ${className || ''}`}
+              className={`border-l-4 border-muted-foreground/30 pl-4 my-4 italic ${className || ''}`}
               {...props}
             >
               {children}
@@ -162,7 +162,7 @@ export function MarkdownRenderer({
           ),
           th: ({ children, className, ...props }) => (
             <th
-              className={`border border-border px-4 py-2 text-left text-sm font-medium text-foreground ${className || ''}`}
+              className={`border border-border px-4 py-2 text-left font-medium text-foreground ${className || ''}`}
               {...props}
             >
               {children}
@@ -170,7 +170,7 @@ export function MarkdownRenderer({
           ),
           td: ({ children, className, ...props }) => (
             <td
-              className={`border border-border px-4 py-2 text-sm text-muted-foreground ${className || ''}`}
+              className={`border border-border px-4 py-2 ${className || ''}`}
               {...props}
             >
               {children}
@@ -178,10 +178,7 @@ export function MarkdownRenderer({
           ),
 
           p: ({ children, className, ...props }) => (
-            <p
-              className={`my-4 text-sm text-muted-foreground leading-relaxed ${className || ''}`}
-              {...props}
-            >
+            <p className={`my-4 ${className || ''}`} {...props}>
               {children}
             </p>
           ),

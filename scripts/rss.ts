@@ -21,6 +21,11 @@ const main = () => {
 
   const feed = new Feed(feedOptions);
 
+  const author = {
+    name: 'Dario Djuric',
+    link: `${siteUrl}/about`,
+  };
+
   allPosts.forEach((post: Post) => {
     feed.addItem({
       title: post.frontMatter.title,
@@ -28,6 +33,7 @@ const main = () => {
       link: `${siteUrl}/posts/${post.slug}`,
       description: post.frontMatter.summary,
       date: post.dateUpdated,
+      author: [author],
     });
   });
 

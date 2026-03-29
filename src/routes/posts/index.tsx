@@ -1,12 +1,27 @@
 import { createFileRoute } from '@tanstack/react-router';
+import { AUTHOR_NAME, SITE_URL } from '@/lib/constants';
 import { fetchPosts } from '@/lib/posts.api';
 import PostsList from '@/components/PostsList';
+
+const postsTitle = `Blog Posts — ${AUTHOR_NAME}`;
 
 export const Route = createFileRoute('/posts/')({
   loader: async () => {
     const posts = await fetchPosts();
     return { posts };
   },
+  head: () => ({
+    meta: [
+      { title: postsTitle },
+      {
+        name: 'description',
+        content: `Articles by ${AUTHOR_NAME} on software development, DevOps, JavaScript, TypeScript, and related technologies.`,
+      },
+      { property: 'og:title', content: postsTitle },
+      { property: 'og:url', content: `${SITE_URL}/posts` },
+    ],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/posts` }],
+  }),
   component: PostsPage,
 });
 

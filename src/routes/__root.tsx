@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Socials from '@/components/Socials';
+import { AUTHOR_NAME, SITE_URL } from '@/lib/constants';
 import appCss from '@/styles/app.css?url';
 import {
   createRootRoute,
@@ -11,8 +12,7 @@ import posthog from 'posthog-js';
 import { useEffect } from 'react';
 
 const title = `Dario's Blog`;
-const description =
-  'Blog by Dario Djuric: writing about development, DevOps, and technology.';
+const description = `Blog by ${AUTHOR_NAME}: writing about development, DevOps, and technology.`;
 
 export const Route = createRootRoute({
   head: () => ({
@@ -21,15 +21,18 @@ export const Route = createRootRoute({
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { title },
       { name: 'description', content: description },
-      { name: 'og:title', content: title },
-      { name: 'og:description', content: description },
-      { name: 'og:url', content: 'https://darios.blog' },
-      { name: 'og:site_name', content: title },
-      { name: 'og:locale', content: 'en_US' },
-      { name: 'og:type', content: 'website' },
-      { name: 'twitter:title', content: 'Dario Djuric' },
+      { property: 'og:title', content: title },
+      { property: 'og:description', content: description },
+      { property: 'og:url', content: SITE_URL },
+      { property: 'og:site_name', content: title },
+      { property: 'og:locale', content: 'en_US' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:image', content: `${SITE_URL}/me.jpg` },
+      { name: 'twitter:title', content: title },
       { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:site', content: '@dario_djuric' },
       { name: 'twitter:creator', content: '@dario_djuric' },
+      { name: 'twitter:image', content: `${SITE_URL}/me.jpg` },
     ],
     links: [
       { rel: 'stylesheet', href: appCss },
@@ -37,7 +40,7 @@ export const Route = createRootRoute({
       {
         rel: 'alternate',
         type: 'application/rss+xml',
-        href: 'https://darios.blog/rss.xml',
+        href: `${SITE_URL}/rss.xml`,
       },
     ],
   }),
@@ -61,6 +64,22 @@ function RootLayout() {
         <HeadContent />
       </head>
       <body className="bg-background min-h-screen flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: title,
+              url: SITE_URL,
+              author: {
+                '@type': 'Person',
+                name: AUTHOR_NAME,
+                url: `${SITE_URL}/about`,
+              },
+            }),
+          }}
+        />
         <Header />
         <main className="flex-1">
           <Outlet />

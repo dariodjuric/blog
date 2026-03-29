@@ -1,12 +1,47 @@
+import { AUTHOR_NAME, SITE_URL, SOCIAL_PROFILES } from '@/lib/constants';
 import { createFileRoute } from '@tanstack/react-router';
 
+const aboutTitle = `About ${AUTHOR_NAME} — Software Engineer`;
+const aboutDescription = `${AUTHOR_NAME} is a software engineer from Zagreb, Croatia with 15+ years of IT experience, specializing in JavaScript and TypeScript.`;
+
 export const Route = createFileRoute('/about')({
+  head: () => ({
+    meta: [
+      { title: aboutTitle },
+      { name: 'description', content: aboutDescription },
+      { property: 'og:title', content: aboutTitle },
+      { property: 'og:description', content: aboutDescription },
+      { property: 'og:url', content: `${SITE_URL}/about` },
+      { name: 'twitter:title', content: aboutTitle },
+    ],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/about` }],
+  }),
   component: AboutPage,
 });
 
 function AboutPage() {
+  const personJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: AUTHOR_NAME,
+    url: SITE_URL,
+    image: `${SITE_URL}/about-me.webp`,
+    jobTitle: 'Software Engineer',
+    knowsAbout: ['JavaScript', 'TypeScript', 'DevOps', 'Software Development'],
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Zagreb',
+      addressCountry: 'Croatia',
+    },
+    sameAs: SOCIAL_PROFILES,
+  };
+
   return (
     <div className="py-16 md:py-20 max-w-[720px] mx-auto px-5 min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       <div className="animate-fade-in-up">
         <h1 className="font-display text-2xl font-bold text-foreground">
           About Me

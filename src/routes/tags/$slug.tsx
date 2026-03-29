@@ -1,3 +1,4 @@
+import { AUTHOR_NAME } from '@/lib/constants';
 import { createFileRoute } from '@tanstack/react-router';
 import { fetchPostsByTag } from '@/lib/posts.api';
 import PostsList from '@/components/PostsList';
@@ -6,6 +7,20 @@ export const Route = createFileRoute('/tags/$slug')({
   loader: async ({ params }) => {
     const posts = await fetchPostsByTag({ data: params.slug });
     return { posts, slug: params.slug };
+  },
+  head: ({ loaderData }) => {
+    const slug = loaderData?.slug ?? '';
+    const tagTitle = `Posts tagged "${slug}" — ${AUTHOR_NAME}`;
+    return {
+      meta: [
+        { title: tagTitle },
+        {
+          name: 'description',
+          content: `Blog posts by ${AUTHOR_NAME} tagged with "${slug}".`,
+        },
+        { property: 'og:title', content: tagTitle },
+      ],
+    };
   },
   component: TagsPage,
 });

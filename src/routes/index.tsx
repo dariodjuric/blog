@@ -1,4 +1,5 @@
 import PostsList from '@/components/PostsList';
+import { AUTHOR_NAME, SITE_URL, SOCIAL_PROFILES } from '@/lib/constants';
 import { fetchPosts } from '@/lib/posts.api';
 import { createFileRoute, Link } from '@tanstack/react-router';
 import { ArrowRight } from 'lucide-react';
@@ -8,14 +9,30 @@ export const Route = createFileRoute('/')({
     const posts = await fetchPosts();
     return { latestPosts: posts.slice(0, 3) };
   },
+  head: () => ({
+    links: [{ rel: 'canonical', href: SITE_URL }],
+  }),
   component: HomePage,
 });
 
 function HomePage() {
   const { latestPosts } = Route.useLoaderData();
 
+  const personJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: AUTHOR_NAME,
+    url: SITE_URL,
+    jobTitle: 'Software Engineer',
+    sameAs: SOCIAL_PROFILES,
+  };
+
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       <section className="py-20 md:py-28 max-w-[720px] mx-auto px-5">
         <div className="flex flex-col md:flex-row gap-10 items-center">
           <div className="flex-1 animate-fade-in-left">
@@ -25,7 +42,7 @@ function HomePage() {
                 className="bg-clip-text text-transparent"
                 style={{ backgroundImage: 'var(--gradient-warm)' }}
               >
-                Dario
+                Dario Djuric
               </span>
             </h1>
 

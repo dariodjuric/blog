@@ -1,5 +1,6 @@
 import { Badge } from '@/components/Badge';
 import { MarkdownRenderer } from '@/components/markdown/MarkdownRenderer';
+import { AUTHOR_NAME, SITE_URL } from '@/lib/constants';
 import { fetchPostBySlug } from '@/lib/posts.api';
 import { slugifyLowercase } from '@/utils/slugify';
 import { createFileRoute, Link, notFound } from '@tanstack/react-router';
@@ -19,15 +20,27 @@ export const Route = createFileRoute('/posts/$slug')({
       return {};
     }
     const { post } = loaderData;
+    const postUrl = `${SITE_URL}/posts/${post.slug}`;
     return {
       meta: [
-        { title: post.frontMatter.title },
+        { title: `${post.frontMatter.title} — ${AUTHOR_NAME}` },
         { name: 'description', content: post.frontMatter.summary },
-        { name: 'og:title', content: post.frontMatter.title },
-        { name: 'og:description', content: post.frontMatter.summary },
+        { property: 'og:title', content: post.frontMatter.title },
+        { property: 'og:description', content: post.frontMatter.summary },
+        { property: 'og:url', content: postUrl },
+        { property: 'og:type', content: 'article' },
+        {
+          property: 'article:published_time',
+          content: new Date(post.dateCreated).toISOString(),
+        },
+        {
+          property: 'article:modified_time',
+          content: new Date(post.dateUpdated).toISOString(),
+        },
         { name: 'twitter:title', content: post.frontMatter.title },
         { name: 'twitter:description', content: post.frontMatter.summary },
       ],
+      links: [{ rel: 'canonical', href: postUrl }],
     };
   },
   notFoundComponent: () => (
@@ -44,8 +57,37 @@ export const Route = createFileRoute('/posts/$slug')({
 function PostPage() {
   const { post } = Route.useLoaderData();
 
+  const postUrl = `${SITE_URL}/posts/${post.slug}`;
+  const blogPostingJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.frontMatter.title,
+    description: post.frontMatter.summary,
+    url: postUrl,
+    datePublished: new Date(post.dateCreated).toISOString(),
+    dateModified: new Date(post.dateUpdated).toISOString(),
+    author: {
+      '@type': 'Person',
+      name: AUTHOR_NAME,
+      url: `${SITE_URL}/about`,
+    },
+    publisher: {
+      '@type': 'Person',
+      name: AUTHOR_NAME,
+      url: SITE_URL,
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': postUrl,
+    },
+  };
+
   return (
     <div className="py-16 md:py-20 max-w-[720px] mx-auto px-5 min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingJsonLd) }}
+      />
       <article className="animate-fade-in-up">
         <Link
           to="/posts"

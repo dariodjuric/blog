@@ -80,13 +80,11 @@ function HomePage() {
             className="shrink-0 animate-scale-in"
             style={{ animationDelay: '0.15s' }}
           >
-            <div className="relative rotate-4">
-              <img
-                src="/me.jpg"
-                alt="Dario Djuric"
-                className="relative rounded-2xl w-44 h-44 md:w-52 md:h-52 object-cover shadow-lg shadow-black/10 ring-1 ring-white/10"
-              />
-            </div>
+            <img
+              src="/me.jpg"
+              alt="Dario Djuric"
+              className="relative rounded-2xl w-44 h-44 md:w-52 md:h-52 object-cover shadow-lg shadow-black/10 ring-1 ring-white/10"
+            />
           </div>
         </div>
       </section>

@@ -42,7 +42,7 @@ function HomePage() {
                 className="bg-clip-text text-transparent"
                 style={{ backgroundImage: 'var(--gradient-warm)' }}
               >
-                Dario Djuric
+                Dario
               </span>
             </h1>
 

@@ -3,7 +3,13 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import { tanstackStart } from '@tanstack/react-start/plugin/vite';
 import { nitro } from 'nitro/vite';
+import fs from 'node:fs';
 import path from 'node:path';
+
+const postSlugs = fs
+  .readdirSync(path.resolve(__dirname, 'data/posts'))
+  .filter((f) => f.endsWith('.mdx'))
+  .map((f) => f.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.mdx$/, ''));
 
 export default defineConfig({
   resolve: {
@@ -50,6 +56,7 @@ export default defineConfig({
         enabled: true,
         crawlLinks: true,
       },
+      pages: postSlugs.map((slug) => ({ path: `/posts/${slug}` })),
     }),
     react(),
     nitro(),

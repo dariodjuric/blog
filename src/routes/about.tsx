@@ -1,5 +1,6 @@
 import { AUTHOR_NAME, SITE_URL, SOCIAL_PROFILES } from '@/lib/constants';
-import { createFileRoute } from '@tanstack/react-router';
+import { createFileRoute, Link } from '@tanstack/react-router';
+import { Coffee } from 'lucide-react';
 
 const aboutTitle = `About ${AUTHOR_NAME} — Software Engineer`;
 const aboutDescription = `${AUTHOR_NAME} is a software engineer from Zagreb, Croatia with 15+ years of IT experience, specializing in JavaScript and TypeScript.`;
@@ -80,6 +81,34 @@ function AboutPage() {
               barista (a title that justifies me spending a lot on my coffee
               gear).
             </p>
+          </div>
+        </div>
+
+        <div className="mt-12 flex flex-col items-center rounded-xl bg-card border border-border py-9 px-10 gap-5">
+          <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10">
+            <Coffee className="w-[1.375rem] h-[1.375rem] text-primary" />
+          </div>
+          <h2 className="font-display text-[1.375rem] font-bold text-foreground">
+            Want to chat?
+          </h2>
+          <p className="text-center text-[0.9375rem] leading-[1.6] text-muted-foreground max-w-[480px]">
+            I&apos;m always happy to talk about tech, freelancing, or coffee.
+            Whether you have a project idea, a question, or just want to say hi
+            — don&apos;t hesitate to reach out.
+          </p>
+          <div className="flex gap-3">
+            <Link
+              to="/contact"
+              className="rounded-full bg-primary px-5 py-2 font-display text-sm font-semibold text-white hover:bg-primary/90 transition-colors"
+            >
+              Contact Me
+            </Link>
+            <Link
+              to="/posts"
+              className="rounded-full border border-border px-5 py-2 font-display text-sm font-semibold text-white hover:border-primary/50 transition-colors"
+            >
+              Read My Blog
+            </Link>
           </div>
         </div>
       </div>

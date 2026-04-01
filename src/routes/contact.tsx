@@ -22,7 +22,7 @@ export const Route = createFileRoute('/contact')({
 
 function ContactPage() {
   return (
-    <div className="py-16 md:py-20 max-w-md mx-auto px-5 min-h-screen">
+    <div className="py-16 md:py-20 max-w-md mx-auto px-5">
       <div className="animate-fade-in-up">
         <ContactForm />
       </div>

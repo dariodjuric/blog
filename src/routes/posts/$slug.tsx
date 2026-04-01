@@ -44,7 +44,7 @@ export const Route = createFileRoute('/posts/$slug')({
     };
   },
   notFoundComponent: () => (
-    <div className="py-16 md:py-20 max-w-[720px] mx-auto px-5 min-h-screen">
+    <div className="py-16 md:py-20 max-w-[720px] mx-auto px-5">
       <h1 className="font-display text-2xl font-bold text-foreground">
         Post not found
       </h1>
@@ -83,7 +83,7 @@ function PostPage() {
   };
 
   return (
-    <div className="py-16 md:py-20 max-w-[720px] mx-auto px-5 min-h-screen">
+    <div className="py-16 md:py-20 max-w-[720px] mx-auto px-5">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingJsonLd) }}

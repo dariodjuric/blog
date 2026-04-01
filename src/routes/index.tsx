@@ -28,7 +28,7 @@ function HomePage() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}

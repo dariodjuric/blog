@@ -11,7 +11,7 @@ const main = () => {
     description: "Dario's blog posts",
     id: siteUrl,
     link: siteUrl,
-    image: `${siteUrl}/rss-image.png`,
+    image: `${siteUrl}/og.png`,
     favicon: `${siteUrl}/favicon.png`,
     copyright: `All rights reserved ${new Date().getFullYear()}, Dario Djuric`,
     feedLinks: {
@@ -32,6 +32,7 @@ const main = () => {
       id: `${siteUrl}/posts/${post.slug}`,
       link: `${siteUrl}/posts/${post.slug}`,
       description: post.frontMatter.summary,
+      image: `${siteUrl}/og.png?slug=${post.slug}`,
       date: post.dateUpdated,
       author: [author],
     });

@@ -99,13 +99,13 @@ function AboutPage() {
           <div className="flex gap-3">
             <Link
               to="/contact"
-              className="rounded-full bg-primary px-5 py-2 font-display text-sm font-semibold text-white hover:bg-primary/90 transition-colors"
+              className="rounded-full bg-primary px-5 py-2 font-display text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             >
               Contact Me
             </Link>
             <Link
               to="/posts"
-              className="rounded-full border border-border px-5 py-2 font-display text-sm font-semibold text-white hover:border-primary/50 transition-colors"
+              className="rounded-full border border-border px-5 py-2 font-display text-sm font-semibold text-foreground hover:border-primary/50 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             >
               Read My Blog
             </Link>

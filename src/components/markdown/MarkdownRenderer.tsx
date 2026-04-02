@@ -49,7 +49,7 @@ export function MarkdownRenderer({
             return (
               <img
                 src={src}
-                alt={alt || ''}
+                alt={alt || 'Blog post image'}
                 loading="lazy"
                 className="rounded-lg shadow-md my-4"
               />

@@ -68,21 +68,21 @@ export function ThemeExample() {
               className={`px-3 py-1 rounded text-sm border transition-colors ${
                 selectedTheme === theme
                   ? 'bg-blue-500 text-white border-blue-500'
-                  : 'bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200'
+                  : 'bg-muted text-foreground border-border hover:bg-muted/80'
               }`}
             >
               {getThemeName(theme)}
             </button>
           ))}
         </div>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-muted-foreground">
           Current theme: <strong>{getThemeName(selectedTheme)}</strong>
         </p>
       </div>
 
       <div className="border rounded-lg overflow-hidden">
-        <div className="bg-gray-50 px-4 py-2 border-b">
-          <span className="text-sm font-medium text-gray-700">Preview</span>
+        <div className="bg-muted/50 px-4 py-2 border-b">
+          <span className="text-sm font-medium text-foreground">Preview</span>
         </div>
         <div className="p-4">
           <MarkdownRenderer

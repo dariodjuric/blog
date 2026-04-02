@@ -64,6 +64,12 @@ function RootLayout() {
         <HeadContent />
       </head>
       <body className="bg-background min-h-screen flex flex-col">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-white focus:text-sm focus:font-medium"
+        >
+          Skip to main content
+        </a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -81,14 +87,12 @@ function RootLayout() {
           }}
         />
         <Header />
-        <main className="flex-1">
+        <main id="main-content" className="flex-1">
           <Outlet />
         </main>
         <footer className="border-t border-border bg-card/50 py-6 mt-auto">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 max-w-[720px] mx-auto px-5">
-            <p>
-              &copy; {new Date().getFullYear()} Dario Djuric
-            </p>
+            <p>&copy; {new Date().getFullYear()} Dario Djuric</p>
             <Socials />
           </div>
         </footer>

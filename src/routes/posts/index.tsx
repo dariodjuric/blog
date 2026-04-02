@@ -1,7 +1,7 @@
-import { createFileRoute } from '@tanstack/react-router';
+import PostsList from '@/components/PostsList';
 import { AUTHOR_NAME, SITE_URL } from '@/lib/constants';
 import { fetchPosts } from '@/lib/posts.api';
-import PostsList from '@/components/PostsList';
+import { createFileRoute } from '@tanstack/react-router';
 
 const postsTitle = `Blog Posts — ${AUTHOR_NAME}`;
 
@@ -35,7 +35,7 @@ function PostsPage() {
           All Posts
         </h1>
         <p className="mt-3 max-w-xl">
-          All blog posts published here. I&apos;ve also written for{' '}
+          All blog posts published here. I&apos;ve also published on{' '}
           <a
             href="https://www.thisdot.co/blog?authors=dario+djuric"
             target="_blank"
@@ -44,7 +44,7 @@ function PostsPage() {
           >
             This Dot Labs
           </a>{' '}
-          and{' '}
+          ,{' '}
           <a
             href="https://dario-djuric.medium.com/"
             target="_blank"
@@ -52,8 +52,17 @@ function PostsPage() {
             className="text-primary hover:underline"
           >
             Medium
-          </a>{' '}
-          &mdash; you can find those posts there.
+          </a>
+          , and{' '}
+          <a
+            href="https://cloudinary.com/blog/author/dario-djuric/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary hover:underline"
+          >
+            Cloudinary
+          </a>
+          .
         </p>
       </div>
       <div className="mt-8">

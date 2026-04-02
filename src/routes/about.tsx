@@ -62,27 +62,34 @@ function AboutPage() {
 
           <div className="space-y-4">
             <p>
-              I&apos;m Dario Djuric, and I&apos;m a software engineer born and
-              living in Zagreb, Croatia. I love to write, and this blog is a
-              place where love to share all the things I learn.
+              I&apos;m Dario Djuric, a software engineer and freelancer
+              specializing in JavaScript and TypeScript on both the frontend and
+              the backend.
             </p>
             <p>
-              I have over 15 years of experience working in different areas of
-              IT. After finishing college, I started to work as a network
-              engineer, then shortly worked as an SAP consultant, after which I
-              returned to my passion from my high school days, which is software
-              development.
+              I have over 15 years of experience in IT. After finishing college,
+              I started as a network engineer, then briefly worked as an SAP
+              consultant, before returning to my first love, software
+              development. Since then, I&apos;ve worked mostly in enterprise
+              consulting, and I&apos;ve led teams, small and large.
             </p>
             <p>
-              Since then, I&apos;ve worked mostly in the service/consulting
-              space in the enterprise, and I&apos;ve led teams, small and large.
-              Currently, I work as a freelancer, specializing in JavaScript and
-              TypeScript on both the frontend and the backend.
+              Aside from building products, I also love to write, and this blog
+              is a place where I share all the things I learn.
             </p>
             <p>
-              Outside of work, most of my time is spent with my wife and our two
-              boys, and every once in a while I manage to squeeze in a bit of
-              time for my hobbies: sports, guitar playing, or being a home
+              Born and living in{' '}
+              <a
+                href="https://en.wikipedia.org/wiki/Zagreb"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline"
+              >
+                Zagreb, Croatia
+              </a>
+              . Outside of work, I spend most of my time with my wife and our
+              two boys, and every once in a while I manage to squeeze in a bit
+              of time for my hobbies: sports, guitar playing, or being a home
               barista (a title that justifies me spending a lot on my coffee
               gear).
             </p>
@@ -97,9 +104,8 @@ function AboutPage() {
             Want to chat?
           </h2>
           <p className="text-center text-[0.9375rem] leading-[1.6] text-muted-foreground max-w-[480px]">
-            I&apos;m always happy to talk about tech, freelancing, or coffee.
-            Got a project idea, a question, or just want to say hi? Don&apos;t
-            hesitate to reach out.
+            I&apos;m always happy to talk about tech, freelancing, or whatever
+            you're building.
           </p>
           <div className="flex gap-3">
             <Link

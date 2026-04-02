@@ -1,6 +1,3 @@
-import { ReactNode, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -10,6 +7,9 @@ import {
   submitContactForm,
   type ContactFormInput,
 } from '@/lib/contact.api';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { ReactNode, useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 function ErrorMessage({ children }: { children: ReactNode }) {
   return (
@@ -83,7 +83,7 @@ export function ContactForm() {
         <h1 className="font-display text-2xl font-bold text-foreground">
           Contact
         </h1>
-        <p className="mt-2">Don&apos;t be a stranger &mdash; say hello.</p>
+        <p className="mt-2">Don&apos;t be a stranger, say hello.</p>
       </div>
       <div className="space-y-2">
         <Label htmlFor="name">Name</Label>

@@ -37,8 +37,16 @@ export const Route = createFileRoute('/posts/$slug')({
           property: 'article:modified_time',
           content: new Date(post.dateUpdated).toISOString(),
         },
+        {
+          property: 'og:image',
+          content: `${SITE_URL}/og.png?slug=${post.slug}`,
+        },
         { name: 'twitter:title', content: post.frontMatter.title },
         { name: 'twitter:description', content: post.frontMatter.summary },
+        {
+          name: 'twitter:image',
+          content: `${SITE_URL}/og.png?slug=${post.slug}`,
+        },
       ],
       links: [{ rel: 'canonical', href: postUrl }],
     };

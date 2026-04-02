@@ -11,6 +11,7 @@ const main = () => {
     description: "Dario's blog posts",
     id: siteUrl,
     link: siteUrl,
+    language: 'en',
     image: `${siteUrl}/og.png`,
     favicon: `${siteUrl}/favicon.png`,
     copyright: `All rights reserved ${new Date().getFullYear()}, Dario Djuric`,
@@ -23,6 +24,7 @@ const main = () => {
 
   const author = {
     name: 'Dario Djuric',
+    email: 'hello@darios.blog',
     link: `${siteUrl}/about`,
   };
 
@@ -32,7 +34,11 @@ const main = () => {
       id: `${siteUrl}/posts/${post.slug}`,
       link: `${siteUrl}/posts/${post.slug}`,
       description: post.frontMatter.summary,
-      image: `${siteUrl}/og.png?slug=${post.slug}`,
+      image: {
+        url: `${siteUrl}/og.png?slug=${post.slug}`,
+        type: 'image/png',
+        length: 50000,
+      },
       date: post.dateUpdated,
       author: [author],
     });

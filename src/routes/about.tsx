@@ -57,7 +57,7 @@ function AboutPage() {
             width={208}
             height={280}
             priority
-            className="relative rounded-2xl w-52 object-cover"
+            className="relative rounded-2xl object-cover"
           />
 
           <div className="space-y-4">

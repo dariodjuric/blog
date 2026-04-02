@@ -1,4 +1,5 @@
 import { Link } from '@tanstack/react-router';
+import { Image } from '@unpic/react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { CodeBlock } from './CodeBlock';
@@ -47,10 +48,10 @@ export function MarkdownRenderer({
               return null;
             }
             return (
-              <img
+              <Image
                 src={src}
                 alt={alt || 'Blog post image'}
-                loading="lazy"
+                layout="fullWidth"
                 className="rounded-lg shadow-md my-4"
               />
             );

@@ -1,5 +1,6 @@
 import { AUTHOR_NAME, SITE_URL, SOCIAL_PROFILES } from '@/lib/constants';
 import { createFileRoute, Link } from '@tanstack/react-router';
+import { Image } from '@unpic/react';
 import { Coffee } from 'lucide-react';
 
 const aboutTitle = `About ${AUTHOR_NAME} — Software Engineer`;
@@ -49,9 +50,13 @@ function AboutPage() {
         </h1>
 
         <div className="mt-8 flex flex-col md:flex-row gap-8 items-start">
-          <img
+          <Image
             src="/about-me.webp"
             alt="Dario Djuric"
+            layout="constrained"
+            width={208}
+            height={280}
+            priority
             className="relative rounded-2xl w-52 object-cover"
           />
 
@@ -86,7 +91,7 @@ function AboutPage() {
 
         <div className="mt-12 flex flex-col items-center rounded-xl bg-card border border-border py-9 px-10 gap-5">
           <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10">
-            <Coffee className="w-[1.375rem] h-[1.375rem] text-primary" />
+            <Coffee className="w-5.5 text-primary" />
           </div>
           <h2 className="font-display text-[1.375rem] font-bold text-foreground">
             Want to chat?

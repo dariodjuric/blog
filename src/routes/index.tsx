@@ -2,6 +2,7 @@ import PostsList from '@/components/PostsList';
 import { AUTHOR_NAME, SITE_URL, SOCIAL_PROFILES } from '@/lib/constants';
 import { fetchPosts } from '@/lib/posts.api';
 import { createFileRoute, Link } from '@tanstack/react-router';
+import { Image } from '@unpic/react';
 import { ArrowRight } from 'lucide-react';
 
 export const Route = createFileRoute('/')({
@@ -80,9 +81,13 @@ function HomePage() {
             className="shrink-0 animate-scale-in"
             style={{ animationDelay: '0.15s' }}
           >
-            <img
+            <Image
               src="/me.jpg"
               alt="Dario Djuric"
+              layout="fixed"
+              width={208}
+              height={208}
+              priority
               className="relative rounded-2xl w-44 h-44 md:w-52 md:h-52 object-cover shadow-lg shadow-black/10 ring-1 ring-white/10"
             />
           </div>

@@ -1,9 +1,12 @@
 import { createFileRoute } from '@tanstack/react-router';
+// Using satori + @resvg/resvg-wasm instead of @vercel/og or @resvg/resvg-js because:
+// - @vercel/og bundles its own WASM that fails to load in Nitro's dev server
+// - @resvg/resvg-js has a native .node binary that Nitro/rolldown can't bundle
+// - The WASM variant works in both dev and production (see scripts/postbuild.sh)
 import satori from 'satori';
 import { Resvg, initWasm } from '@resvg/resvg-wasm';
 import { readFile } from 'node:fs/promises';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { getPosts } from '@/lib/posts';
 import { AUTHOR_NAME } from '@/lib/constants';
 import { format } from 'date-fns';
@@ -23,6 +26,8 @@ async function ensureWasm() {
   if (wasmInitialized) {
     return;
   }
+  // On Vercel, process.cwd() is /var/task — scripts/postbuild.sh copies the
+  // WASM file there since Nitro doesn't include non-JS assets from node_modules.
   const wasmPath = join(
     process.cwd(),
     'node_modules/@resvg/resvg-wasm/index_bg.wasm',
@@ -32,6 +37,8 @@ async function ensureWasm() {
   wasmInitialized = true;
 }
 
+// Satori needs raw font data as an ArrayBuffer — fetch the CSS to extract the
+// actual font file URL, then download the binary.
 async function loadFont() {
   const res = await fetch(
     'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap',

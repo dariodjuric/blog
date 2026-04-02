@@ -28,6 +28,8 @@ export default defineConfig({
   },
   server: {
     port: 4500,
+    // PostHog analytics proxy — avoids ad blockers. In production, vercel.json
+    // rewrites handle this instead (Vite proxy only runs in dev).
     proxy: {
       '/ingest/static': {
         target: 'https://eu-assets.i.posthog.com',

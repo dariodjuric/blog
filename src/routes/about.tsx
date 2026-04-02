@@ -96,7 +96,7 @@ function AboutPage() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center rounded-xl bg-card border border-border py-9 px-10 gap-5">
+        <div className="mt-12 flex flex-col items-center rounded-xl bg-card border border-border py-9 px-6 sm:px-10 gap-5">
           <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10">
             <Coffee className="w-5.5 text-primary" />
           </div>
@@ -110,13 +110,13 @@ function AboutPage() {
           <div className="flex gap-3">
             <Link
               to="/contact"
-              className="rounded-full bg-primary px-5 py-2 font-display text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              className="whitespace-nowrap rounded-full bg-primary px-5 py-2 font-display text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             >
               Contact Me
             </Link>
             <Link
               to="/posts"
-              className="rounded-full border border-border px-5 py-2 font-display text-sm font-semibold text-foreground hover:border-primary/50 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              className="whitespace-nowrap rounded-full border border-border px-5 py-2 font-display text-sm font-semibold text-foreground hover:border-primary/50 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             >
               Read My Blog
             </Link>

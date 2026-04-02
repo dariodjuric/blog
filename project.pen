@@ -1,5 +1,5 @@
 {
-  "version": "2.9",
+  "version": "2.10",
   "children": [
     {
       "type": "frame",
@@ -247,7 +247,8 @@
                       "content": "I'm a full-stack software engineer with a focus on JavaScript/TypeScript. Welcome to my corner of the internet, where I write about technology and software development.",
                       "lineHeight": 1.625,
                       "fontFamily": "DM Sans",
-                      "fontSize": 16
+                      "fontSize": 16,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "text",
@@ -262,7 +263,8 @@
                       "content": "Welcome to my corner of the internet, where I write about technology, primarily focusing on software development and DevOps.",
                       "lineHeight": 1.5,
                       "fontFamily": "Inter",
-                      "fontSize": 16
+                      "fontSize": 16,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "text",
@@ -277,7 +279,8 @@
                       "content": "If you're curious, feel free to explore more about my journey and expertise, or read through my blog's archive.",
                       "lineHeight": 1.5,
                       "fontFamily": "Inter",
-                      "fontSize": 16
+                      "fontSize": 16,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "frame",
@@ -292,9 +295,13 @@
                           "ref": "OLSyN",
                           "name": "btn1",
                           "y": 0,
+                          "width": "fit_content",
+                          "height": "fit_content",
                           "descendants": {
                             "nSgQo": {
-                              "content": "About Me"
+                              "content": "About Me",
+                              "x": 20,
+                              "y": 8
                             }
                           }
                         },
@@ -305,9 +312,13 @@
                           "name": "btn2",
                           "x": 122,
                           "y": 0,
+                          "width": "fit_content",
+                          "height": "fit_content",
                           "descendants": {
                             "vZzmc": {
-                              "content": "Read Blog"
+                              "content": "Read Blog",
+                              "x": 20,
+                              "y": 8
                             }
                           }
                         }
@@ -420,20 +431,44 @@
                       "y": 0,
                       "descendants": {
                         "jGlA3": {
-                          "content": "Mar 20, 2026"
+                          "content": "Mar 20, 2026",
+                          "x": 20,
+                          "y": 20
                         },
                         "ERq1I": {
                           "width": "fill_container",
-                          "content": "Getting Started with TanStack Router"
+                          "content": "Getting Started with TanStack Router",
+                          "x": 20,
+                          "y": 48
                         },
                         "KVgdd": {
                           "width": "fill_container",
-                          "y": 102
+                          "y": 102,
+                          "height": "fit_content",
+                          "x": 20
+                        },
+                        "TW3Li": {
+                          "width": "fit_content",
+                          "height": "fit_content"
+                        },
+                        "TW3Li/f2pa3": {
+                          "x": 8,
+                          "y": 2
+                        },
+                        "dJqwH": {
+                          "width": "fit_content",
+                          "height": "fit_content",
+                          "x": 60
+                        },
+                        "dJqwH/f2pa3": {
+                          "x": 8,
+                          "y": 2
                         },
                         "bIu3M": {
                           "width": "fill_container",
                           "content": "A guide to building type-safe routing with TanStack Router and file-based routes.",
-                          "y": 132
+                          "y": 132,
+                          "x": 20
                         }
                       }
                     },
@@ -448,20 +483,44 @@
                       "y": 0,
                       "descendants": {
                         "jGlA3": {
-                          "content": "Mar 10, 2026"
+                          "content": "Mar 10, 2026",
+                          "x": 20,
+                          "y": 20
                         },
                         "ERq1I": {
                           "width": "fill_container",
-                          "content": "Dark Mode with Tailwind CSS v4"
+                          "content": "Dark Mode with Tailwind CSS v4",
+                          "x": 20,
+                          "y": 48
                         },
                         "KVgdd": {
                           "width": "fill_container",
-                          "y": 102
+                          "y": 102,
+                          "height": "fit_content",
+                          "x": 20
+                        },
+                        "TW3Li": {
+                          "width": "fit_content",
+                          "height": "fit_content"
+                        },
+                        "TW3Li/f2pa3": {
+                          "x": 8,
+                          "y": 2
+                        },
+                        "dJqwH": {
+                          "width": "fit_content",
+                          "height": "fit_content",
+                          "x": 60
+                        },
+                        "dJqwH/f2pa3": {
+                          "x": 8,
+                          "y": 2
                         },
                         "bIu3M": {
                           "width": "fill_container",
                           "content": "How to implement a beautiful dark theme using CSS custom properties and Tailwind.",
-                          "y": 132
+                          "y": 132,
+                          "x": 20
                         }
                       }
                     },
@@ -473,20 +532,47 @@
                       "name": "card3",
                       "x": 490.6666666666667,
                       "y": 0,
+                      "height": "fit_content",
                       "descendants": {
                         "jGlA3": {
-                          "content": "Feb 28, 2026"
+                          "content": "Feb 28, 2026",
+                          "x": 20,
+                          "y": 20
                         },
                         "ERq1I": {
                           "width": "fill_container",
-                          "content": "MDX Blog Posts with Frontmatter"
+                          "content": "MDX Blog Posts with Frontmatter",
+                          "x": 20,
+                          "y": 48
                         },
                         "KVgdd": {
-                          "width": "fill_container"
+                          "width": "fill_container",
+                          "height": "fit_content",
+                          "x": 20,
+                          "y": 102
+                        },
+                        "TW3Li": {
+                          "width": "fit_content",
+                          "height": "fit_content"
+                        },
+                        "TW3Li/f2pa3": {
+                          "x": 8,
+                          "y": 2
+                        },
+                        "dJqwH": {
+                          "width": "fit_content",
+                          "height": "fit_content",
+                          "x": 60
+                        },
+                        "dJqwH/f2pa3": {
+                          "x": 8,
+                          "y": 2
                         },
                         "bIu3M": {
                           "width": "fill_container",
-                          "content": "Setting up MDX content with frontmatter parsing for a static blog."
+                          "content": "Setting up MDX content with frontmatter parsing for a static blog.",
+                          "x": 20,
+                          "y": 132
                         }
                       }
                     }
@@ -524,7 +610,8 @@
               "fill": "$fg",
               "content": "© 2026 Dario Djuric",
               "fontFamily": "DM Sans",
-              "fontSize": 14
+              "fontSize": 14,
+              "fontWeight": "normal"
             },
             {
               "type": "frame",
@@ -763,9 +850,12 @@
                   "ref": "3kJ0z",
                   "name": "pTag1",
                   "width": "fit_content",
+                  "height": "fit_content",
                   "descendants": {
                     "f2pa3": {
-                      "content": "TypeScript"
+                      "content": "TypeScript",
+                      "x": 8,
+                      "y": 2
                     }
                   }
                 },
@@ -776,9 +866,12 @@
                   "name": "pTag2",
                   "width": "fit_content",
                   "x": 82,
+                  "height": "fit_content",
                   "descendants": {
                     "f2pa3": {
-                      "content": "React"
+                      "content": "React",
+                      "x": 8,
+                      "y": 2
                     }
                   }
                 },
@@ -789,9 +882,12 @@
                   "name": "pTag3",
                   "width": "fit_content",
                   "x": 136,
+                  "height": "fit_content",
                   "descendants": {
                     "f2pa3": {
-                      "content": "TanStack"
+                      "content": "TanStack",
+                      "x": 8,
+                      "y": 2
                     }
                   }
                 }
@@ -845,7 +941,8 @@
                   "content": "TanStack Start is a modern full-stack React framework that brings together the best of server-side rendering and client-side interactivity. In this post, I'll walk through how I built this very blog using TanStack Start, file-based routing, and server functions.",
                   "lineHeight": 1.625,
                   "fontFamily": "DM Sans",
-                  "fontSize": 16
+                  "fontSize": 16,
+                  "fontWeight": "normal"
                 },
                 {
                   "type": "text",
@@ -867,7 +964,8 @@
                   "content": "After years of working with Next.js, I wanted to explore alternatives that offered a different approach to server-side rendering while maintaining excellent developer experience. TanStack Start stood out for its type-safe routing and elegant data loading patterns.",
                   "lineHeight": 1.625,
                   "fontFamily": "DM Sans",
-                  "fontSize": 16
+                  "fontSize": 16,
+                  "fontWeight": "normal"
                 },
                 {
                   "type": "text",
@@ -889,7 +987,8 @@
                   "content": "Getting started is straightforward. First, create a new TanStack Start project:",
                   "lineHeight": 1.625,
                   "fontFamily": "DM Sans",
-                  "fontSize": 16
+                  "fontSize": 16,
+                  "fontWeight": "normal"
                 },
                 {
                   "type": "frame",
@@ -914,7 +1013,8 @@
                       "fill": "#A6E22E",
                       "content": "npx create-tanstack-app my-blog",
                       "fontFamily": "JetBrains Mono",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "text",
@@ -923,7 +1023,8 @@
                       "fill": "#A6E22E",
                       "content": "cd my-blog",
                       "fontFamily": "JetBrains Mono",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "text",
@@ -932,7 +1033,8 @@
                       "fill": "#A6E22E",
                       "content": "npm install",
                       "fontFamily": "JetBrains Mono",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -946,7 +1048,8 @@
                   "content": "The file-based routing system automatically generates routes from your file structure inside the src/routes/ directory. Each file becomes a route, and dynamic segments use the $param syntax.",
                   "lineHeight": 1.625,
                   "fontFamily": "DM Sans",
-                  "fontSize": 16
+                  "fontSize": 16,
+                  "fontWeight": "normal"
                 },
                 {
                   "type": "text",
@@ -958,7 +1061,8 @@
                   "content": "Server functions are defined using createServerFn from TanStack Start, providing type-safe RPC between client and server. This is perfect for loading blog post data from the filesystem.",
                   "lineHeight": 1.625,
                   "fontFamily": "DM Sans",
-                  "fontSize": 16
+                  "fontSize": 16,
+                  "fontWeight": "normal"
                 }
               ]
             }
@@ -992,7 +1096,8 @@
               "fill": "$fg",
               "content": "© 2026 Dario Djuric",
               "fontFamily": "DM Sans",
-              "fontSize": 14
+              "fontSize": 14,
+              "fontWeight": "normal"
             },
             {
               "type": "frame",
@@ -1208,7 +1313,8 @@
               "content": "Have a question or want to work together? Fill out the form below and I'll get back to you as soon as possible.",
               "lineHeight": 1.5,
               "fontFamily": "DM Sans",
-              "fontSize": 16
+              "fontSize": 16,
+              "fontWeight": "normal"
             },
             {
               "type": "frame",
@@ -1272,7 +1378,8 @@
                           "fill": "#999999",
                           "content": "Your name",
                           "fontFamily": "Inter",
-                          "fontSize": 14
+                          "fontSize": 14,
+                          "fontWeight": "normal"
                         }
                       ]
                     }
@@ -1332,7 +1439,8 @@
                           "fill": "#999999",
                           "content": "your@email.com",
                           "fontFamily": "Inter",
-                          "fontSize": 14
+                          "fontSize": 14,
+                          "fontWeight": "normal"
                         }
                       ]
                     }
@@ -1391,7 +1499,8 @@
                           "width": "fill_container",
                           "content": "Your message...",
                           "fontFamily": "Inter",
-                          "fontSize": 14
+                          "fontSize": 14,
+                          "fontWeight": "normal"
                         }
                       ]
                     }
@@ -1455,7 +1564,8 @@
               "fill": "$fg",
               "content": "© 2026 Dario Djuric",
               "fontFamily": "DM Sans",
-              "fontSize": 14
+              "fontSize": 14,
+              "fontWeight": "normal"
             },
             {
               "type": "frame",
@@ -1734,9 +1844,13 @@
               "type": "ref",
               "ref": "3kJ0z",
               "name": "tag1",
+              "width": "fit_content",
+              "height": "fit_content",
               "descendants": {
                 "f2pa3": {
-                  "content": "Next.js"
+                  "content": "Next.js",
+                  "x": 8,
+                  "y": 2
                 }
               }
             },
@@ -1746,9 +1860,13 @@
               "ref": "3kJ0z",
               "name": "tag2",
               "x": 60,
+              "width": "fit_content",
+              "height": "fit_content",
               "descendants": {
                 "f2pa3": {
-                  "content": "TypeScript"
+                  "content": "TypeScript",
+                  "x": 8,
+                  "y": 2
                 }
               }
             }
@@ -1898,6 +2016,991 @@
           "fill": "#FF9502",
           "width": 12,
           "height": 12
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "2wgyM",
+      "x": 3036,
+      "y": 0,
+      "name": "About Page",
+      "width": 1000,
+      "fill": "$bg",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "8tSLA",
+          "name": "Header",
+          "width": "fill_container",
+          "fill": "$card-80",
+          "stroke": {
+            "align": "inside",
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": "$border"
+          },
+          "padding": [
+            0,
+            "$pad-page"
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "7pXct",
+              "name": "Logo Area",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "5vqxF",
+                  "name": "logoPart1",
+                  "fill": "$fg",
+                  "content": "dario",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 20,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "Dayju",
+                  "name": "apostrophe",
+                  "fill": "#FFFFFF99",
+                  "content": "'",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 14,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "K3Sgg",
+                  "name": "logoPart2",
+                  "fill": "$fg",
+                  "content": "s",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 20,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "Z57bt",
+                  "name": "logoPart3",
+                  "fill": "$fg",
+                  "content": ".blog",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 20,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "OTTCL",
+              "name": "Navigation",
+              "gap": 4,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "CnHX9",
+                  "name": "navBlog",
+                  "fill": "$muted-fg",
+                  "content": "Blog",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "l0BZl",
+                  "name": "navAbout",
+                  "fill": "$primary",
+                  "content": "About",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "q5TsW",
+                  "name": "navContact",
+                  "fill": "$muted-fg",
+                  "content": "Contact",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "tYru3",
+          "name": "Main Content",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": "$gap-md",
+          "padding": [
+            "$pad-section",
+            140,
+            80,
+            140
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "ecwcH",
+              "name": "aboutTitle",
+              "fill": "$fg",
+              "content": "About Me",
+              "fontFamily": "Space Grotesk",
+              "fontSize": 24,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "NpRT3",
+              "name": "spacer",
+              "width": "fill_container",
+              "height": 16
+            },
+            {
+              "type": "frame",
+              "id": "SrK6h",
+              "name": "Content Row",
+              "width": "fill_container",
+              "gap": "$gap-lg",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "9WJ0E",
+                  "name": "Profile Image",
+                  "metadata": {
+                    "type": "unsplash",
+                    "username": "jadonjohnson",
+                    "link": "https://unsplash.com/@jadonjohnson",
+                    "author": "Jadon Johnson"
+                  },
+                  "width": 208,
+                  "height": 260,
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "https://images.unsplash.com/photo-1769636930451-e8df6d839e4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzQ5ODkzMTV8&ixlib=rb-4.1.0&q=80&w=1080",
+                    "mode": "fill"
+                  },
+                  "cornerRadius": "$radius-2xl"
+                },
+                {
+                  "type": "frame",
+                  "id": "ZX81M",
+                  "name": "Bio Text",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$gap-md",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "8ZPzF",
+                      "name": "bio1",
+                      "fill": "$muted-fg",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "I'm Dario Djuric, and I'm a software engineer born and living in Zagreb, Croatia. I love to write, and this blog is a place where I love to share all the things I learn.",
+                      "lineHeight": 1.625,
+                      "fontFamily": "DM Sans",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "WQGNz",
+                      "name": "bio2",
+                      "fill": "$muted-fg",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "I have over 15 years of experience working in different areas of IT. After finishing college, I started to work as a network engineer, then shortly worked as an SAP consultant, after which I returned to my passion from my high school days, which is software development.",
+                      "lineHeight": 1.625,
+                      "fontFamily": "DM Sans",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "T9ptY",
+                      "name": "bio3",
+                      "fill": "$muted-fg",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Since then, I've worked mostly in the service/consulting space in the enterprise, and I've led teams, small and large. Currently, I work as a freelancer, specializing in JavaScript and TypeScript on both the frontend and the backend.",
+                      "lineHeight": 1.625,
+                      "fontFamily": "DM Sans",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "s3xOH",
+                      "name": "bio4",
+                      "fill": "$muted-fg",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Outside of work, most of my time is spent with my wife and our two boys, and every once in a while I manage to squeeze in a bit of time for my hobbies: sports, guitar playing, or being a home barista (a title that justifies me spending a lot on my coffee gear).",
+                      "lineHeight": 1.625,
+                      "fontFamily": "DM Sans",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "jNx4d",
+              "name": "cta",
+              "width": "fill_container",
+              "fill": "$card",
+              "cornerRadius": "$radius",
+              "stroke": {
+                "align": "inside",
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "layout": "vertical",
+              "gap": 20,
+              "padding": [
+                36,
+                40
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "ZP3Uh",
+                  "name": "Icon Circle",
+                  "width": 48,
+                  "height": 48,
+                  "fill": "$primary-10",
+                  "cornerRadius": "$radius-full",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "NvIkS",
+                      "name": "coffeeIcon",
+                      "width": 22,
+                      "height": 22,
+                      "iconFontName": "coffee",
+                      "iconFontFamily": "lucide",
+                      "fill": "$primary"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "QWHZP",
+                  "name": "heading",
+                  "fill": "$fg",
+                  "content": "Want to chat?",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 22,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "sbX0I",
+                  "name": "desc",
+                  "fill": "$muted-fg",
+                  "textGrowth": "fixed-width",
+                  "width": 480,
+                  "content": "I'm always happy to talk about tech, freelancing, or coffee. Whether you have a project idea, a question, or just want to say hi — don't hesitate to reach out.",
+                  "lineHeight": 1.6,
+                  "textAlign": "center",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "bnRjw",
+                  "name": "Button Row",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "id": "uctK5",
+                      "type": "ref",
+                      "ref": "OLSyN",
+                      "name": "primaryBtn",
+                      "y": 0,
+                      "descendants": {
+                        "nSgQo": {
+                          "content": "Contact Me"
+                        }
+                      }
+                    },
+                    {
+                      "id": "DPq04",
+                      "type": "ref",
+                      "ref": "AO9rs",
+                      "name": "outlineBtn",
+                      "x": 131,
+                      "y": 0,
+                      "descendants": {
+                        "vZzmc": {
+                          "content": "Read My Blog"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "XhseM",
+          "name": "Footer",
+          "width": "fill_container",
+          "height": 60,
+          "fill": "$card-50",
+          "stroke": {
+            "align": "inside",
+            "thickness": {
+              "top": 1
+            },
+            "fill": "$border"
+          },
+          "padding": [
+            0,
+            140
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "sYbFy",
+              "name": "footerCopy",
+              "fill": "$fg",
+              "content": "© 2026 Dario Djuric",
+              "fontFamily": "DM Sans",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "AG7z8",
+              "name": "Social Icons",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "D63Ci",
+                  "type": "ref",
+                  "ref": "96WiN",
+                  "name": "s1",
+                  "descendants": {
+                    "HggvZ": {
+                      "iconFontName": "github"
+                    }
+                  }
+                },
+                {
+                  "id": "22XEy",
+                  "type": "ref",
+                  "ref": "96WiN",
+                  "name": "s2",
+                  "x": 28,
+                  "descendants": {
+                    "HggvZ": {
+                      "iconFontName": "linkedin"
+                    }
+                  }
+                },
+                {
+                  "id": "hvPCX",
+                  "type": "ref",
+                  "ref": "96WiN",
+                  "name": "s3",
+                  "x": 56,
+                  "descendants": {
+                    "HggvZ": {
+                      "iconFontName": "cloud"
+                    }
+                  }
+                },
+                {
+                  "id": "poUdN",
+                  "type": "ref",
+                  "ref": "96WiN",
+                  "name": "s4",
+                  "x": 84,
+                  "descendants": {
+                    "HggvZ": {
+                      "iconFontName": "instagram"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "GrHJS",
+      "x": 0,
+      "y": 1653,
+      "name": "OG Image - Homepage",
+      "width": 1200,
+      "height": 630,
+      "fill": "$bg",
+      "stroke": {
+        "align": "inside",
+        "thickness": 1,
+        "fill": "$border"
+      },
+      "layout": "none",
+      "children": [
+        {
+          "type": "rectangle",
+          "id": "gucDK",
+          "x": 0,
+          "y": 80,
+          "name": "gradientLine",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 270,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#FF9502",
+                "position": 0
+              },
+              {
+                "color": "#FF950200",
+                "position": 1
+              }
+            ]
+          },
+          "width": 1200,
+          "height": 3
+        },
+        {
+          "type": "frame",
+          "id": "RUqOo",
+          "x": 80,
+          "y": 80,
+          "name": "leftSide",
+          "width": 620,
+          "height": 470,
+          "layout": "vertical",
+          "gap": 24,
+          "justifyContent": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "V78kj",
+              "name": "logo",
+              "fill": "$fg",
+              "content": "dario's.blog",
+              "fontFamily": "Space Grotesk",
+              "fontSize": 48,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "L4vdE",
+              "name": "tagline",
+              "fill": "$muted-fg",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "A full-stack developer writing about JavaScript, TypeScript & web development",
+              "lineHeight": 1.5,
+              "fontFamily": "DM Sans",
+              "fontSize": 20,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "mmd8A",
+              "name": "url",
+              "fill": "$primary",
+              "content": "darios.blog",
+              "fontFamily": "DM Sans",
+              "fontSize": 16,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "7XiYa",
+          "x": 800,
+          "y": 180,
+          "name": "decorative",
+          "opacity": 0.2,
+          "rotation": -10,
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 180,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#FF9502",
+                "position": 0
+              },
+              {
+                "color": "#EF5A3C",
+                "position": 1
+              }
+            ]
+          },
+          "content": ">_",
+          "fontFamily": "Space Grotesk",
+          "fontSize": 160,
+          "fontWeight": "700"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "uQkKo",
+      "x": 1360,
+      "y": 1653,
+      "name": "OG Image - Blog Post",
+      "width": 1200,
+      "height": 630,
+      "fill": "$bg",
+      "stroke": {
+        "align": "inside",
+        "thickness": 1,
+        "fill": "$border"
+      },
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "rectangle",
+          "id": "fYVO1",
+          "name": "Accent Bar",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 90,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#FF9502",
+                "position": 0
+              },
+              {
+                "color": "#EF5A3C",
+                "position": 0.5
+              },
+              {
+                "color": "#E0306A",
+                "position": 1
+              }
+            ]
+          },
+          "width": "fill_container",
+          "height": 4
+        },
+        {
+          "type": "frame",
+          "id": "zXLEg",
+          "name": "Main Content",
+          "width": "fill_container",
+          "height": "fill_container",
+          "gap": 56,
+          "padding": [
+            60,
+            72
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "PwVXo",
+              "name": "Left Column",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 20,
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "9EFpp",
+                  "name": "Meta Row",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "uLOh5",
+                      "name": "Date Pill",
+                      "fill": "$primary-10",
+                      "cornerRadius": "$radius-full",
+                      "gap": 6,
+                      "padding": [
+                        6,
+                        14
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "egyT7",
+                          "name": "calIcon",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "calendar",
+                          "iconFontFamily": "lucide",
+                          "fill": "$primary"
+                        },
+                        {
+                          "type": "text",
+                          "id": "3mTcE",
+                          "name": "dateText",
+                          "fill": "$primary",
+                          "content": "Mar 20, 2026",
+                          "fontFamily": "DM Sans",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "EOzzJ",
+                      "name": "Read Pill",
+                      "fill": "$muted",
+                      "cornerRadius": "$radius-full",
+                      "gap": 6,
+                      "padding": [
+                        6,
+                        14
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "AgarJ",
+                          "name": "clockIcon",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "timer",
+                          "iconFontFamily": "lucide",
+                          "fill": "$muted-fg"
+                        },
+                        {
+                          "type": "text",
+                          "id": "CDUEP",
+                          "name": "readText",
+                          "fill": "$muted-fg",
+                          "content": "5 min read",
+                          "fontFamily": "DM Sans",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "2y9FV",
+                  "name": "Post Title",
+                  "fill": "$fg",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Getting Started with TanStack Router",
+                  "lineHeight": 1.15,
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 42,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "7par6",
+                  "name": "Post Excerpt",
+                  "fill": "$muted-fg",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "A guide to building type-safe routing with TanStack Router and file-based routes.",
+                  "lineHeight": 1.5,
+                  "fontFamily": "DM Sans",
+                  "fontSize": 18,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "pcMwU",
+                  "name": "Tags Row",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "66aa9",
+                      "name": "Tag 1",
+                      "cornerRadius": "$radius-full",
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "$border"
+                      },
+                      "padding": [
+                        5,
+                        12
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "7LTok",
+                          "name": "tag1Text",
+                          "fill": "$muted-fg",
+                          "content": "Next.js",
+                          "fontFamily": "DM Sans",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "nDRem",
+                      "name": "Tag 2",
+                      "cornerRadius": "$radius-full",
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "$border"
+                      },
+                      "padding": [
+                        5,
+                        12
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "AO6Vs",
+                          "name": "tag2Text",
+                          "fill": "$muted-fg",
+                          "content": "TypeScript",
+                          "fontFamily": "DM Sans",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "qcCHK",
+                  "name": "spacer",
+                  "width": "fill_container",
+                  "height": "fill_container"
+                },
+                {
+                  "type": "frame",
+                  "id": "N8boG",
+                  "name": "Logo Row",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "KJBD5",
+                      "name": "logoIcon",
+                      "fill": "$primary",
+                      "content": ">_",
+                      "fontFamily": "Space Grotesk",
+                      "fontSize": 14,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "git27",
+                      "name": "logoText",
+                      "fill": "$muted-fg",
+                      "content": "dario's.blog",
+                      "fontFamily": "Space Grotesk",
+                      "fontSize": 14,
+                      "fontWeight": "700"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "HfQUS",
+              "name": "Right Column",
+              "width": 280,
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "XojWz",
+                  "name": "Code Block",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "$card",
+                  "cornerRadius": "$radius",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "$border"
+                  },
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": [
+                    24,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "PcKbi",
+                      "name": "Code Header",
+                      "gap": 6,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "jqrVY",
+                          "name": "dot1",
+                          "fill": "#EC4444",
+                          "width": 8,
+                          "height": 8
+                        },
+                        {
+                          "type": "ellipse",
+                          "id": "BY9YI",
+                          "name": "dot2",
+                          "fill": "#FF9502",
+                          "width": 8,
+                          "height": 8
+                        },
+                        {
+                          "type": "ellipse",
+                          "id": "Wd6VP",
+                          "name": "dot3",
+                          "fill": "#4ADE80",
+                          "width": 8,
+                          "height": 8
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "kgHlU",
+                      "name": "codeLine1",
+                      "fill": "$muted-fg",
+                      "content": "import { Router } from",
+                      "fontFamily": "DM Mono",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "RMAX1",
+                      "name": "codeLine2",
+                      "fill": "$primary",
+                      "content": "  '@tanstack/router'",
+                      "fontFamily": "DM Mono",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "RR6cq",
+                      "name": "spacer2",
+                      "width": "fill_container",
+                      "height": 4
+                    },
+                    {
+                      "type": "text",
+                      "id": "24Kqz",
+                      "name": "codeLine4",
+                      "fill": "$muted-fg",
+                      "content": "const router = new Router({",
+                      "fontFamily": "DM Mono",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "cbL9Z",
+                      "name": "codeLine5",
+                      "fill": "$primary",
+                      "content": "  routeTree,",
+                      "fontFamily": "DM Mono",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "kiGDv",
+                      "name": "codeLine6",
+                      "fill": "$fg",
+                      "content": "  defaultPreload: 'intent'",
+                      "fontFamily": "DM Mono",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "SORjE",
+                      "name": "codeLine7",
+                      "fill": "$muted-fg",
+                      "content": "})",
+                      "fontFamily": "DM Mono",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "9BFmY",
+                      "name": "Cursor",
+                      "width": 8,
+                      "height": 18,
+                      "fill": "$primary-40",
+                      "cornerRadius": 2
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     }

@@ -7,10 +7,10 @@ export default function Header() {
       <div className="flex h-14 items-center justify-between max-w-[720px] mx-auto px-5">
         <Link
           to="/"
-          className="no-underline font-display text-xl font-bold text-foreground hover:text-primary transition-colors"
+          className="group no-underline font-display text-xl font-bold text-foreground hover:text-primary transition-colors"
         >
           dario
-          <span className="align-baseline text-[0.7em] text-foreground/60">
+          <span className="align-baseline text-[0.7em] text-foreground/60 group-hover:text-primary/60 transition-colors">
             &apos;
           </span>
           s.blog

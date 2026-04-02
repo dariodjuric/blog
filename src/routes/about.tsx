@@ -93,8 +93,8 @@ function AboutPage() {
           </h2>
           <p className="text-center text-[0.9375rem] leading-[1.6] text-muted-foreground max-w-[480px]">
             I&apos;m always happy to talk about tech, freelancing, or coffee.
-            Whether you have a project idea, a question, or just want to say hi
-            — don&apos;t hesitate to reach out.
+            Got a project idea, a question, or just want to say hi? Don&apos;t
+            hesitate to reach out.
           </p>
           <div className="flex gap-3">
             <Link

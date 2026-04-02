@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run build && cp -r data .vercel/output/functions/__server.func/data && mkdir -p .vercel/output/functions/__server.func/node_modules/@resvg/resvg-wasm && cp node_modules/@resvg/resvg-wasm/index_bg.wasm .vercel/output/functions/__server.func/node_modules/@resvg/resvg-wasm/index_bg.wasm",
+  "buildCommand": "npm run build && sh scripts/postbuild.sh",
   "rewrites": [
     { "source": "/ingest/static/:path*", "destination": "https://eu-assets.i.posthog.com/static/:path*" },
     { "source": "/ingest/:path*", "destination": "https://eu.i.posthog.com/:path*" }

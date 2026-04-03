@@ -49,8 +49,8 @@ export const Route = createRootRoute({
 
 function RootLayout() {
   useEffect(() => {
-    if (typeof window !== 'undefined' && import.meta.env.VITE_POSTHOG_KEY) {
-      posthog.init(import.meta.env.VITE_POSTHOG_KEY, {
+    if (typeof window !== 'undefined') {
+      posthog.init('phc_40vnwfmUMGsQ6FSZ85X86ZHg8FhZ5fFHqPwV20v9w7m', {
         api_host: '/ingest',
         ui_host: 'https://eu.posthog.com',
         capture_exceptions: true,

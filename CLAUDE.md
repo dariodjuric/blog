@@ -14,6 +14,9 @@ The build command runs two processes concurrently:
 1. RSS feed generation (`tsx scripts/rss.ts`)
 2. Vite build (`vite build`)
 
+## TanStack
+Use `@tanstack/cli` to look up TanStack documentation or develop new features using TanStack.
+
 ## Architecture
 
 This is a TanStack Start blog using TanStack Router (file-based routing), deployed at https://darios.blog.

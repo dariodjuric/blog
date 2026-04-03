@@ -39,7 +39,7 @@ function AboutPage() {
   };
 
   return (
-    <div className="py-16 md:py-20 max-w-[720px] mx-auto px-5">
+    <div className="py-16 md:py-20 max-w-180 mx-auto px-5">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}

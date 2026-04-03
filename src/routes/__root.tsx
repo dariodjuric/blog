@@ -91,7 +91,7 @@ function RootLayout() {
           <Outlet />
         </main>
         <footer className="border-t border-border bg-card/50 py-6 mt-auto">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 max-w-[720px] mx-auto px-5">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 max-w-180 mx-auto px-5">
             <p>&copy; {new Date().getFullYear()} Dario Djuric</p>
             <Socials />
           </div>

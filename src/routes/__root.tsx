@@ -106,21 +106,6 @@ function RootLayout() {
           </div>
         </footer>
         <Scripts />
-        <script
-          defer
-          src="https://www.googletagmanager.com/gtag/js?id=G-2W1599NQM6"
-        />
-        <script
-          defer
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-2W1599NQM6');
-            `,
-          }}
-        />
       </body>
     </html>
   );

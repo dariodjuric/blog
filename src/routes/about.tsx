@@ -57,7 +57,7 @@ function AboutPage() {
             width={208}
             height={280}
             priority
-            className="relative rounded-2xl object-cover aspect-[208/280]"
+            className="relative rounded-2xl object-cover aspect-208/280"
           />
 
           <div className="space-y-4">
@@ -103,7 +103,7 @@ function AboutPage() {
           <h2 className="font-display text-[1.375rem] font-bold text-foreground">
             Want to chat?
           </h2>
-          <p className="text-center text-[0.9375rem] leading-[1.6] text-muted-foreground max-w-[480px]">
+          <p className="text-center text-[0.9375rem] leading-[1.6] text-muted-foreground max-w-120">
             I&apos;m always happy to talk about tech, freelancing, or whatever
             you're building.
           </p>

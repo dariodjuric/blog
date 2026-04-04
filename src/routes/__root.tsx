@@ -55,7 +55,6 @@ function RootLayout() {
         capture_exceptions: true,
         disable_session_recording: true,
         disable_surveys: true,
-        disable_dead_clicks_autocapture: true,
       });
     });
   }, []);

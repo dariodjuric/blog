@@ -3,12 +3,12 @@ import { Link } from '@tanstack/react-router';
 export default function NotFound() {
   return (
     <div className="flex flex-col items-center justify-center gap-8 px-5 py-20 md:py-28">
-      <div className="flex items-center gap-2 rounded-lg border border-border bg-[hsl(245_27%_9%)] px-5 py-2.5">
+      <div className="flex items-center gap-1 rounded-lg border border-border bg-[hsl(245_27%_9%)] px-5 py-2.5">
         <span className="font-mono text-base font-bold text-primary">$</span>
         <span className="font-mono text-base text-muted-foreground">
           page --not-found
         </span>
-        <span className="h-5 w-2.5 rounded-sm bg-primary/40 animate-pulse" />
+        <span className="h-5 w-2.5 bg-primary/40 animate-pulse" />
       </div>
 
       <p className="max-w-120 text-center text-base text-muted-foreground leading-relaxed">

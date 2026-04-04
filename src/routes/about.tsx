@@ -67,11 +67,11 @@ function AboutPage() {
               the backend.
             </p>
             <p>
-              I have over 15 years of experience in IT. After finishing college,
-              I started as a network engineer, then briefly worked as an SAP
-              consultant, before returning to my first love, software
-              development. Since then, I&apos;ve worked mostly in enterprise
-              consulting, and I&apos;ve led teams, small and large.
+              I have over 15 years of experience in IT. After college I took a
+              detour into network engineering, but it wasn't long before
+              software development pulled me back in. Since then, I&apos;ve
+              worked on a variety of projects, from enterprise to startups, and
+              I&apos;ve led teams, small and large.
             </p>
             <p>
               Aside from building products, I also love to write, and this blog

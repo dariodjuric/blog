@@ -1,23 +1,41 @@
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { defaultDarkTheme, getThemeStyle, SyntaxTheme } from './themes';
+import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism-light';
+import oneDark from 'react-syntax-highlighter/dist/esm/styles/prism/one-dark';
+import tsx from 'react-syntax-highlighter/dist/esm/languages/prism/tsx';
+import typescript from 'react-syntax-highlighter/dist/esm/languages/prism/typescript';
+import javascript from 'react-syntax-highlighter/dist/esm/languages/prism/javascript';
+import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
+import bash from 'react-syntax-highlighter/dist/esm/languages/prism/bash';
+import html from 'react-syntax-highlighter/dist/esm/languages/prism/markup';
+import yaml from 'react-syntax-highlighter/dist/esm/languages/prism/yaml';
+import docker from 'react-syntax-highlighter/dist/esm/languages/prism/docker';
+import python from 'react-syntax-highlighter/dist/esm/languages/prism/python';
+
+SyntaxHighlighter.registerLanguage('tsx', tsx);
+SyntaxHighlighter.registerLanguage('typescript', typescript);
+SyntaxHighlighter.registerLanguage('javascript', javascript);
+SyntaxHighlighter.registerLanguage('js', javascript);
+SyntaxHighlighter.registerLanguage('jsx', jsx);
+SyntaxHighlighter.registerLanguage('bash', bash);
+SyntaxHighlighter.registerLanguage('shell', bash);
+SyntaxHighlighter.registerLanguage('sh', bash);
+SyntaxHighlighter.registerLanguage('html', html);
+SyntaxHighlighter.registerLanguage('yaml', yaml);
+SyntaxHighlighter.registerLanguage('dockerfile', docker);
+SyntaxHighlighter.registerLanguage('python', python);
 
 interface CodeBlockProps {
   children: string;
   className?: string;
   inline?: boolean;
-  theme?: SyntaxTheme;
 }
 
 export function CodeBlock({
   children,
   className,
   inline = false,
-  theme = defaultDarkTheme,
 }: CodeBlockProps) {
   const match = /language-(\w+)/.exec(className || '');
   const language = match ? match[1] : '';
-
-  const themeStyle = getThemeStyle(theme);
 
   if (inline || !language) {
     return (
@@ -29,7 +47,7 @@ export function CodeBlock({
 
   return (
     <SyntaxHighlighter
-      style={themeStyle}
+      style={oneDark}
       language={language}
       PreTag="div"
       showLineNumbers={false}

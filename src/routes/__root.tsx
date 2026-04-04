@@ -8,7 +8,6 @@ import {
   Outlet,
   Scripts,
 } from '@tanstack/react-router';
-import posthog from 'posthog-js';
 import { useEffect } from 'react';
 
 const title = `Dario's Blog`;
@@ -35,6 +34,16 @@ export const Route = createRootRoute({
       { name: 'twitter:image', content: `${SITE_URL}/og.png` },
     ],
     links: [
+      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+      {
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com',
+        crossOrigin: 'anonymous',
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap',
+      },
       { rel: 'stylesheet', href: appCss },
       { rel: 'shortcut icon', href: '/favicon.ico' },
       {
@@ -49,13 +58,13 @@ export const Route = createRootRoute({
 
 function RootLayout() {
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    import('posthog-js').then(({ default: posthog }) => {
       posthog.init('phc_40vnwfmUMGsQ6FSZ85X86ZHg8FhZ5fFHqPwV20v9w7m', {
         api_host: '/ingest',
         ui_host: 'https://eu.posthog.com',
         capture_exceptions: true,
       });
-    }
+    });
   }, []);
 
   return (

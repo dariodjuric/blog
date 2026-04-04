@@ -34,16 +34,6 @@ export const Route = createRootRoute({
       { name: 'twitter:image', content: `${SITE_URL}/og.png` },
     ],
     links: [
-      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-      {
-        rel: 'preconnect',
-        href: 'https://fonts.gstatic.com',
-        crossOrigin: 'anonymous',
-      },
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap',
-      },
       { rel: 'stylesheet', href: appCss },
       { rel: 'shortcut icon', href: '/favicon.ico' },
       {
@@ -63,6 +53,9 @@ function RootLayout() {
         api_host: '/ingest',
         ui_host: 'https://eu.posthog.com',
         capture_exceptions: true,
+        disable_session_recording: true,
+        disable_surveys: true,
+        disable_dead_clicks_autocapture: true,
       });
     });
   }, []);

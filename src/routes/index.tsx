@@ -82,7 +82,7 @@ function HomePage() {
             style={{ animationDelay: '0.15s' }}
           >
             <Image
-              src="/me.jpg"
+              src="/me.webp"
               alt="Dario Djuric"
               layout="fixed"
               width={208}

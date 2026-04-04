@@ -101,7 +101,7 @@ export function MarkdownRenderer({
           ),
           h2: ({ children, className, ...props }) => (
             <h2
-              className={`text-lg font-bold mt-6 mb-1 ${className || ''}`}
+              className={`text-xl font-bold mt-6 mb-1 ${className || ''}`}
               {...props}
             >
               {children}
@@ -109,7 +109,7 @@ export function MarkdownRenderer({
           ),
           h3: ({ children, className, ...props }) => (
             <h3
-              className={`text-base font-bold mt-4 mb-1 ${className || ''}`}
+              className={`text-lg font-bold mt-4 mb-1 ${className || ''}`}
               {...props}
             >
               {children}

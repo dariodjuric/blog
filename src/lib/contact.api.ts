@@ -5,7 +5,13 @@ import { logger, sanitizeEmail } from '@/lib/logger';
 export const contactFormSchema = z.object({
   name: z.string().min(1, 'Please enter your name.'),
   email: z.string().email('This email appears invalid.'),
-  message: z.string().min(1, 'Please enter your message.'),
+  message: z
+    .string()
+    .min(1, 'Please enter your message.')
+    .refine(
+      (value) => value.trim().split(/\s+/).length >= 2,
+      "That's a very short message — did you mean to write something more?",
+    ),
 });
 
 export type ContactFormInput = z.infer<typeof contactFormSchema>;

@@ -2340,9 +2340,13 @@
                       "ref": "OLSyN",
                       "name": "primaryBtn",
                       "y": 0,
+                      "width": "fit_content",
+                      "height": "fit_content",
                       "descendants": {
                         "nSgQo": {
-                          "content": "Contact Me"
+                          "content": "Contact Me",
+                          "x": 20,
+                          "y": 8
                         }
                       }
                     },
@@ -2353,9 +2357,13 @@
                       "name": "outlineBtn",
                       "x": 131,
                       "y": 0,
+                      "width": "fit_content",
+                      "height": "fit_content",
                       "descendants": {
                         "vZzmc": {
-                          "content": "Read My Blog"
+                          "content": "Read My Blog",
+                          "x": 20,
+                          "y": 8
                         }
                       }
                     }
@@ -2997,6 +3005,331 @@
                       "cornerRadius": 2
                     }
                   ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "y5Btn",
+      "x": 4136,
+      "y": -280,
+      "name": "404 Page",
+      "width": 1000,
+      "fill": "$bg",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "r3wM2",
+          "name": "header",
+          "width": "fill_container",
+          "height": 70,
+          "fill": "$card-80",
+          "stroke": {
+            "align": "inside",
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": "$border"
+          },
+          "padding": [
+            0,
+            "$pad-page"
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "Rtrlo",
+              "name": "Logo Area",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "bOfH6",
+                  "name": "caret",
+                  "fill": "$fg",
+                  "content": "dario",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 20,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "v3csf",
+                  "name": "logoText1",
+                  "fill": "#FFFFFF99",
+                  "content": "'",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 14,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "QXn2n",
+                  "name": "logoApostrophe",
+                  "fill": "$fg",
+                  "content": "s",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 20,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "IZjD2",
+                  "name": "logoText2",
+                  "fill": "$fg",
+                  "content": ".blog",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 20,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "6qAa9",
+              "name": "Navigation",
+              "gap": 4,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "cM5sL",
+                  "name": "navLink1",
+                  "fill": "$muted-fg",
+                  "content": "Blog",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "zxIta",
+                  "name": "navLink2",
+                  "fill": "$muted-fg",
+                  "content": "About",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "VUUdB",
+                  "name": "navLink3",
+                  "fill": "$muted-fg",
+                  "content": "Contact",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "MX8cw",
+          "name": "Main Content",
+          "width": "fill_container",
+          "height": 560,
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            0,
+            140
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "rJPEA",
+              "name": "Terminal Block",
+              "fill": "$card",
+              "cornerRadius": 8,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 8,
+              "padding": [
+                10,
+                20
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "4sP8B",
+                  "name": "prompt",
+                  "fill": "$primary",
+                  "content": "$",
+                  "fontFamily": "DM Mono",
+                  "fontSize": 16,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "EnMms",
+                  "name": "cmdText",
+                  "fill": "$muted-fg",
+                  "content": "page --not-found",
+                  "fontFamily": "DM Mono",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "3TUw8",
+                  "name": "cursor",
+                  "width": 9,
+                  "height": 20,
+                  "fill": "$primary-40",
+                  "cornerRadius": 2
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "wY3VG",
+              "name": "Description",
+              "fill": "$muted-fg",
+              "textGrowth": "fixed-width",
+              "width": 480,
+              "content": "The page you're looking for doesn't exist or has been moved.\nMaybe you mistyped the URL, or maybe I moved things around.",
+              "lineHeight": 1.6,
+              "textAlign": "center",
+              "fontFamily": "DM Sans",
+              "fontSize": 16,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "xCNtf",
+              "name": "Button Row",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "sY0AE",
+                  "type": "ref",
+                  "ref": "OLSyN",
+                  "name": "homeBtn",
+                  "y": 0,
+                  "descendants": {
+                    "nSgQo": {
+                      "content": "Go Home"
+                    }
+                  }
+                },
+                {
+                  "id": "ZD5Fn",
+                  "type": "ref",
+                  "ref": "AO9rs",
+                  "name": "blogBtn",
+                  "x": 112,
+                  "y": 0,
+                  "descendants": {
+                    "vZzmc": {
+                      "content": "Read Blog"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "oIGsn",
+          "name": "footer",
+          "width": "fill_container",
+          "height": 60,
+          "fill": "$card-50",
+          "stroke": {
+            "align": "inside",
+            "thickness": {
+              "top": 1
+            },
+            "fill": "$border"
+          },
+          "padding": [
+            0,
+            140
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "6OkKb",
+              "name": "footerCopy",
+              "fill": "$fg",
+              "content": "© 2026 Dario Djuric",
+              "fontFamily": "DM Sans",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "iLjzR",
+              "name": "Social Icons",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "vlsnu",
+                  "type": "ref",
+                  "ref": "96WiN",
+                  "name": "s1",
+                  "descendants": {
+                    "HggvZ": {
+                      "iconFontName": "github"
+                    }
+                  }
+                },
+                {
+                  "id": "bZeal",
+                  "type": "ref",
+                  "ref": "96WiN",
+                  "name": "s2",
+                  "x": 28,
+                  "descendants": {
+                    "HggvZ": {
+                      "iconFontName": "linkedin"
+                    }
+                  }
+                },
+                {
+                  "id": "5rMzK",
+                  "type": "ref",
+                  "ref": "96WiN",
+                  "name": "s3",
+                  "x": 56,
+                  "descendants": {
+                    "HggvZ": {
+                      "iconFontName": "cloud"
+                    }
+                  }
+                },
+                {
+                  "id": "I7qxL",
+                  "type": "ref",
+                  "ref": "96WiN",
+                  "name": "s4",
+                  "x": 84,
+                  "descendants": {
+                    "HggvZ": {
+                      "iconFontName": "instagram"
+                    }
+                  }
                 }
               ]
             }

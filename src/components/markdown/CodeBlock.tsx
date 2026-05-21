@@ -39,7 +39,7 @@ export function CodeBlock({
 
   if (inline || !language) {
     return (
-      <code className="font-mono text-[0.875em] bg-muted/80 text-foreground/90 px-1.5 py-0.5 rounded-md">
+      <code className="font-mono text-[0.875em] bg-foreground/15 text-foreground/90 px-1.5 py-0.5 rounded-sm">
         {children}
       </code>
     );

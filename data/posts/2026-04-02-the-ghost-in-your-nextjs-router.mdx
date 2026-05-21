@@ -4,20 +4,20 @@ tags: ['Next.js', 'React']
 summary: During an incremental App Router migration, a probabilistic data structure buried in your client bundle can randomly turn working links into 404s.
 ---
 
-If you're incrementally migrating a Next.js app from the Pages Router to the App Router and some of your links have started mysteriously 404-ing (or worse, triggering full page reloads to URLs with a _doubled_ `basePath`), you're not alone. This is a known class of bug happening on a range of Next.js versions related to a feature most developers don't even know exists: the client router filter. Personally, I ran into this issue in one of the project where we wanted to migrate a Pages Router app to App Router.
+If you're incrementally migrating a Next.js app from the Pages Router to the App Router and some of your links have started mysteriously 404-ing (or worse, triggering full page reloads to URLs with a _doubled_ `basePath`), you're not alone. This is a known class of bug happening on a range of Next.js versions related to a feature called the _client router filter_. I ran into it myself on a project where we were migrating a Pages Router app to the App Router.
 
-### Two routers, one app
+### Running two routers in parallel
 
-When Next.js introduced the App Router (`app/` directory), it didn't replace the Pages Router (`pages/` directory) overnight. Instead, it let both coexist in the same application so teams could migrate incrementally. However, this introduces a routing question: when a user clicks a link, which router should handle it?
+When Next.js introduced the App Router (`app/` directory), it didn't replace the Pages Router (`pages/` directory) overnight. Instead, it let both coexist in the same application so teams could migrate incrementally. But that raises a routing question: when a user clicks a link, which router should handle it?
 
-The Pages Router does smooth, SPA-style client-side transitions. The App Router uses React Server Components and needs the server to render the page. If the Pages Router tries to handle a route that actually belongs to the App Router, it'll break. The navigation needs to be a hard navigation (a full page reload) so the server can take over. Next.js needs a way, on the client, to figure out whether a given path belongs to `app/` or `pages/`. This is done through the **client router filter**.
+The Pages Router does smooth, SPA-style client-side transitions. The App Router uses React Server Components and needs the server to render the page. If the Pages Router tries to handle a route that actually belongs to the App Router, it'll break. The navigation needs to be a hard navigation (a full page reload) so the server can take over. Next.js needs a way, on the client, to figure out whether a given path belongs to `app/` or `pages/`. This is done through the client router filter.
 
 At build time, Next.js takes every route defined in your `app/` directory and encodes them into a [bloom filter](https://en.wikipedia.org/wiki/Bloom_filter), a compact, probabilistic data structure. This bloom filter gets shipped to the browser as part of your client-side JavaScript bundle. At runtime, whenever the Pages Router is about to perform a client-side navigation, it checks the destination path against this bloom filter:
 
 - If the bloom filter says "definitely not an app route", then proceed with normal client-side navigation. No page reload.
 - If the bloom filter says "might be an app route", then trigger a hard navigation (`window.location.href = ...`) so the server handles it.
 
-The key word here is "might." Bloom filters are probabilistic. They never produce false negatives (if a route is in the `app/` directory, the filter will always catch it), but they can produce false positives! They'll occasionally flag a Pages Router route as potentially belonging to the App Router.
+The key word here is "might." Bloom filters are probabilistic. They never produce false negatives (if a route is in the `app/` directory, the filter will always catch it), but they can produce false positives, occasionally flagging a Pages Router route as potentially belonging to the App Router.
 
 Next.js configures the default false positive rate at 0.01%, so in most apps this never surfaces.
 
@@ -27,7 +27,7 @@ Here's where the pain begins. If your app uses a `basePath` in `next.config.js` 
 
 1. The false positive triggers a hard navigation for a route that doesn't need one.
 
-Your user clicks a `<Link>` to `/activities`, which is a perfectly valid Pages Router page. The bloom filter incorrectly says "that might be an app route." So instead of a smooth client-side transition, Next.js decides to do a full page reload.
+Your user clicks a `<Link>` to `/activities`, which is a perfectly valid Pages Router page. The bloom filter incorrectly says "that might be an app route", so Next.js does a full page reload instead of a smooth client-side transition.
 
 2. The hard navigation code path duplicates the `basePath`.
 
@@ -51,8 +51,8 @@ There are a few things worth checking:
 
 - You're running both `pages/` and `app/` side by side. If you haven't started an incremental migration, the client router filter is not relevant.
 - You have a `basePath` set. The duplication bug only shows up when `basePath` is in play.
-- Only some links misbehave, and the broken ones trigger a full page reload. If every link were busted, you'd be chasing a different bug entirely.
-- The failing URL has the path prefix doubled up. Pop open your browser's Network tab and watch where the navigation actually lands. If you spot your `basePath` repeated twice, that's pretty much a smoking gun.
+- Only some links misbehave, and the broken ones trigger a full page reload.
+- The failing URL has the path prefix doubled up. Pop open your browser's Network tab and watch where the navigation actually lands.
 - Setting `appDir: false` makes the problem disappear. The bloom filter only gets generated when the App Router is turned on, so switching it off removes the filter (and the bug) along with it.
 
 ### The workaround (and the potential fix)
@@ -71,7 +71,7 @@ module.exports = {
 
 This disables the bloom filter entirely. The downside is that the router can no longer automatically detect when to do a hard navigation between Pages and App Router routes. If you have routes in both directories, you may need to handle cross-router transitions yourself (e.g., using `<a>` tags instead of `<Link>` for routes that cross the boundary).
 
-On the other hand, if you want to keep the filter but reduce false positives, you can adjust the allowed rate:
+If you want to keep the filter but reduce false positives, you can adjust the allowed rate:
 
 ```js
 // next.config.js

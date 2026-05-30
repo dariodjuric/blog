@@ -8,7 +8,7 @@ If you're incrementally migrating a Next.js app from the Pages Router to the App
 
 ### Running two routers in parallel
 
-Here's the thing. When Next.js introduced the App Router (`app/` directory), it didn't replace the Pages Router (`pages/` directory) overnight. Instead, it let both coexist in the same application so teams could migrate incrementally. However, when a user clicks a link, which router should handle it?
+When Next.js introduced the App Router (`app/` directory), it didn't replace the Pages Router (`pages/` directory) overnight. Instead, it let both coexist in the same application so teams could migrate incrementally. However, when a user clicks a link, which router should handle it?
 
 The Pages Router does smooth, SPA-style client-side transitions. The App Router uses React Server Components and needs the server to render the page. If the Pages Router tries to handle a route that actually belongs to the App Router, it'll break. The navigation needs to be a hard navigation (a full page reload) so the server can take over. Next.js needs a way, on the client, to figure out whether a given path belongs to `app/` or `pages/`. This is done through the client router filter.
 

@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run build && sh scripts/postbuild.sh",
+  "buildCommand": "pnpm build && sh scripts/postbuild.sh",
   "rewrites": [
     { "source": "/ingest/static/:path*", "destination": "https://eu-assets.i.posthog.com/static/:path*" },
     { "source": "/ingest/:path*", "destination": "https://eu.i.posthog.com/:path*" }

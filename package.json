@@ -2,10 +2,11 @@
   "name": "darios-blog",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.34.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "concurrently \"npm run build:rss\" \"npm run build:app\"",
+    "build": "concurrently \"pnpm run build:rss\" \"pnpm run build:app\"",
     "build:app": "vite build",
     "build:rss": "tsx scripts/rss.ts",
     "start": "node .output/server/index.mjs"
@@ -19,6 +20,7 @@
     "@types/react-syntax-highlighter": "^15.5.13",
     "@unpic/react": "^1.0.2",
     "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "feed": "^5.2.0",
     "gray-matter": "^4.0.3",

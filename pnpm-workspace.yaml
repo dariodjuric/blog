@@ -1,0 +1,7 @@
+# pnpm configuration. Since pnpm 10.16, non-auth/registry settings live here
+# rather than in .npmrc.
+
+# Supply-chain safeguard: refuse to install package versions published less than
+# 3 days (4320 minutes) ago, leaving time for compromised releases to be caught
+# and unpublished before they reach this project.
+minimumReleaseAge: 4320

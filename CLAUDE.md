@@ -4,10 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Commands
 
+This project uses **pnpm** (pinned via the `packageManager` field in `package.json`).
+
 ### Development
-- `npm run dev` - Start development server at http://localhost:3000
-- `npm run build` - Production build (includes RSS feed generation)
-- `npm start` - Start production server
+- `pnpm dev` - Start development server at http://localhost:3000
+- `pnpm build` - Production build (includes RSS feed generation)
+- `pnpm start` - Start production server
 
 ### Build Process
 The build command runs two processes concurrently:

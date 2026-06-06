@@ -1,0 +1,29 @@
+---
+title: 'Owning technical decisions in the age of AI'
+tags: ['AI', 'Engineering']
+summary: Using an LLM to shape a technical proposal is fine, but the accountability for that proposal and the code behind it is still yours.
+---
+
+Lately, I've been noticing a rising trend where a technical decision needs to be made, and the proposal leads with the sentence: "This was suggested by Claude," followed by a list of bullet points. I don't know about you, but framing a proposal this way makes me feel like we've almost completely handed the thinking and responsibility behind the decision over to the model.
+
+Claude, like any other LLM, is a tool. I use it, you probably use it, most engineers I know use it. But it's just one tool in your belt that you can use to research a topic. We all should know by now that models can hallucinate, and then we have a problem if we simply outsource our thinking to the model.
+
+The risk is not limited to hallucinations though. Weak reasoning from an LLM rarely looks weak, doesn't it? It arrives clearly written and confident enough to feel considered. That polish can make it easy to miss unsupported assumptions or missing context the model never surfaced.
+
+### The model is not a co-signer
+
+If you need to make a technical proposal, sure, go ahead and use Claude to help you get there. But the fact that you used it is not the interesting part, and honestly I am not that interested in it. What I want to know is whether the proposal holds up.
+
+There is an important difference between using Claude to develop a proposal and using Claude to justify one. It can help you discover options or even identify questions, but "Claude suggested it" is not evidence. The reasoning, and most importantly the supporting sources still need to stand on their own.
+
+For example, a model might reasonably suggest introducing a queue to make a workflow more resilient. It does not know whether your team can operate another piece of infrastructure, whether the added complexity is justified by the traffic, or whether a simpler retry mechanism would solve the actual problem. Those details are what turn a plausible suggestion into a responsible decision.
+
+Saying "Claude suggested this" can feel like it gives you a backup, some safety net in case the idea turns out to be wrong. It doesn't, and in the end you are accountable for what you wrote there.
+
+A simple test is to remove Claude from the conversation. Can you still explain why this option is preferable, what alternatives you considered, and under which conditions the decision would be wrong? If not, the proposal probably is not ready to be presented. When you put a proposal forward, you need to own it. Standing behind it means you did the research, understood the tradeoffs, and can defend the decision. It also means revisiting it later if its assumptions change or the implementation creates problems.
+
+### The same goes for code
+
+This applies just as much to the code you push to the repo. Use AI to write it, nobody is going to stop you, and I do the same. But once it lands in the repo with your name on the commit, you are accountable for it.
+
+That means reviewing what the model produced before you ship it: reading it, understanding it, questioning it. It is the same discipline you should have applied to that snippet you copied off [Stack Overflow](https://stackoverflow.com/) years ago. Hopefully, you would never have pasted that in blindly and called it done, and AI output deserves the exact same scrutiny.
